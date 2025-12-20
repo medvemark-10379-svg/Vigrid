@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://dald2rt6vsspu"]
+
+[ext_resource type="Texture2D" uid="uid://djo7v2ke48ukq" path="res://src/Background_Image.png" id="1_ax5hs"]
+[ext_resource type="Script" uid="uid://di41wvfqtsbea" path="res://Scripts/MainMenu.gd" id="1_no8ml"]
+[ext_resource type="Script" uid="uid://bej7a80okiwnp" path="res://btn_NewGame_script.gd" id="3_no8ml"]
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_no8ml")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ax5hs")
+
+[node name="New_Game" type="Node2D" parent="."]
+
+[node name="TextureButton" type="TextureButton" parent="New_Game"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_no8ml")
+
+[node name="lbl_NewGame" type="Label" parent="New_Game/TextureButton"]
+layout_mode = 0
+offset_left = 529.0
+offset_top = 673.0
+offset_right = 614.0
+offset_bottom = 696.0
+text = "New Game"

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dald2rt6vsspu"]
+
+[ext_resource type="Texture2D" uid="uid://djo7v2ke48ukq" path="res://Background_Image.png" id="1_ax5hs"]
+[ext_resource type="Texture2D" uid="uid://bwyfs1tbp82cn" path="res://start_btn_raido.png" id="2_7kexr"]
+[ext_resource type="Script" uid="uid://d3qxk4rnnqee4" path="res://NewGameButton.gd" id="3_no8ml"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_no8ml"]
+
+[node name="Screen" type="Node2D"]
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_ax5hs")
+
+[node name="Node2D" type="Node2D" parent="."]
+
+[node name="btn_NewGame" type="Button" parent="Node2D"]
+offset_left = 401.0
+offset_top = 609.0
+offset_right = 719.0
+offset_bottom = 791.0
+theme_override_styles/normal = SubResource("StyleBoxEmpty_no8ml")
+icon = ExtResource("2_7kexr")
+script = ExtResource("3_no8ml")
