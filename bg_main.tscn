@@ -1,0 +1,91 @@
+[gd_scene load_steps=12 format=3 uid="uid://dald2rt6vsspu"]
+
+[ext_resource type="Script" uid="uid://di41wvfqtsbea" path="res://Scripts/MainMenu.gd" id="1_oncjt"]
+[ext_resource type="Script" uid="uid://bej7a80okiwnp" path="res://Scripts/btn_NewGame_script.gd" id="2_fc78x"]
+[ext_resource type="Texture2D" uid="uid://cuuaqx5fj84q7" path="res://src/RuneStones/continue_btn_ehwaz.png" id="3_qsd50"]
+[ext_resource type="Texture2D" uid="uid://cy81eetlfdka2" path="res://src/RuneStones/continue_btn_ehwaz_glow.png" id="4_4uqpk"]
+[ext_resource type="Script" uid="uid://dwo612dop78ur" path="res://Scripts/btn_continue.gd" id="5_jeb2j"]
+[ext_resource type="Texture2D" uid="uid://bepha06r0vlak" path="res://src/RuneStones/exit_btn_hagalaz.png" id="6_cig8a"]
+[ext_resource type="Texture2D" uid="uid://cgxg7edruy362" path="res://src/RuneStones/exit_btn_hagalaz_glow.png" id="7_a8m48"]
+[ext_resource type="Script" uid="uid://cgm8imrsljkw0" path="res://Scripts/btn_exit.gd" id="8_75os8"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7kexr"]
+load_path = "res://.godot/imported/Background_Image.png-3b173cdb92e4fae22d0201b600737eed.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_no8ml"]
+load_path = "res://.godot/imported/start_btn_raido.png-4893e356024bcb839ef70b1ea0c880eb.ctex"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_6sy4q"]
+load_path = "res://.godot/imported/start_btn_raido_glow.png-b4fd77252f67f161b4458804ceeb5a7b.ctex"
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_oncjt")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = SubResource("CompressedTexture2D_7kexr")
+
+[node name="New_Game" type="Node2D" parent="."]
+
+[node name="btn_NewGame" type="TextureButton" parent="New_Game"]
+offset_left = 318.0
+offset_top = 681.0
+offset_right = 628.0
+offset_bottom = 855.0
+texture_normal = SubResource("CompressedTexture2D_no8ml")
+texture_hover = SubResource("CompressedTexture2D_6sy4q")
+script = ExtResource("2_fc78x")
+
+[node name="lbl_NewGame" type="Label" parent="New_Game/btn_NewGame"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "New Game"
+
+[node name="btn_Continue" type="TextureButton" parent="New_Game"]
+offset_left = 787.0
+offset_top = 653.0
+offset_right = 1097.0
+offset_bottom = 827.0
+texture_normal = ExtResource("3_qsd50")
+texture_hover = ExtResource("4_4uqpk")
+script = ExtResource("5_jeb2j")
+
+[node name="lbl_Continue" type="Label" parent="New_Game/btn_Continue"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "Continue"
+
+[node name="btn_Exit" type="TextureButton" parent="New_Game"]
+offset_left = 1309.0
+offset_top = 685.0
+offset_right = 1619.0
+offset_bottom = 859.0
+texture_normal = ExtResource("6_cig8a")
+texture_hover = ExtResource("7_a8m48")
+script = ExtResource("8_75os8")
+
+[node name="lbl_Exit" type="Label" parent="New_Game/btn_Exit"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "Exit"
+
+[connection signal="mouse_entered" from="New_Game/btn_NewGame" to="New_Game/btn_NewGame" method="_on_mouse_entered"]
+[connection signal="pressed" from="New_Game/btn_NewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="New_Game/btn_NewGame" to="New_Game/btn_NewGame" method="_on_pressed"]
+[connection signal="mouse_entered" from="New_Game/btn_Continue" to="New_Game/btn_Continue" method="_on_mouse_entered"]
+[connection signal="pressed" from="New_Game/btn_Continue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="New_Game/btn_Continue" to="New_Game/btn_Continue" method="_on_pressed"]
+[connection signal="mouse_entered" from="New_Game/btn_Exit" to="New_Game/btn_Exit" method="_on_mouse_entered"]
+[connection signal="pressed" from="New_Game/btn_Exit" to="New_Game/btn_Exit" method="_on_pressed"]

@@ -1,6 +1,7 @@
-[gd_scene load_steps=4 format=3 uid="uid://bbet2i3hi13go"]
+[gd_scene load_steps=5 format=3 uid="uid://bbet2i3hi13go"]
 
-[ext_resource type="Script" uid="uid://bkkgieiguiywb" path="res://scripts/card_point.gd" id="1_mlmkh"]
+[ext_resource type="Script" uid="uid://bkkgieiguiywb" path="res://scripts/Cards/card_point.gd" id="1_mlmkh"]
+[ext_resource type="Script" uid="uid://cj0jmioioswtw" path="res://scenes/attackarea.gd" id="2_fcef6"]
 
 [sub_resource type="Curve2D" id="Curve2D_mlmkh"]
 _data = {
@@ -17,10 +18,11 @@ script = ExtResource("1_mlmkh")
 [node name="Path2D" type="Path2D" parent="."]
 curve = SubResource("Curve2D_mlmkh")
 
-[node name="attacarea" type="Area2D" parent="."]
+[node name="attackarea" type="Area2D" parent="."]
+script = ExtResource("2_fcef6")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="attacarea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="attackarea"]
 shape = SubResource("CircleShape2D_mlmkh")
 
-[connection signal="area_entered" from="attacarea" to="." method="_on_attacarea_area_entered"]
-[connection signal="area_exited" from="attacarea" to="." method="_on_attacarea_area_exited"]
+[connection signal="area_entered" from="attackarea" to="." method="_on_attacarea_area_entered"]
+[connection signal="area_exited" from="attackarea" to="." method="_on_attacarea_area_exited"]
