@@ -1,0 +1,8 @@
+res://scenes/Main.tscn
+res://scripts/combatmain.gd
+res://scenes/Characters/Bondi.tscn
+res://scripts/Characters/character.gd
+res://scripts/Interact.gd
+res://scripts/Characters/enemy.gd
+res://scripts/Cards/Bondi/strike.gd
+res://scripts/Cards/card_point.gd

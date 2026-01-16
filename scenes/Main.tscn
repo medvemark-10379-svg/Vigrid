@@ -1,6 +1,7 @@
-[gd_scene load_steps=9 format=3 uid="uid://by5r5wqt6jbad"]
+[gd_scene load_steps=11 format=3 uid="uid://by5r5wqt6jbad"]
 
-[ext_resource type="PackedScene" uid="uid://523gsdpqgopf" path="res://scenes/Characters/Bondi.tscn" id="1_elqb8"]
+[ext_resource type="PackedScene" uid="uid://523gsdpqgopf" path="res://scenes/Characters/Character.tscn" id="1_elqb8"]
+[ext_resource type="Script" uid="uid://bm2aaskos53rw" path="res://scripts/combatmain.gd" id="1_jlsqs"]
 [ext_resource type="Script" uid="uid://84xydy7hgylr" path="res://scripts/Interact.gd" id="1_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://dsrjwl4y5t6cm" path="res://scenes/Cards/Bondi/Strike.tscn" id="2_rvslj"]
 [ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="3_0bbpv"]
@@ -11,19 +12,23 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rarhs"]
 size = Vector2(97, 164)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="LabelSettings" id="LabelSettings_jlsqs"]
+font_size = 111
+
+[node name="CombatsceneMain" type="Node2D"]
+script = ExtResource("1_jlsqs")
 
 [node name="interact" type="Node" parent="."]
 script = ExtResource("1_nxtc6")
 metadata/_custom_type_script = "uid://84xydy7hgylr"
 
-[node name="Bondi" parent="." instance=ExtResource("1_elqb8")]
+[node name="Character" parent="." instance=ExtResource("1_elqb8")]
 position = Vector2(251, 273)
 
-[node name="Strike" parent="." instance=ExtResource("2_rvslj")]
+[node name="Card" parent="." instance=ExtResource("2_rvslj")]
 position = Vector2(771, 525)
 
-[node name="CardPoint" parent="Strike" instance=ExtResource("6_c01mt")]
+[node name="CardPoint" parent="Card" instance=ExtResource("6_c01mt")]
 
 [node name="Enemy" type="Area2D" parent="."]
 position = Vector2(944, 292)
@@ -42,6 +47,14 @@ texture = ExtResource("3_0bbpv")
 
 [node name="Deck" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(165, 563)
+
+[node name="EnergyLabel" type="Label" parent="."]
+offset_left = 125.0
+offset_top = 378.0
+offset_right = 277.0
+offset_bottom = 530.0
+text = "4"
+label_settings = SubResource("LabelSettings_jlsqs")
 
 [connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
 [connection signal="mouse_entered" from="Enemy" to="Enemy" method="_on_mouse_entered"]

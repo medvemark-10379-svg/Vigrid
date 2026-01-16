@@ -1,8 +1,10 @@
 class_name Enemy extends Area2D
 
 @onready var interact: interact = $"../interact"
+@onready var character: Node2D = $"../Character"
+@onready var card: Strike = $"../Card"
 
-var hp = 3
+var hp = 4
 
 
 func _process(delta: float) -> void:
@@ -20,6 +22,8 @@ func _on_mouse_exited() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	hp = interact.attack(area.hitpoint,hp,0)
-	if hp==0:
-		queue_free()
+	if character.energy >= card.cost:
+		character.energy -= card.cost
+		hp = interact.attack(area.hitpoint,hp,0)
+		if hp==0:
+			queue_free()

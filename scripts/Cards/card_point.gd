@@ -3,6 +3,8 @@ extends Node2D
 @onready var path_2d: Path2D = $Path2D
 @onready var attackarea: Area2D = $attackarea
 @onready var strike: Strike = $".."
+@onready var card: Strike = $".."
+@onready var character: Node2D = $"../../Character"
 
 
 var hitpoint = 1
@@ -23,7 +25,6 @@ func _process(delta: float) -> void:
 
 func _on_attacarea_area_entered(area: Area2D) -> void:
 	pass
-		
 
 
 func _on_attacarea_area_exited(area: Area2D) -> void:
