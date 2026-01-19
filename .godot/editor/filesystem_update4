@@ -1,2 +1,7 @@
 res://scripts/Cards/Bondi/strike.gd
 res://scenes/Cards/Bondi/Strike.tscn
+res://scenes/Enemy.tscn
+res://scenes/Main.tscn
+res://scripts/deckhandler.gd
+res://scripts/Characters/enemy.gd
+res://scripts/BaseCard_data.tres
