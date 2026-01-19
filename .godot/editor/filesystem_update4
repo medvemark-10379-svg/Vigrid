@@ -1,5 +1,2 @@
-res://scenes/Cards/Bondi/Strike.tscn
-res://scripts/MouseState.gd
 res://scripts/Cards/Bondi/strike.gd
-res://scenes/Main.tscn
-res://scripts/deckhandler.gd
+res://scenes/Cards/Bondi/Strike.tscn
