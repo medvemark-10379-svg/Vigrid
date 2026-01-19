@@ -20,6 +20,10 @@ config/icon="res://icon.svg"
 BgScript="*res://BgScript.gd"
 MouseState="*res://scripts/MouseState.gd"
 
+[global_group]
+
+Cards=""
+
 [input]
 
 mouseactions={

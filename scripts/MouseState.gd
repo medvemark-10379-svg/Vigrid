@@ -5,7 +5,7 @@ var CIVR = ["released","pressed"]
 var mousestateP = CIVP[0]
 var mousestateR = CIVR[0]
 var dragabel = false
-
+var clickedcardid
 
 func _input(event: InputEvent) -> void:
 	if InputMap.event_is_action(event,"mouseactions"):
@@ -16,7 +16,7 @@ func _input(event: InputEvent) -> void:
 			dragabel = false
 		if mousestateP == CIVP[1] and mousestateR == CIVR[1]:
 			dragabel = true
-			print("JEJ")
+			get_tree().call_group("Cards","clicked", clickedcardid)
 			
 func checker(stateP: int = 0, stateR: int = 0):
 	mousestateP = CIVP[stateP] 

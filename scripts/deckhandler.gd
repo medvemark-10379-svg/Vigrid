@@ -21,6 +21,7 @@ func deckhandler(CColor: Color = basedeck.Strikes.Color, Cost: int = basedeck.St
 	for x in Holded:
 		var strike = STRIKE.instantiate()
 		add_child(strike)
+		strike.id = x
 		strike.global_position = cardplace[x]
 		print(x)
 		

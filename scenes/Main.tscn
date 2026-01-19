@@ -1,15 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://by5r5wqt6jbad"]
+[gd_scene load_steps=7 format=3 uid="uid://by5r5wqt6jbad"]
 
 [ext_resource type="PackedScene" uid="uid://523gsdpqgopf" path="res://scenes/Characters/Character.tscn" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://bm2aaskos53rw" path="res://scripts/combatmain.gd" id="1_jlsqs"]
 [ext_resource type="Script" uid="uid://84xydy7hgylr" path="res://scripts/Interact.gd" id="1_nxtc6"]
-[ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="3_0bbpv"]
-[ext_resource type="Script" uid="uid://dnpiufxh7bl7" path="res://scripts/Characters/enemy.gd" id="3_vcsgt"]
 [ext_resource type="PackedScene" uid="uid://dbvv107gpn27y" path="res://scenes/deck.tscn" id="4_rarhs"]
 [ext_resource type="Script" uid="uid://d2npnoe1flequ" path="res://scripts/deckhandler.gd" id="9_q8u5g"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_rarhs"]
-size = Vector2(97, 164)
 
 [sub_resource type="LabelSettings" id="LabelSettings_jlsqs"]
 font_size = 111
@@ -24,21 +19,6 @@ metadata/_custom_type_script = "uid://84xydy7hgylr"
 [node name="Character" parent="." instance=ExtResource("1_elqb8")]
 position = Vector2(230, 272)
 
-[node name="Enemy" type="Area2D" parent="."]
-position = Vector2(944, 292)
-script = ExtResource("3_vcsgt")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Enemy"]
-position = Vector2(0.5, 0)
-shape = SubResource("RectangleShape2D_rarhs")
-metadata/_edit_lock_ = true
-
-[node name="Sprite2D" type="Sprite2D" parent="Enemy"]
-self_modulate = Color(0.20511743, 0.20511743, 0.20511743, 1)
-position = Vector2(0.49997616, 8.583069e-06)
-scale = Vector2(0.75781286, 1.2812499)
-texture = ExtResource("3_0bbpv")
-
 [node name="Deck" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(181, 552)
 script = ExtResource("9_q8u5g")
@@ -50,9 +30,5 @@ offset_right = 277.0
 offset_bottom = 530.0
 text = "4"
 label_settings = SubResource("LabelSettings_jlsqs")
-
-[connection signal="area_entered" from="Enemy" to="Enemy" method="_on_area_entered"]
-[connection signal="mouse_entered" from="Enemy" to="Enemy" method="_on_mouse_entered"]
-[connection signal="mouse_exited" from="Enemy" to="Enemy" method="_on_mouse_exited"]
 
 [editable path="Deck"]
