@@ -1,4 +1,4 @@
-class_name Enemy extends Area2D
+class_name Enemy extends Node2D
 
 @onready var interact: interact = $"../interact"
 @onready var character: Node2D = $"../Character"

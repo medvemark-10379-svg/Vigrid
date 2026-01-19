@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://by5r5wqt6jbad"]
+[gd_scene load_steps=8 format=3 uid="uid://by5r5wqt6jbad"]
 
 [ext_resource type="PackedScene" uid="uid://523gsdpqgopf" path="res://scenes/Characters/Character.tscn" id="1_elqb8"]
 [ext_resource type="Script" uid="uid://bm2aaskos53rw" path="res://scripts/combatmain.gd" id="1_jlsqs"]
 [ext_resource type="Script" uid="uid://84xydy7hgylr" path="res://scripts/Interact.gd" id="1_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://dbvv107gpn27y" path="res://scenes/deck.tscn" id="4_rarhs"]
+[ext_resource type="PackedScene" uid="uid://1rsrk55xpfre" path="res://scenes/Enemy.tscn" id="6_c01mt"]
 [ext_resource type="Script" uid="uid://d2npnoe1flequ" path="res://scripts/deckhandler.gd" id="9_q8u5g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jlsqs"]
@@ -30,5 +31,8 @@ offset_right = 277.0
 offset_bottom = 530.0
 text = "4"
 label_settings = SubResource("LabelSettings_jlsqs")
+
+[node name="Enemy" parent="." instance=ExtResource("6_c01mt")]
+position = Vector2(938, 312)
 
 [editable path="Deck"]

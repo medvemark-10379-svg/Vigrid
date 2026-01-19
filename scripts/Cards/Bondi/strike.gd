@@ -2,6 +2,7 @@ class_name Strike extends Node2D
 
 var baseposition
 var id 
+var activated = false
 
 @onready var card_point: Node2D = $CardPoint
 @onready var icon: Sprite2D = $Icon
@@ -19,6 +20,7 @@ func _process(delta: float) -> void:
 func clicked(cardid: int):
 	if cardid == id:
 		collision_shape_2d.debug_color = Color(1.0, 0.005, 0.062, 0.42)
+		activated = true
 
 func _on_strikearea_mouse_entered() -> void:
 	await get_tree().create_timer(0.001).timeout
