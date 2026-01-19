@@ -1,8 +1,14 @@
 extends Node2D
 
+var charactertree = load("res://scripts/Character_Data.tres")
 
-var hp = 80
-var energy = 3
+
+@export var CN : String 
+
+var character = charactertree.get_meta("Jarl")
+var hp = character.HP
+var energy = character.energy
 
 func _ready() -> void:
-	energy = 3
+	print(energy)
+	

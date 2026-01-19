@@ -4,7 +4,7 @@ var mouseisonstrike= false
 var baseposition
 
 @onready var card_point: Node2D = $CardPoint
-var cost = 1
+@onready var icon: Sprite2D = $Icon
 
 
 

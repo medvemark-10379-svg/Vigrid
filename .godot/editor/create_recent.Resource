@@ -1,2 +1,4 @@
+Resource
+JSON
 GLTFNode
 GDScript

@@ -1,0 +1,13 @@
+[gd_resource type="Resource" format=3 uid="uid://dl6m4iaalcd6r"]
+
+[resource]
+metadata/Bondi = {
+"CardId": 1,
+"HP": 80,
+"energy": 3
+}
+metadata/Jarl = {
+"CardId": 2,
+"HP": 70,
+"energy": 3
+}

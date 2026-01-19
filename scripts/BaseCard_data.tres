@@ -1,0 +1,11 @@
+[gd_resource type="Resource" format=3 uid="uid://b7r4xggv73ykb"]
+
+[resource]
+metadata/BD = {
+"Strikes": {
+"Color": Color(1, 0, 0, 1),
+"Cost": 1,
+"Holded": 5,
+"Name": "Strike"
+}
+}

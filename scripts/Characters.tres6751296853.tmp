@@ -1,0 +1,11 @@
+[gd_resource type="JSON" format=3 uid="uid://bjt5moxf8ewp5"]
+
+[resource]
+data = {
+"Bondi": {
+"CardId": 1.0,
+"Energy": 3.0,
+"HP": 80.0,
+"Id": 1.0
+}
+}

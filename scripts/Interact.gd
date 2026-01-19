@@ -1,6 +1,7 @@
 class_name interact extends Node
 
 
+#deckcheck
 
 #Attack
 
