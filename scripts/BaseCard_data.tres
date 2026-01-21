@@ -8,6 +8,12 @@ metadata/BD = {
 "Holded": 5,
 "Name": "Block"
 },
+"Parrys": {
+"Color": Color(0.7772874, 0.6824531, 0, 1),
+"Cost": 2,
+"Holded": 1,
+"Name": "Parry"
+},
 "Strikes": {
 "Color": Color(1, 0, 0, 1),
 "Cost": 1,

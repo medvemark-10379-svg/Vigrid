@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://1rsrk55xpfre"]
+[gd_scene load_steps=7 format=3 uid="uid://1rsrk55xpfre"]
 
 [ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="1_3gvst"]
 [ext_resource type="Script" uid="uid://dnpiufxh7bl7" path="res://scripts/Characters/enemy.gd" id="1_55jtl"]
@@ -6,8 +6,98 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_55jtl"]
 size = Vector2(121, 195)
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="Animation" id="Animation_55jtl"]
+resource_name = "alert"
+length = 0.6
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alert:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.56666666),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(2, 2), Vector2(1.88, 1.88)]
+}
+
+[sub_resource type="Animation" id="Animation_mpr68"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Alert:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(2, 2)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_mpr68"]
+_data = {
+&"RESET": SubResource("Animation_mpr68"),
+&"alert": SubResource("Animation_55jtl")
+}
+
+[node name="Node2D" type="Node2D" groups=["Enemys"]]
 script = ExtResource("1_55jtl")
+
+[node name="Alert" type="Sprite2D" parent="."]
+visible = false
+modulate = Color(1, 1, 0, 1)
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -27.49998)
+scale = Vector2(2, 2)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon" type="Sprite2D" parent="Alert"]
+position = Vector2(-40.880497, -59.375008)
+scale = Vector2(0.34394655, 0.08007811)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon2" type="Sprite2D" parent="Alert"]
+position = Vector2(-56.81818, -47.062508)
+scale = Vector2(0.10162057, 0.23925781)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon3" type="Sprite2D" parent="Alert"]
+position = Vector2(-57.747288, 37.249985)
+scale = Vector2(0.10162057, 0.23925781)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon4" type="Sprite2D" parent="Alert"]
+position = Vector2(-42.309895, 57.749985)
+scale = Vector2(0.34394655, 0.08007811)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon5" type="Sprite2D" parent="Alert"]
+position = Vector2(44.382496, -61.062508)
+rotation = 1.5707964
+scale = Vector2(0.08886719, 0.27359384)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon6" type="Sprite2D" parent="Alert"]
+position = Vector2(59.81989, -40.562508)
+rotation = 1.5707964
+scale = Vector2(0.30078125, 0.09157017)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon7" type="Sprite2D" parent="Alert"]
+position = Vector2(57.461403, 45.999985)
+rotation = 1.5707964
+scale = Vector2(0.30078125, 0.09157017)
+texture = ExtResource("1_3gvst")
+
+[node name="Icon8" type="Sprite2D" parent="Alert"]
+position = Vector2(41.52372, 58.312492)
+rotation = 1.5707964
+scale = Vector2(0.08886719, 0.27359384)
+texture = ExtResource("1_3gvst")
 
 [node name="Area2D" type="Area2D" parent="."]
 
@@ -19,3 +109,8 @@ texture = ExtResource("1_3gvst")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2(-0.5, -27.5)
 shape = SubResource("RectangleShape2D_55jtl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_mpr68")
+}

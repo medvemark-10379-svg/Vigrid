@@ -6,6 +6,7 @@ var mousestateP = CIVP[0]
 var mousestateR = CIVR[0]
 var dragabel = false
 var clickedcardid
+	
 
 func _input(event: InputEvent) -> void:
 	if InputMap.event_is_action(event,"mouseactions"):

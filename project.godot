@@ -23,6 +23,7 @@ MouseState="*res://scripts/MouseState.gd"
 [global_group]
 
 Cards=""
+Enemys=""
 
 [input]
 
