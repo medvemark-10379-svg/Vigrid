@@ -23,9 +23,8 @@ func _ready():
 	for x in 5:
 		random = randi_range(0,indeck.size()-1)
 		infront.append(indeck[random])
+		
 		deckhandler(indeck[random], x)
-	
-	print(infront)
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:
@@ -35,4 +34,3 @@ func deckhandler(Name: String, id: int ):
 			strike.id = id
 			strike.global_position = cardplace[id]
 			strike.icon.modulate = basedeck[item].Color
-			print(1)

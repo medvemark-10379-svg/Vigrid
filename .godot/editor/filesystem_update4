@@ -1,5 +1,6 @@
-res://scenes/Main.tscn
-res://scripts/BaseCard_data.tres
 res://scenes/Enemy.tscn
 res://scripts/Characters/enemy.gd
+res://scripts/Characters/character.gd
+res://scripts/deckhandler.gd
 res://scripts/MouseState.gd
+res://scenes/Main.tscn

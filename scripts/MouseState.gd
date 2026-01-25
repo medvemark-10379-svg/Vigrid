@@ -15,9 +15,16 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_just_released("mouseactions"):
 			print(mousestateP +","+ CIVR[0])
 			dragabel = false
-		if mousestateP == CIVP[1] and mousestateR == CIVR[1]:
+		if mousestateP == CIVP[1]:
 			dragabel = true
 			get_tree().call_group("Cards","clicked", clickedcardid)
+			get_tree().call_group("Enemys","alert_mode_check", true)
+		if mousestateP == CIVP[0]:
+			get_tree().call_group("Enemys","alert_mode_check", false)
+			print("e")
+		if mousestateP == CIVP[2]:
+			pass
+			
 			
 func checker(stateP: int = 0, stateR: int = 0):
 	mousestateP = CIVP[stateP] 
