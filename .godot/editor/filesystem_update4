@@ -1,9 +1,0 @@
-res://scenes/Main.tscn
-res://scripts/MouseState.gd
-res://scenes/Cards/Bondi/Card.tscn
-res://scripts/Cards/Bondi/Card.gd
-res://scripts/BaseCard_data.tres
-res://scripts/deckhandler.gd
-res://scripts/Interact.gd
-res://scripts/Characters/enemy.gd
-res://scenes/Enemy.tscn

@@ -2,15 +2,16 @@ class_name interact extends Node
 
 
 #Check
-func Check(Type: String, Victim):
+func Check(Type: String, Victim: String, base: int):
 	var callable = Callable(self, Type)
-	callable.call(Victim)
+	callable.call(Victim, base)
 
 #deckcheck
 
 #Attack
-func Attack(Victim):
-	get_tree().call_group(Victim, "Hurt")
+func Attack(Victim: String, damage):
+	print(Victim)
+	get_tree().call_group(Victim, "hurt", damage)
 #Defence
 func Buff():
 	print("Buff")
@@ -18,3 +19,5 @@ func Buff():
 #Item
 
 #God
+
+#Card Used

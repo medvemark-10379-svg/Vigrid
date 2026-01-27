@@ -42,3 +42,11 @@ func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: in
 	if Input.is_action_just_pressed("mouseactions"):
 		MouseState.usedcard = [id, Type, Baseeffectnumb]
 		print(MouseState.usedcard)
+		
+		
+func used(usedid:int):
+	if usedid == id:
+		get_tree().call_group("Enemys", "alert_mode_check", false)
+		await get_tree().create_timer(0.001).timeout
+		MouseState.usedcard.clear()
+		queue_free()
