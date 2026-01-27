@@ -5,10 +5,7 @@ class_name Enemy extends Node2D
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
 
-var hp = 4:
-	set(hp):
-		if hp == 0:
-			queue_free()
+var hp = 10
 var tesztszam = 2
 var alert_mode: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
@@ -40,11 +37,15 @@ func alert_mode_check(alert_modee: bool):
 	alert.visible = alert_modee
 	animation_player.play("alert")
 	
-func hurt():
-	print("BÁÁÁÁÁ")
+func hurt(Damage: int):
+	hp -= Damage
+	if hp <= 0:
+		queue_free()
+	
 	
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("mouseactions"):
-		Interact.Check(MouseState.usedcard[1], "Enemy")
+	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
+		Interact.Check(MouseState.usedcard[1], "Enemys", MouseState.usedcard[2])
+		print("Nem működik")
