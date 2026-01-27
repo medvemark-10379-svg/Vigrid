@@ -1,23 +1,24 @@
 [gd_scene load_steps=4 format=3 uid="uid://dsrjwl4y5t6cm"]
 
-[ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="1_5nuny"]
-[ext_resource type="Script" uid="uid://b45w06fh05jbj" path="res://scripts/Cards/Bondi/strike.gd" id="1_nka18"]
+[ext_resource type="Script" uid="uid://b45w06fh05jbj" path="res://scripts/Cards/Bondi/Card.gd" id="1_ce828"]
+[ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="2_ad8jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dnmv"]
 size = Vector2(126, 179)
 
 [node name="Strike" type="Node2D" groups=["Cards"]]
-script = ExtResource("1_nka18")
+script = ExtResource("1_ce828")
 
 [node name="Icon" type="Sprite2D" parent="."]
 modulate = Color(0, 0, 0, 1)
 scale = Vector2(1, 1.4570313)
-texture = ExtResource("1_5nuny")
+texture = ExtResource("2_ad8jv")
 
 [node name="Strikearea" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Strikearea"]
 shape = SubResource("RectangleShape2D_0dnmv")
 
+[connection signal="input_event" from="Strikearea" to="." method="_on_strikearea_input_event"]
 [connection signal="mouse_entered" from="Strikearea" to="." method="_on_strikearea_mouse_entered"]
 [connection signal="mouse_exited" from="Strikearea" to="." method="_on_strikearea_mouse_exited"]

@@ -1,5 +1,9 @@
 extends Node
 
+
+var usedcard = []
+
+
 var CIVP = ["outside","inside_card", "Enemy"]
 var CIVR = ["released","pressed"]
 var mousestateP = CIVP[0]
@@ -21,9 +25,8 @@ func _input(event: InputEvent) -> void:
 			get_tree().call_group("Enemys","alert_mode_check", true)
 		if mousestateP == CIVP[0]:
 			get_tree().call_group("Enemys","alert_mode_check", false)
-			print("e")
 		if mousestateP == CIVP[2]:
-			pass
+			print("e")
 			
 			
 func checker(stateP: int = 0, stateR: int = 0):

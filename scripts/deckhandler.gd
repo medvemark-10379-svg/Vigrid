@@ -34,3 +34,5 @@ func deckhandler(Name: String, id: int ):
 			strike.id = id
 			strike.global_position = cardplace[id]
 			strike.icon.modulate = basedeck[item].Color
+			strike.Type = basedeck[item].Type
+			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb

@@ -10,10 +10,10 @@ var hp = 4:
 		if hp == 0:
 			queue_free()
 var tesztszam = 2
-var alert_mode: bool = false:
-	set(alert_mode): 
-		teszt(alert_mode)
+var alert_mode: bool = false
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
+@onready var interactive: interact = $"../interact"
+
 
 
 func _process(delta: float) -> void:
@@ -40,6 +40,11 @@ func alert_mode_check(alert_modee: bool):
 	alert.visible = alert_modee
 	animation_player.play("alert")
 	
-func teszt(e: bool):
-	pass
+func hurt():
+	print("BÁÁÁÁÁ")
 	
+
+
+func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("mouseactions"):
+		Interact.Check(MouseState.usedcard[1], "Enemy")

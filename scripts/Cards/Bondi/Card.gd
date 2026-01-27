@@ -1,8 +1,11 @@
 class_name Strike extends Node2D
 
 var baseposition
-var id 
+var id
+var Type  
 var activated = false
+var Baseeffectnumb 
+
 
 @onready var card_point: Node2D = $CardPoint
 @onready var icon: Sprite2D = $Icon
@@ -33,4 +36,9 @@ func _on_strikearea_mouse_exited() -> void:
 	MouseState.checker(0,0)
 	collision_shape_2d.debug_color = Color(0.0, 0.6, 0.7, 0.42)
 	global_position.y += 10
-		
+
+
+func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
+	if Input.is_action_just_pressed("mouseactions"):
+		MouseState.usedcard = [id, Type, Baseeffectnumb]
+		print(MouseState.usedcard)

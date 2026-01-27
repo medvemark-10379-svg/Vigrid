@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 BgScript="*res://BgScript.gd"
 MouseState="*res://scripts/MouseState.gd"
+Interact="*res://scripts/Interact.gd"
 
 [global_group]
 
