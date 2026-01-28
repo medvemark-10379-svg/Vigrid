@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://bi8y0m0blm1oa" path="res://scripts/Characters/character.gd" id="1_iv5bn"]
 [ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="1_k7mv3"]
 
-[node name="Character" type="Node2D"]
+[node name="Character" type="Node2D" groups=["Player"]]
 script = ExtResource("1_iv5bn")
 CN = "Bondi"
 

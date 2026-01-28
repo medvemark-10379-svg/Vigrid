@@ -8,7 +8,8 @@ metadata/BD = {
 "Cost": 1,
 "Holded": 5,
 "Name": "Block",
-"Type": "Buff"
+"PlacedOn": ["Enemys", "Player"],
+"Type": "Block"
 },
 "Parrys": {
 "BaseEffectNumb": 3,

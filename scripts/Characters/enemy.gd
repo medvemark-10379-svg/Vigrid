@@ -5,16 +5,28 @@ class_name Enemy extends Node2D
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
 
+<<<<<<< HEAD
 var hp = 10
+=======
+var maxhp = 40
+var hp = 40
+>>>>>>> 13efe3b0dbc7c6cb44700de2ca55bd523ddc12a9
 var tesztszam = 2
 var alert_mode: bool = false
+var block: int
+var nameclass = "Enemys"
+@onready var block_bar: ProgressBar = $ProgressBar
+@onready var hp_bar: ProgressBar = $ProgressBar2
+
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interactive: interact = $"../interact"
 
 
 
 func _process(delta: float) -> void:
-	pass
+	block_bar.value = block
+	hp_bar.max_value = maxhp
+	hp_bar.value = hp
 
 func _on_mouse_entered() -> void:
 	MouseState.checker(2)
@@ -39,13 +51,26 @@ func alert_mode_check(alert_modee: bool):
 	
 func hurt(Damage: int):
 	hp -= Damage
+<<<<<<< HEAD
 	if hp <= 0:
 		queue_free()
 	
+=======
+	print(hp)
+	if hp <= 0:
+		queue_free()
+	
+func GainBlock(Block: int):
+	block += Block
+>>>>>>> 13efe3b0dbc7c6cb44700de2ca55bd523ddc12a9
 	
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
+<<<<<<< HEAD
 		Interact.Check(MouseState.usedcard[1], "Enemys", MouseState.usedcard[2])
 		print("Nem működik")
+=======
+		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
+>>>>>>> 13efe3b0dbc7c6cb44700de2ca55bd523ddc12a9

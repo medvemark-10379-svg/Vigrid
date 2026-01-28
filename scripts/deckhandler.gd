@@ -36,3 +36,5 @@ func deckhandler(Name: String, id: int ):
 			strike.icon.modulate = basedeck[item].Color
 			strike.Type = basedeck[item].Type
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
+			if basedeck[item].Name == "Block":
+				strike.placedon = basedeck[item].PlacedOn

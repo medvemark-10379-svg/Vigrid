@@ -25,6 +25,7 @@ Interact="*res://scripts/Interact.gd"
 
 Cards=""
 Enemys=""
+Player=""
 
 [input]
 
