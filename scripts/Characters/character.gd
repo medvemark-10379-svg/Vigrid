@@ -8,3 +8,7 @@ var charactertree = load("res://scripts/Character_Data.tres")
 var character = charactertree.get_meta("Jarl")
 var hp = character.HP
 var energy = character.energy
+var block 
+
+func GainBlock(Block: int):
+	block += Block

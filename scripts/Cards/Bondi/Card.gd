@@ -3,6 +3,7 @@ class_name Strike extends Node2D
 var baseposition
 var id
 var Type  
+var placedon
 var activated = false
 var Baseeffectnumb 
 
@@ -40,8 +41,7 @@ func _on_strikearea_mouse_exited() -> void:
 
 func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("mouseactions"):
-		MouseState.usedcard = [id, Type, Baseeffectnumb]
-		print(MouseState.usedcard)
+		MouseState.usedcard = [id, Type, Baseeffectnumb, placedon]
 		
 		
 func used(usedid:int):

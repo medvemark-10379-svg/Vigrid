@@ -13,10 +13,11 @@ func Attack(Victim: String, damage):
 	print(Victim)
 	get_tree().call_group(Victim, "hurt", damage)
 #Defence
-func Buff():
-	print("Buff")
+func Block(Victim: String, block,):
+	get_tree().call_group(Victim, "GainBlock", block)
 
 #Item
+
 
 #God
 
