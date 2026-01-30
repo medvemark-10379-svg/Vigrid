@@ -41,12 +41,8 @@ func _on_strikearea_mouse_exited() -> void:
 
 func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("mouseactions"):
-<<<<<<< HEAD
-		MouseState.usedcard = [id, Type, Baseeffectnumb]
 		print(MouseState.usedcard)
-=======
 		MouseState.usedcard = [id, Type, Baseeffectnumb, placedon]
->>>>>>> 13efe3b0dbc7c6cb44700de2ca55bd523ddc12a9
 		
 		
 func used(usedid:int):

@@ -9,6 +9,7 @@ const STRIKE = preload("uid://dsrjwl4y5t6cm")
 @onready var marker_2d_3: Marker2D = $Marker2D3
 @onready var marker_2d_4: Marker2D = $Marker2D4
 @onready var marker_2d_5: Marker2D = $Marker2D5
+@onready var hand: Node = $hand
 
 var cardplace = []
 var indeck= []
@@ -16,6 +17,12 @@ var infront = []
 var random
 
 func _ready():
+	deckshuffel()
+	
+	
+	
+	
+func deckshuffel():
 	cardplace = [marker_2d.global_position, marker_2d_2.global_position, marker_2d_3.global_position, marker_2d_4.global_position, marker_2d_5.global_position ]
 	for item in basedeck:
 		for x in basedeck[item].Holded:
@@ -30,7 +37,7 @@ func deckhandler(Name: String, id: int ):
 	for item in basedeck:
 		if basedeck[item].Name == Name:
 			var strike = STRIKE.instantiate()
-			add_child(strike)
+			hand.add_child(strike)
 			strike.id = id
 			strike.global_position = cardplace[id]
 			strike.icon.modulate = basedeck[item].Color
@@ -38,3 +45,9 @@ func deckhandler(Name: String, id: int ):
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
 			if basedeck[item].Name == "Block":
 				strike.placedon = basedeck[item].PlacedOn
+
+
+func _on_button_pressed() -> void:
+	for n in hand.get_children():
+		n.queue_free()
+	deckshuffel()

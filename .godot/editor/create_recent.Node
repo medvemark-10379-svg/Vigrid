@@ -1,7 +1,9 @@
+Node
+Button
+Marker2D
 ProgressBar
 AnimationPlayer
 CollisionShape2D
 Area2D
-Marker2D
 Label
 interact

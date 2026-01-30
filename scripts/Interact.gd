@@ -10,7 +10,6 @@ func Check(Type: String, Victim: String, base: int):
 
 #Attack
 func Attack(Victim: String, damage):
-	print(Victim)
 	get_tree().call_group(Victim, "hurt", damage)
 #Defence
 func Block(Victim: String, block,):
