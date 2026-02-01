@@ -2,6 +2,7 @@ extends Node2D
 
 var BaseCard_data = load("res://scripts/BaseCard_data.tres")
 var basedeck = BaseCard_data.get_meta("BD")
+var usedpile = []
 const STRIKE = preload("uid://dsrjwl4y5t6cm")
 
 @onready var marker_2d: Marker2D = $Marker2D
@@ -30,8 +31,9 @@ func deckshuffel():
 	for x in 5:
 		random = randi_range(0,indeck.size()-1)
 		infront.append(indeck[random])
-		
 		deckhandler(indeck[random], x)
+		indeck.remove_at(random)
+		print(indeck)
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:

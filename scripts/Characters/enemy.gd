@@ -52,9 +52,13 @@ func alert_mode_check(alert_modee: bool):
 	
 func hurt(Damage: int):
 	if MouseState.usedcard[4] == id:
-		var stilldamage = Damage -block
-		block -=Damage
-		hp -= stilldamage
+		var blocked = min(block, Damage)
+		block -= blocked
+	
+		var remaining_damage = Damage - blocked
+		hp -= remaining_damage
+		
+		hp = max(hp,0)
 		
 		if hp <= 0:
 			queue_free()
