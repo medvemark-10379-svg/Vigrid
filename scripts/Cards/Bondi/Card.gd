@@ -5,6 +5,7 @@ var id
 var Type  
 var placedon
 var activated = false
+var Name 
 var Baseeffectnumb 
 
 
@@ -51,3 +52,4 @@ func used(usedid:int):
 		await get_tree().create_timer(0.001).timeout
 		MouseState.usedcard.clear()
 		queue_free()
+		Interact.cardpile.append(name)

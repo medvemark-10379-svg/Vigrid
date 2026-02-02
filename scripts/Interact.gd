@@ -1,5 +1,6 @@
 class_name interact extends Node
 
+var cardpile = []
 
 #Check
 func Check(Type: String, Victim: String, base: int):

@@ -2,7 +2,6 @@ extends Node2D
 
 var BaseCard_data = load("res://scripts/BaseCard_data.tres")
 var basedeck = BaseCard_data.get_meta("BD")
-var usedpile = []
 const STRIKE = preload("uid://dsrjwl4y5t6cm")
 
 @onready var marker_2d: Marker2D = $Marker2D
@@ -15,25 +14,31 @@ const STRIKE = preload("uid://dsrjwl4y5t6cm")
 var cardplace = []
 var indeck= []
 var infront = []
+var usedpile = []
 var random
 
+
 func _ready():
+	for item in basedeck:
+		for x in basedeck[item].Holded:
+			indeck.append(basedeck[item].Name)
 	deckshuffel()
 	
 	
 	
 	
 func deckshuffel():
-	cardplace = [marker_2d.global_position, marker_2d_2.global_position, marker_2d_3.global_position, marker_2d_4.global_position, marker_2d_5.global_position ]
-	for item in basedeck:
-		for x in basedeck[item].Holded:
-			indeck.append(basedeck[item].Name)
-	for x in 5:
-		random = randi_range(0,indeck.size()-1)
-		infront.append(indeck[random])
-		deckhandler(indeck[random], x)
-		indeck.remove_at(random)
-		print(indeck)
+	if indeck.size()>5:
+		for i in usedpile:
+			indeck.append(usedpile[i])
+		usedpile.clear()
+		cardplace = [marker_2d.global_position, marker_2d_2.global_position, marker_2d_3.global_position, marker_2d_4.global_position, marker_2d_5.global_position ]
+		for x in 5:
+			random = randi_range(0,indeck.size()-1)
+			infront.append(indeck[random])
+			deckhandler(indeck[random], x)
+			indeck.remove_at(random)
+			print(indeck)
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:
@@ -45,6 +50,7 @@ func deckhandler(Name: String, id: int ):
 			strike.icon.modulate = basedeck[item].Color
 			strike.Type = basedeck[item].Type
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
+			strike.name = basedeck[item].Name
 			if basedeck[item].Name == "Block":
 				strike.placedon = basedeck[item].PlacedOn
 
@@ -52,4 +58,6 @@ func deckhandler(Name: String, id: int ):
 func _on_button_pressed() -> void:
 	for n in hand.get_children():
 		n.queue_free()
+	usedpile = Interact.cardpile
+	Interact.cardpile.clear()
 	deckshuffel()
