@@ -13,14 +13,14 @@ func _ready() -> void:
 	for x in 2:
 		var character = ENEMY.instantiate()
 		add_child(character)
-		if x == 1:
+		if x == 0:
 			character.controllabel = true
 			character.global_position = marker_2d.global_position
-			character.id = x
+			character.sid = x
 		else:
 			character.global_position = marker_2d_2.global_position
-			character.id = x
-		character
+			character.sid = x
+		character.create()
 
 
 func _process(delta: float) -> void:

@@ -1,2 +1,6 @@
 res://scenes/Main.tscn
+res://scenes/Enemy.tscn
+res://scripts/Character_Data.tres
+res://scripts/Characters/enemy.gd
+res://scripts/combatmain.gd
 res://scripts/deckhandler.gd

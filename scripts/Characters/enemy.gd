@@ -1,27 +1,33 @@
 class_name Enemy extends Node2D
 
+const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
+
 @onready var interact: interact = $"../interact"
 @onready var character: Node2D = $"../Character"
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
 
 
+var actions: Array[Callable] = [action1,action2,action3]
+
 var controllabel = false
 var hp = 40
+var maxhp =0
 
-var maxhp = 40
+var sid
+var actionid 
+var Name
+var energy 
 
-var id
 var tesztszam = 2
 var alert_mode: bool = false
-var block: int = 3
+var block: int = 0
 var nameclass = "Enemys"
 @onready var block_bar: ProgressBar = $ProgressBar
 @onready var hp_bar: ProgressBar = $ProgressBar2
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interactive: interact = $"../interact"
-
 
 
 func _process(delta: float) -> void:
@@ -51,7 +57,7 @@ func alert_mode_check(alert_modee: bool):
 	animation_player.play("alert")
 	
 func hurt(Damage: int):
-	if MouseState.usedcard[4] == id:
+	if MouseState.usedcard[4] == sid:
 		var blocked = min(block, Damage)
 		block -= blocked
 	
@@ -64,15 +70,40 @@ func hurt(Damage: int):
 			queue_free()
 	
 func GainBlock(Block: int):
-	if MouseState.usedcard[4] == id:
+	if MouseState.usedcard[4] == sid:
 		block += Block
 	
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
-		MouseState.usedcard.append(id)
+		MouseState.usedcard.append(sid)
 		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
 		
 func create():
-	pass
+	var choosedcharacter
+	var basecharacter = CHARACTER_DATA.get_meta("C"+str(sid))
+	if sid == 0:
+		choosedcharacter = basecharacter["P" + str(0)]
+	else: 
+		choosedcharacter = basecharacter["P" + str(pick_Enemy(basecharacter))]
+	actionid = choosedcharacter.ActionId
+	maxhp = choosedcharacter.HP
+	hp = choosedcharacter.HP
+	
+func pick_Enemy(dictionary: Dictionary) -> Variant:
+	var random_key = dictionary.keys().pick_random()
+	return dictionary[random_key].ActionId
+
+
+func action1():
+	print("Ez az első")
+	
+func action2():
+	print("Ez az második")
+
+func action3():
+	print("Ez a harmadik")
+
+func action4():
+	print(4)

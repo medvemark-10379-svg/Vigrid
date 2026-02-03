@@ -39,7 +39,6 @@ func deckshuffel():
 		for i in usedpile.size():
 			indeck.append(usedpile[i-1])
 		usedpile.clear()
-	print(indeck.size())
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:
@@ -61,6 +60,5 @@ func _on_button_pressed() -> void:
 	for n in hand.get_children():
 		usedpile.append(n.Name)
 		n.queue_free()
-	print(usedpile)
 	deckshuffel()
 	Interact.cardpile.clear()

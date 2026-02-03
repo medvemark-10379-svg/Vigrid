@@ -1,7 +1,0 @@
-[gd_resource type="Resource" format=3 uid="uid://b74lwdw0cqune"]
-
-[resource]
-metadata/Wolf = {
-"ActionId": 0,
-"HP": 60
-}

@@ -1,13 +1,31 @@
 [gd_resource type="Resource" format=3 uid="uid://dl6m4iaalcd6r"]
 
 [resource]
-metadata/Bondi = {
-"CardId": 1,
+metadata/C0 = {
+"P0": {
+"ActionId": 1,
 "HP": 80,
+"Name": "Bondi",
+"energy": 3
+},
+"P1": {
+"ActionId": 2,
+"HP": 80,
+"Name": "Jarl",
 "energy": 3
 }
-metadata/Jarl = {
-"CardId": 2,
-"HP": 70,
-"energy": 3
+}
+metadata/C1 = {
+"P0": {
+"ActionId": 0,
+"HP": 40,
+"Name": "Wolf",
+"energy": 1
+},
+"P1": {
+"ActionId": 1,
+"HP": 60,
+"Name": "Lost Bondi",
+"energy": 1
+}
 }
