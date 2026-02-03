@@ -19,6 +19,8 @@ func _ready() -> void:
 			character.id = x
 		else:
 			character.global_position = marker_2d_2.global_position
+			character.id = x
+		character
 
 
 func _process(delta: float) -> void:

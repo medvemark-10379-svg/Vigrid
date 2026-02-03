@@ -52,4 +52,4 @@ func used(usedid:int):
 		await get_tree().create_timer(0.001).timeout
 		MouseState.usedcard.clear()
 		queue_free()
-		Interact.cardpile.append(name)
+		Interact.cardpile.append(Name)

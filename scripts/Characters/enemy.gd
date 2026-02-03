@@ -73,3 +73,6 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
 		MouseState.usedcard.append(id)
 		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
+		
+func create():
+	pass

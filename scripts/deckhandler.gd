@@ -29,16 +29,17 @@ func _ready():
 	
 func deckshuffel():
 	if indeck.size()>5:
-		for i in usedpile:
-			indeck.append(usedpile[i])
-		usedpile.clear()
 		cardplace = [marker_2d.global_position, marker_2d_2.global_position, marker_2d_3.global_position, marker_2d_4.global_position, marker_2d_5.global_position ]
 		for x in 5:
 			random = randi_range(0,indeck.size()-1)
 			infront.append(indeck[random])
 			deckhandler(indeck[random], x)
 			indeck.remove_at(random)
-			print(indeck)
+	else: 
+		for i in usedpile.size():
+			indeck.append(usedpile[i-1])
+		usedpile.clear()
+	print(indeck.size())
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:
@@ -50,14 +51,16 @@ func deckhandler(Name: String, id: int ):
 			strike.icon.modulate = basedeck[item].Color
 			strike.Type = basedeck[item].Type
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
-			strike.name = basedeck[item].Name
+			strike.Name = basedeck[item].Name
 			if basedeck[item].Name == "Block":
 				strike.placedon = basedeck[item].PlacedOn
 
 
 func _on_button_pressed() -> void:
+	usedpile.append_array(Interact.cardpile)
 	for n in hand.get_children():
+		usedpile.append(n.Name)
 		n.queue_free()
-	usedpile = Interact.cardpile
-	Interact.cardpile.clear()
+	print(usedpile)
 	deckshuffel()
+	Interact.cardpile.clear()

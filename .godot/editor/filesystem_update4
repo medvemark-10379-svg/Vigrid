@@ -1,5 +1,2 @@
 res://scenes/Main.tscn
 res://scripts/deckhandler.gd
-res://scenes/Cards/Bondi/Card.tscn
-res://scripts/Cards/Bondi/Card.gd
-res://scripts/Interact.gd
