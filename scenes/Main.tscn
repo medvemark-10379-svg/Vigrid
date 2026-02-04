@@ -42,6 +42,7 @@ offset_right = 1138.0
 offset_bottom = 546.0
 text = "End turn"
 
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button" to="Deck" method="_on_button_pressed"]
 
 [editable path="Deck"]

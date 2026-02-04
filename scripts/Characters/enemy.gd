@@ -8,9 +8,9 @@ const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
 @onready var alert: Sprite2D = $Alert
 
 
-var actions: Array[Callable] = [action1,action2,action3]
+var actions: Array[Callable] = [action1,action2]
 
-var controllabel = false
+var controllabel
 var hp = 40
 var maxhp =0
 
@@ -28,6 +28,10 @@ var nameclass = "Enemys"
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interactive: interact = $"../interact"
+
+func activateaction():
+	var random = randi_range(0,actions.size()-1)
+	actions[random].call()
 
 
 func _process(delta: float) -> void:
@@ -56,8 +60,8 @@ func alert_mode_check(alert_modee: bool):
 	alert.visible = alert_modee
 	animation_player.play("alert")
 	
-func hurt(Damage: int):
-	if MouseState.usedcard[4] == sid:
+func hurt(Damage: int ,id: int):
+	if id== sid:
 		var blocked = min(block, Damage)
 		block -= blocked
 	
@@ -69,8 +73,8 @@ func hurt(Damage: int):
 		if hp <= 0:
 			queue_free()
 	
-func GainBlock(Block: int):
-	if MouseState.usedcard[4] == sid:
+func GainBlock(Block: int, id: int):
+	if id== sid:
 		block += Block
 	
 
@@ -85,22 +89,25 @@ func create():
 	var basecharacter = CHARACTER_DATA.get_meta("C"+str(sid))
 	if sid == 0:
 		choosedcharacter = basecharacter["P" + str(0)]
+		controllabel = choosedcharacter.controllabel
+		Interact.playercharacters.append(sid)
 	else: 
-		choosedcharacter = basecharacter["P" + str(pick_Enemy(basecharacter))]
+		choosedcharacter = basecharacter["P" + str(0)]
+		controllabel = choosedcharacter.controllabel
 	actionid = choosedcharacter.ActionId
 	maxhp = choosedcharacter.HP
 	hp = choosedcharacter.HP
-	
+
 func pick_Enemy(dictionary: Dictionary) -> Variant:
 	var random_key = dictionary.keys().pick_random()
 	return dictionary[random_key].ActionId
 
 
 func action1():
-	print("Ez az első")
+	get_tree().call_group("Enemys", "hurt", 12,Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)])
 	
 func action2():
-	print("Ez az második")
+	GainBlock(12, sid)
 
 func action3():
 	print("Ez a harmadik")

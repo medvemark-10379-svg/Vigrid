@@ -6,26 +6,54 @@ metadata/C0 = {
 "ActionId": 1,
 "HP": 80,
 "Name": "Bondi",
+"controllabel": true,
 "energy": 3
 },
 "P1": {
 "ActionId": 2,
 "HP": 80,
 "Name": "Jarl",
+"controllabel": true,
 "energy": 3
 }
 }
 metadata/C1 = {
 "P0": {
 "ActionId": 0,
+"Actions": {
+0: {
+"Basic": 12,
+"Kind": "hurt"
+},
+1: {
+"Basic": 6,
+"Kind": "GaindBlock"
+},
+2: {
+"Basic": 24,
+"Kind": "hurt"
+},
+3: {
+"Basic": 24,
+"Kind": "GainBlock"
+}
+},
 "HP": 40,
 "Name": "Wolf",
+"controllabel": false,
 "energy": 1
 },
 "P1": {
 "ActionId": 1,
+"Actions": {
+0: {},
+1: {},
+2: {},
+3: {}
+},
 "HP": 60,
 "Name": "Lost Bondi",
+"controllabel": false,
 "energy": 1
 }
 }

@@ -7,6 +7,7 @@ var placedon
 var activated = false
 var Name 
 var Baseeffectnumb 
+var cost
 
 
 @onready var card_point: Node2D = $CardPoint
@@ -17,10 +18,6 @@ var Baseeffectnumb
 
 func _ready() -> void:
 	baseposition = global_position
-
-func _process(delta: float) -> void:
-	pass
-
 
 func clicked(cardid: int):
 	if cardid == id:
@@ -51,5 +48,6 @@ func used(usedid:int):
 		get_tree().call_group("Enemys", "alert_mode_check", false)
 		await get_tree().create_timer(0.001).timeout
 		MouseState.usedcard.clear()
+		get_parent().get_parent().get_parent().EnergyHandler(cost)
 		queue_free()
 		Interact.cardpile.append(Name)

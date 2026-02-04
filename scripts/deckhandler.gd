@@ -51,6 +51,7 @@ func deckhandler(Name: String, id: int ):
 			strike.Type = basedeck[item].Type
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
 			strike.Name = basedeck[item].Name
+			strike.cost = basedeck[item].Cost
 			if basedeck[item].Name == "Block":
 				strike.placedon = basedeck[item].PlacedOn
 
@@ -62,3 +63,4 @@ func _on_button_pressed() -> void:
 		n.queue_free()
 	deckshuffel()
 	Interact.cardpile.clear()
+	
