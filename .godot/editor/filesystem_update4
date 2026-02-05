@@ -1,6 +1,6 @@
 res://scenes/Enemy.tscn
-res://scripts/Character_Data.tres
-res://scenes/Main.tscn
 res://scripts/Cards/Bondi/Card.gd
-res://scripts/deckhandler.gd
+res://scenes/Main.tscn
 res://scripts/combatmain.gd
+res://scripts/Character_Data.tres
+res://scripts/Characters/enemy.gd

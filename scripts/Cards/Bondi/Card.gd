@@ -20,13 +20,13 @@ func _ready() -> void:
 	baseposition = global_position
 
 func clicked(cardid: int):
-	if cardid == id:
-		collision_shape_2d.debug_color = Color(1.0, 0.005, 0.062, 0.42)
-		activated = true
+		if cardid == id:
+			collision_shape_2d.debug_color = Color(1.0, 0.005, 0.062, 0.42)
+			activated = true
+			MouseState.checker(1,1)
 
 func _on_strikearea_mouse_entered() -> void:
 	await get_tree().create_timer(0.001).timeout
-	MouseState.checker(1,1)
 	collision_shape_2d.debug_color = Color(0.658, 0.516, 0.0, 0.42)
 	global_position.y -= 10
 	MouseState.clickedcardid = id
@@ -44,10 +44,13 @@ func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: in
 		
 		
 func used(usedid:int):
-	if usedid == id:
-		get_tree().call_group("Enemys", "alert_mode_check", false)
-		await get_tree().create_timer(0.001).timeout
+	if get_parent().get_parent().get_parent().energy > 0:
+		if usedid == id:
+			get_tree().call_group("Enemys", "alert_mode_check", false)
+			await get_tree().create_timer(0.001).timeout
+			MouseState.usedcard.clear()
+			get_parent().get_parent().get_parent().EnergyHandler(cost)
+			queue_free()
+			Interact.cardpile.append(Name)
+	else:
 		MouseState.usedcard.clear()
-		get_parent().get_parent().get_parent().EnergyHandler(cost)
-		queue_free()
-		Interact.cardpile.append(Name)

@@ -31,7 +31,8 @@ var nameclass = "Enemys"
 
 func activateaction():
 	var random = randi_range(0,actions.size()-1)
-	actions[random].call()
+	var enemy = CHARACTER_DATA.get_meta("C1")
+	get_tree().call_group("Enemys", enemy.P0.Actions[0].Kind, 100)
 
 
 func _process(delta: float) -> void:

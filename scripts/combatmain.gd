@@ -30,6 +30,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	enemys[0].activateaction()
+	energy = 3
 	
 func EnergyHandler(Cost:int):
 	energy -= Cost
