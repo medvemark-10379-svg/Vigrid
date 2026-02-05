@@ -23,19 +23,23 @@ metadata/C1 = {
 "Actions": {
 0: {
 "Basic": 12,
-"Kind": "hurt"
+"Kind": "hurt",
+"id": 0
 },
 1: {
 "Basic": 6,
-"Kind": "GaindBlock"
+"Kind": "GainBlock",
+"id": 1
 },
 2: {
 "Basic": 24,
-"Kind": "hurt"
+"Kind": "hurt",
+"id": 0
 },
 3: {
 "Basic": 24,
-"Kind": "GainBlock"
+"Kind": "GainBlock",
+"id": 1
 }
 },
 "HP": 40,

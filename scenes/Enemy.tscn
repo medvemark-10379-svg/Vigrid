@@ -116,18 +116,18 @@ libraries = {
 }
 
 [node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -137.0
-offset_top = -201.0
-offset_right = 137.0
-offset_bottom = -174.0
+offset_left = -136.0
+offset_top = -168.0
+offset_right = 138.0
+offset_bottom = -141.0
 theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 1)
 step = 1.0
 
 [node name="ProgressBar2" type="ProgressBar" parent="."]
 modulate = Color(1, 0.011764706, 0, 1)
-offset_left = -137.0
+offset_left = -136.0
 offset_top = -168.0
-offset_right = 137.0
+offset_right = 138.0
 offset_bottom = -141.0
 step = 1.0
 show_percentage = false

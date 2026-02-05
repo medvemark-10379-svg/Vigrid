@@ -8,8 +8,6 @@ const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
 @onready var alert: Sprite2D = $Alert
 
 
-var actions: Array[Callable] = [action1,action2]
-
 var controllabel
 var hp = 40
 var maxhp =0
@@ -23,6 +21,7 @@ var tesztszam = 2
 var alert_mode: bool = false
 var block: int = 0
 var nameclass = "Enemys"
+var actionnumber = 0
 @onready var block_bar: ProgressBar = $ProgressBar
 @onready var hp_bar: ProgressBar = $ProgressBar2
 
@@ -30,10 +29,20 @@ var nameclass = "Enemys"
 @onready var interactive: interact = $"../interact"
 
 func activateaction():
-	var random = randi_range(0,actions.size()-1)
 	var enemy = CHARACTER_DATA.get_meta("C1")
-	get_tree().call_group("Enemys", enemy.P0.Actions[0].Kind, 100)
-
+	var basedic = enemy.P0.Actions[actionnumber]
+	var function = basedic.Kind
+	var Basic = basedic.Basic
+	var baseid = basedic.id
+	var functionid 
+	if baseid == 1:
+		functionid = 1
+	else:
+		functionid= Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)]
+	get_tree().call_group("Enemys", function, Basic, functionid)
+	actionnumber +=1
+	if actionnumber == enemy.P0.Actions.size():
+		actionnumber = 0
 
 func _process(delta: float) -> void:
 	block_bar.value = block
@@ -106,12 +115,3 @@ func pick_Enemy(dictionary: Dictionary) -> Variant:
 
 func action1():
 	get_tree().call_group("Enemys", "hurt", 12,Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)])
-	
-func action2():
-	GainBlock(12, sid)
-
-func action3():
-	print("Ez a harmadik")
-
-func action4():
-	print(4)
