@@ -1,2 +1,2 @@
-res://scenes/Enemy.tscn
-res://scripts/Characters/enemy.gd
+res://scenes/card_point.tscn
+res://scripts/Character_Data.tres

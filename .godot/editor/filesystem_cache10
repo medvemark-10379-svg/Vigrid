@@ -1,5 +1,5 @@
 63f7b34db8d8cdea90c76aacccf841ec
-::res://::1770370330
+::res://::1770373626
 BgScript.gd::GDScript::905649846475077804::1770370202::0::1::::<>Node<><>0<>0<><>::
 bg_main.tscn::PackedScene::7182201497473218650::1770370205::0::1::::<><><>0<>0<><>::uid://di41wvfqtsbea::::res://Scripts/MainMenu.gd<>uid://bej7a80okiwnp::::res://Scripts/btn_NewGame_script.gd<>uid://cuuaqx5fj84q7::::res://src/RuneStones/continue_btn_ehwaz.png<>uid://cy81eetlfdka2::::res://src/RuneStones/continue_btn_ehwaz_glow.png<>uid://dwo612dop78ur::::res://Scripts/btn_continue.gd<>uid://bepha06r0vlak::::res://src/RuneStones/exit_btn_hagalaz.png<>uid://cgxg7edruy362::::res://src/RuneStones/exit_btn_hagalaz_glow.png<>uid://cgm8imrsljkw0::::res://Scripts/btn_exit.gd
 icon.svg::CompressedTexture2D::2555555886720144690::1770370205::1770370331::1::::<><><>0<>0<>6e74cbdf4019aeaab832349e7a4a65e9<>res://.godot/imported/icon.svg-218a8f2b3041327d8a5756f3a245f83b.ctex::
@@ -11,13 +11,13 @@ plugin.cfg::TextFile::-1::1770370202::0::1::::<><><>0<>0<><>::
 THIRDPARTY.md::TextFile::-1::1770370202::0::1::::<><><>0<>0<><>::
 ::res://addons/godot-git-plugin/linux/::1770370202
 ::res://addons/godot-git-plugin/macos/::1770370202
-::res://addons/godot-git-plugin/win64/::1770370324
+::res://addons/godot-git-plugin/win64/::1770373621
 ::res://addons/godot-sqlite/::1770370205
 gdsqlite.gdextension::GDExtension::4837341577405836572::1770370205::0::1::::<><><>0<>0<><>::
 godot-sqlite.gd::GDScript::6354497535622739150::1770370205::0::1::::<>EditorPlugin<><>0<>1<><>::
 LICENSE.md::TextFile::-1::1770370202::0::1::::<><><>0<>0<><>::
 plugin.cfg::TextFile::-1::1770370205::0::1::::<><><>0<>0<><>::
-::res://addons/godot-sqlite/bin/::1770370324
+::res://addons/godot-sqlite/bin/::1770373621
 ::res://addons/godot-sqlite/bin/libgdsqlite.ios.template_debug.xcframework/::1770370203
 ::res://addons/godot-sqlite/bin/libgdsqlite.ios.template_debug.xcframework/ios-arm64/::1770370203
 ::res://addons/godot-sqlite/bin/libgdsqlite.ios.template_debug.xcframework/ios-arm64_x86_64-simulator/::1770370203
@@ -34,11 +34,11 @@ plugin.cfg::TextFile::-1::1770370205::0::1::::<><><>0<>0<><>::
 ::res://addons/godot-sqlite/bin/libgodot-cpp.ios.template_release.xcframework/::1770370204
 ::res://addons/godot-sqlite/bin/libgodot-cpp.ios.template_release.xcframework/ios-arm64/::1770370204
 ::res://addons/godot-sqlite/bin/libgodot-cpp.ios.template_release.xcframework/ios-arm64_x86_64-simulator/::1770370205
-::res://scenes/::1770370205
+::res://scenes/::1770372494
 attackarea.gd::GDScript::5456718728638733540::1770370205::0::1::::<>Area2D<><>0<>0<><>::
 card_point.tscn::PackedScene::2466069341416485498::1770370205::0::1::::<><><>0<>0<><>::uid://bkkgieiguiywb::::res://scripts/Cards/card_point.gd<>uid://cj0jmioioswtw::::res://scenes/attackarea.gd
 deck.tscn::PackedScene::7274125677852909660::1770370205::0::1::::<><><>0<>0<><>::uid://bcn6vqxneimqc::::res://icon.svg
-Enemy.tscn::PackedScene::1861128193746066050::1770370205::0::1::::<><><>0<>0<><>::uid://bcn6vqxneimqc::::res://icon.svg<>uid://dnpiufxh7bl7::::res://scripts/Characters/enemy.gd
+Enemy.tscn::PackedScene::1861128193746066050::1770372494::0::1::::<><><>0<>0<><>::uid://bcn6vqxneimqc::::res://icon.svg<>uid://dnpiufxh7bl7::::res://scripts/Characters/enemy.gd
 Main.tscn::PackedScene::4133971207457476511::1770370205::0::1::::<><><>0<>0<><>::uid://bm2aaskos53rw::::res://scripts/combatmain.gd<>uid://84xydy7hgylr::::res://scripts/Interact.gd<>uid://dbvv107gpn27y::::res://scenes/deck.tscn<>uid://d2npnoe1flequ::::res://scripts/deckhandler.gd
 ::res://scenes/Cards/::1770370205
 ::res://scenes/Cards/Bondi/::1770370205
@@ -56,7 +56,7 @@ MouseState.gd::GDScript::4183831918708803250::1770370205::0::1::::<>Node<><>0<>0
 card_point.gd::GDScript::3109331708673378701::1770370205::0::1::::<>Node2D<><>0<>0<><>::
 ::res://scripts/Cards/Bondi/::1770370205
 Card.gd::GDScript::4485210536806840559::1770370205::0::1::::Strike<>Node2D<><>0<>0<><>::
-::res://scripts/Characters/::1770370205
+::res://scripts/Characters/::1770372423
 character.gd::GDScript::3017558420316299700::1770370205::0::1::::<>Node2D<><>0<>0<><>::
-enemy.gd::GDScript::238329542206263722::1770370205::0::1::::Enemy<>Node2D<><>0<>0<><>::
+enemy.gd::GDScript::238329542206263722::1770372423::0::1::::Enemy<>Node2D<><>0<>0<><>::
 ::res://Vigrid/::1770370202
