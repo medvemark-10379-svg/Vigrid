@@ -15,6 +15,13 @@ metadata/C0 = {
 "Name": "Jarl",
 "controllabel": true,
 "energy": 3
+},
+"P3": {
+"ActionId": 3,
+"HP": 80,
+"Name": "Berserkr",
+"controllabel": true,
+"energy": 2
 }
 }
 metadata/C1 = {

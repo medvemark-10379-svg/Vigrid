@@ -6,6 +6,7 @@ const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
 @onready var character: Node2D = $"../Character"
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
+@onready var action: Sprite2D = $Action
 
 
 var controllabel
@@ -22,6 +23,14 @@ var alert_mode: bool = false
 var block: int = 0
 var nameclass = "Enemys"
 var actionnumber = 0
+
+var enemy = CHARACTER_DATA.get_meta("C1")
+var basedic 
+var function
+var Basic 
+var baseid 
+var functionid 
+
 @onready var block_bar: ProgressBar = $ProgressBar
 @onready var hp_bar: ProgressBar = $ProgressBar2
 
@@ -29,12 +38,10 @@ var actionnumber = 0
 @onready var interactive: interact = $"../interact"
 
 func activateaction():
-	var enemy = CHARACTER_DATA.get_meta("C1")
-	var basedic = enemy.P0.Actions[actionnumber]
-	var function = basedic.Kind
-	var Basic = basedic.Basic
-	var baseid = basedic.id
-	var functionid 
+	basedic = enemy.P0.Actions[actionnumber]
+	function = basedic.Kind
+	Basic = basedic.Basic
+	baseid = basedic.id
 	if baseid == 1:
 		functionid = 1
 	else:
@@ -43,7 +50,16 @@ func activateaction():
 	actionnumber +=1
 	if actionnumber == enemy.P0.Actions.size():
 		actionnumber = 0
+		
+	curentaction()
+	
 
+func curentaction():
+	if baseid == 1:
+		action.modulate = Color(0.0, 0.0, 0.847)
+	else:
+		action.modulate = Color(1.0, 0.0, 0.216)
+	
 func _process(delta: float) -> void:
 	block_bar.value = block
 	hp_bar.max_value = maxhp
