@@ -132,6 +132,12 @@ offset_bottom = -141.0
 step = 1.0
 show_percentage = false
 
+[node name="Action" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0.21568628, 1)
+position = Vector2(-3.7550926e-06, -210)
+scale = Vector2(0.40625, 0.4609375)
+texture = ExtResource("1_3gvst")
+
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]
