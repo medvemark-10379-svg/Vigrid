@@ -1,12 +1,16 @@
 class_name Enemy extends Node2D
 
 const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
+const MINION = preload("uid://c7naktn4x0j8v")
 
 @onready var interact: interact = $"../interact"
 @onready var character: Node2D = $"../Character"
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
 @onready var action: Sprite2D = $Action
+@onready var minioncontainer: Node = $Minioncontainer
+
+var minionplace 
 
 
 var controllabel
@@ -17,6 +21,7 @@ var sid
 var actionid 
 var Name
 var energy 
+
 
 var tesztszam = 2
 var alert_mode: bool = false
@@ -131,3 +136,10 @@ func pick_Enemy(dictionary: Dictionary) -> Variant:
 
 func action1():
 	get_tree().call_group("Enemys", "hurt", 12,Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)])
+
+
+func minions():
+	for x in minionplace.size():
+		var minion = MINION.instantiate()
+		minioncontainer.add_child(minion)
+		minion.global_position = minionplace[x].global_position 

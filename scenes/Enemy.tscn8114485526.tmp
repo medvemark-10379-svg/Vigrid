@@ -138,14 +138,6 @@ position = Vector2(-3.7550926e-06, -210)
 scale = Vector2(0.40625, 0.4609375)
 texture = ExtResource("1_3gvst")
 
-[node name="Minion1" type="Marker2D" parent="."]
-position = Vector2(-180, 0)
-
-[node name="Minion2" type="Marker2D" parent="."]
-position = Vector2(180, 0)
-
-[node name="Minioncontainer" type="Node" parent="."]
-
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
 [connection signal="mouse_exited" from="Area2D" to="." method="_on_mouse_exited"]

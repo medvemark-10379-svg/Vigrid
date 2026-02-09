@@ -1,2 +1,5 @@
-res://scenes/card_point.tscn
+res://scenes/Enemy.tscn
 res://scripts/Character_Data.tres
+res://scripts/BaseCard_data.tres
+res://scripts/Characters/enemy.gd
+res://scenes/minion.tscn

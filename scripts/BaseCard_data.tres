@@ -3,11 +3,11 @@
 [resource]
 metadata/BD = {
 "Blocks": {
-"BaseEffectNumb": 6,
+"BaseEffectNumb": 3,
 "Color": Color(0, 0, 1, 1),
 "Cost": 1,
-"Holded": 5,
-"Name": "Block",
+"Holded": 3,
+"Name": "Guard",
 "PlacedOn": ["Enemys", "Player"],
 "Type": "Block"
 },
@@ -16,15 +16,16 @@ metadata/BD = {
 "Color": Color(0.7772874, 0.6824531, 0, 1),
 "Cost": 2,
 "Holded": 1,
-"Name": "Parry",
+"Name": "Sway",
 "Type": "Buff"
 },
 "Strikes": {
-"BaseEffectNumb": 6,
+"BaseEffectNumb": 3,
 "Color": Color(1, 0, 0, 1),
 "Cost": 1,
-"Holded": 5,
-"Name": "Strike",
+"Holded": 3,
+"Name": "Sunder",
 "Type": "Attack"
 }
 }
+metadata/JD = {}
