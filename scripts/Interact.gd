@@ -17,7 +17,16 @@ func Attack(Victim: String, damage):
 func Block(Victim: String, block,):
 	get_tree().call_group(Victim, "GainBlock", block, MouseState.usedcard[4])
 
+#Buff
+func Buff(Victim: String, buff ):
+	pass
+
+#Summon
+func Summon(Victim: String, summoned):
+	get_tree().call_group(Victim, "Summon", summoned, MouseState.usedcard[4])
+
 #Item
+
 
 
 #God

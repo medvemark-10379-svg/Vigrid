@@ -21,6 +21,7 @@ var sid
 var actionid 
 var Name
 var energy 
+var minioncounter = 0
 
 
 var tesztszam = 2
@@ -114,14 +115,16 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
 		MouseState.usedcard.append(sid)
 		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
-		
+
 func create():
 	var choosedcharacter
 	var basecharacter = CHARACTER_DATA.get_meta("C"+str(sid))
 	if sid == 0:
-		choosedcharacter = basecharacter["P" + str(0)]
+		choosedcharacter = basecharacter[MouseState.Character]
 		controllabel = choosedcharacter.controllabel
 		Interact.playercharacters.append(sid)
+		MouseState.Energy = choosedcharacter.energy
+		MouseState.choseddeck = choosedcharacter.UsedDeck
 	else: 
 		choosedcharacter = basecharacter["P" + str(0)]
 		controllabel = choosedcharacter.controllabel
@@ -138,8 +141,15 @@ func action1():
 	get_tree().call_group("Enemys", "hurt", 12,Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)])
 
 
+func Summon(Damage: int ,id: int):
+	if id == sid:
+		minions()
+
 func minions():
-	for x in minionplace.size():
+	if minioncounter <= 1: 
+		minionplace = [$Minion1,$Minion2]
 		var minion = MINION.instantiate()
 		minioncontainer.add_child(minion)
-		minion.global_position = minionplace[x].global_position 
+		minion.global_position = minionplace[minioncounter].global_position 
+		if minioncounter <1:
+			minioncounter += 1

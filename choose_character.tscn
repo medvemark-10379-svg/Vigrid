@@ -1,0 +1,44 @@
+[gd_scene load_steps=4 format=3 uid="uid://dwl6kdyyk2xym"]
+
+[ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="1_qjxgw"]
+[ext_resource type="Script" uid="uid://15ea22lwt0c3" path="res://choose_character.gd" id="1_w00km"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w00km"]
+
+[node name="ChooseCharacter" type="Node2D"]
+script = ExtResource("1_w00km")
+
+[node name="Bondi" type="Area2D" parent="."]
+position = Vector2(291, 331)
+
+[node name="Icon" type="Sprite2D" parent="Bondi"]
+texture = ExtResource("1_qjxgw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Bondi"]
+scale = Vector2(6.13, 6.13)
+shape = SubResource("RectangleShape2D_w00km")
+metadata/_edit_lock_ = true
+
+[node name="Jarl" type="Area2D" parent="."]
+position = Vector2(650, 329)
+
+[node name="Icon" type="Sprite2D" parent="Jarl"]
+texture = ExtResource("1_qjxgw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Jarl"]
+scale = Vector2(6.13, 6.13)
+shape = SubResource("RectangleShape2D_w00km")
+metadata/_edit_lock_ = true
+
+[node name="Button" type="Button" parent="."]
+offset_left = 382.0
+offset_top = 521.0
+offset_right = 594.0
+offset_bottom = 580.0
+text = "Start"
+
+[connection signal="input_event" from="Bondi" to="." method="_on_bondi_input_event"]
+[connection signal="input_event" from="Jarl" to="." method="_on_jarl_input_event"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]

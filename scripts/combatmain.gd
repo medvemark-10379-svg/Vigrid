@@ -7,8 +7,9 @@ const ENEMY = preload("uid://1rsrk55xpfre")
 @onready var marker_2d_2: Marker2D = $Marker2D2
 
 var character
-var energy = 3
+var energy = MouseState.Energy
 var enemys = []
+var Deck
 
 func _ready() -> void:
 	for x in 2:
@@ -23,6 +24,9 @@ func _ready() -> void:
 			character.sid = x
 			enemys.append(character)
 		character.create()
+	energy = MouseState.Energy
+	Deck = MouseState.choseddeck
+		
 
 
 func _process(delta: float) -> void:
@@ -30,7 +34,7 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	enemys[0].activateaction()
-	energy = 3
+	energy = MouseState.Energy
 	
 func EnergyHandler(Cost:int):
 	energy -= Cost

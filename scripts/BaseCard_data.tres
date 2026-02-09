@@ -6,7 +6,7 @@ metadata/BD = {
 "BaseEffectNumb": 3,
 "Color": Color(0, 0, 1, 1),
 "Cost": 1,
-"Holded": 3,
+"Holded": 4,
 "Name": "Guard",
 "PlacedOn": ["Enemys", "Player"],
 "Type": "Block"
@@ -23,9 +23,37 @@ metadata/BD = {
 "BaseEffectNumb": 3,
 "Color": Color(1, 0, 0, 1),
 "Cost": 1,
-"Holded": 3,
+"Holded": 5,
 "Name": "Sunder",
 "Type": "Attack"
 }
 }
-metadata/JD = {}
+metadata/JD = {
+"Blocks": {
+"BaseEffectNumb": 3,
+"Color": Color(0, 0, 1, 1),
+"Cost": 1,
+"Holded": 5,
+"Name": "Guard",
+"PlacedOn": ["Enemys", "Player"],
+"Type": "Block"
+},
+"MinionBuffs": {
+"BaseEffectNumb": 2,
+"Color": Color(1, 0.40392157, 0, 1),
+"Cost": 2,
+"Holded": 3,
+"Name": "MinionBuff",
+"PlacedOn": ["Minion1", "Minion2"],
+"Type": "Buff"
+},
+"Minions": {
+"BaseEffect": "minions",
+"BaseEffectNumb": 0,
+"Color": Color(0, 1, 0, 1),
+"Cost": 2,
+"Holded": 2,
+"Name": "Minion",
+"Type": "Summon"
+}
+}

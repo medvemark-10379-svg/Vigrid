@@ -1,7 +1,7 @@
 extends Node2D
 
 var BaseCard_data = load("res://scripts/BaseCard_data.tres")
-var basedeck = BaseCard_data.get_meta("BD")
+var basedeck
 const STRIKE = preload("uid://dsrjwl4y5t6cm")
 
 @onready var marker_2d: Marker2D = $Marker2D
@@ -10,6 +10,7 @@ const STRIKE = preload("uid://dsrjwl4y5t6cm")
 @onready var marker_2d_4: Marker2D = $Marker2D4
 @onready var marker_2d_5: Marker2D = $Marker2D5
 @onready var hand: Node = $hand
+@onready var combatscene_main: Node2D = $".."
 
 var cardplace = []
 var indeck= []
@@ -19,6 +20,8 @@ var random
 
 
 func _ready():
+	await get_tree().create_timer(0.001).timeout
+	basedeck = BaseCard_data.get_meta(combatscene_main.Deck)
 	for item in basedeck:
 		for x in basedeck[item].Holded:
 			indeck.append(basedeck[item].Name)
@@ -49,7 +52,7 @@ func deckhandler(Name: String, id: int ):
 			strike.global_position = cardplace[id]
 			strike.icon.modulate = basedeck[item].Color
 			strike.Type = basedeck[item].Type
-			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb
+			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb 
 			strike.Name = basedeck[item].Name
 			strike.cost = basedeck[item].Cost
 			if basedeck[item].Name == "Block":

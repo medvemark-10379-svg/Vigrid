@@ -16,7 +16,7 @@ metadata/C0 = {
 "Name": "Jarl",
 "UsedDeck": "JD",
 "controllabel": true,
-"energy": 3
+"energy": 4
 },
 "P3": {
 "ActionId": 3,
