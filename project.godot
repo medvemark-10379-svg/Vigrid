@@ -26,6 +26,7 @@ Interact="*res://scripts/Interact.gd"
 Cards=""
 Enemys=""
 Player=""
+Minions=""
 
 [input]
 

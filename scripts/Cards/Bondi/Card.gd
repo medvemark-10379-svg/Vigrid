@@ -47,9 +47,8 @@ func used(usedid:int):
 		if usedid == id:
 			get_tree().call_group("Enemys", "alert_mode_check", false)
 			await get_tree().create_timer(0.001).timeout
-			MouseState.usedcard.clear()
 			get_parent().get_parent().get_parent().EnergyHandler(cost)
+			print(MouseState.usedcard)
+			MouseState.usedcard.clear()
 			queue_free()
 			Interact.cardpile.append(Name)
-	else:
-		MouseState.usedcard.clear()

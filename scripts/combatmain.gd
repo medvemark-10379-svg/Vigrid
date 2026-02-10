@@ -33,6 +33,7 @@ func _process(delta: float) -> void:
 	energy_label.text = str(energy)
 
 func _on_button_pressed() -> void:
+	get_tree().call_group("Minions", "Attack")
 	enemys[0].activateaction()
 	energy = MouseState.Energy
 	

@@ -126,15 +126,15 @@ step = 1.0
 [node name="ProgressBar2" type="ProgressBar" parent="."]
 modulate = Color(1, 0.011764706, 0, 1)
 offset_left = -136.0
-offset_top = -168.0
+offset_top = -198.0
 offset_right = 138.0
-offset_bottom = -141.0
+offset_bottom = -171.0
 step = 1.0
 show_percentage = false
 
 [node name="Action" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0.21568628, 1)
-position = Vector2(-3.7550926e-06, -210)
+position = Vector2(-3.7550926e-06, -247)
 scale = Vector2(0.40625, 0.4609375)
 texture = ExtResource("1_3gvst")
 

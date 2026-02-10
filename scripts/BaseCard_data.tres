@@ -57,3 +57,23 @@ metadata/JD = {
 "Type": "Summon"
 }
 }
+metadata/BersD = {
+"Blocks": {
+"BaseEffectNumb": 3,
+"Color": Color(0, 0, 1, 1),
+"Cost": 1,
+"Holded": 4,
+"Name": "Guard",
+"PlacedOn": ["Enemys", "Player"],
+"Type": "Block"
+},
+"Heavy Strikes": {},
+"Strikes": {
+"BaseEffectNumb": null,
+"Color": null,
+"Cost": null,
+"Holded": null,
+"Name": null,
+"Type": null
+}
+}

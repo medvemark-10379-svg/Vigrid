@@ -19,7 +19,7 @@ func Block(Victim: String, block,):
 
 #Buff
 func Buff(Victim: String, buff ):
-	pass
+	get_tree().call_group("Minions", "Attackbuff")
 
 #Summon
 func Summon(Victim: String, summoned):

@@ -31,7 +31,7 @@ func _ready():
 	
 	
 func deckshuffel():
-	if indeck.size()>5:
+	if indeck.size()>=5:
 		cardplace = [marker_2d.global_position, marker_2d_2.global_position, marker_2d_3.global_position, marker_2d_4.global_position, marker_2d_5.global_position ]
 		for x in 5:
 			random = randi_range(0,indeck.size()-1)
@@ -42,6 +42,7 @@ func deckshuffel():
 		for i in usedpile.size():
 			indeck.append(usedpile[i-1])
 		usedpile.clear()
+		deckshuffel()
 			
 func deckhandler(Name: String, id: int ):
 	for item in basedeck:

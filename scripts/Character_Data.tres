@@ -12,7 +12,7 @@ metadata/C0 = {
 },
 "P1": {
 "ActionId": 2,
-"HP": 80,
+"HP": 10,
 "Name": "Jarl",
 "UsedDeck": "JD",
 "controllabel": true,
