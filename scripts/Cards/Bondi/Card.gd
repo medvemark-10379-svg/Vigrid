@@ -38,12 +38,11 @@ func _on_strikearea_mouse_exited() -> void:
 
 
 func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("mouseactions"):
+	if Input.is_action_just_pressed("mouseactions") and get_parent().get_parent().get_parent().energy-cost >= 0:
 		MouseState.usedcard = [id, Type, Baseeffectnumb, placedon]
 		
 		
 func used(usedid:int):
-	if get_parent().get_parent().get_parent().energy-cost >= 0:
 		if usedid == id:
 			get_tree().call_group("Enemys", "alert_mode_check", false)
 			await get_tree().create_timer(0.001).timeout

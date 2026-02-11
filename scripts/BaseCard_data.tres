@@ -67,13 +67,20 @@ metadata/BersD = {
 "PlacedOn": ["Enemys", "Player"],
 "Type": "Block"
 },
-"Heavy Strikes": {},
+"Heavy Strikes": {
+"BaseEffectNumb": 5,
+"Color": Color(0.43137255, 0, 0, 1),
+"Cost": 2,
+"Holded": 5,
+"Name": "Heavy Strike",
+"Type": "Attack"
+},
 "Strikes": {
-"BaseEffectNumb": null,
-"Color": null,
-"Cost": null,
-"Holded": null,
-"Name": null,
-"Type": null
+"BaseEffectNumb": 3,
+"Color": Color(1, 0, 0, 1),
+"Cost": 1,
+"Holded": 5,
+"Name": "Sunder",
+"Type": "Attack"
 }
 }

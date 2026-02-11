@@ -8,26 +8,38 @@
 [node name="ChooseCharacter" type="Node2D"]
 script = ExtResource("1_w00km")
 
-[node name="Bondi" type="Area2D" parent="."]
+[node name="P0" type="Area2D" parent="."]
 position = Vector2(291, 331)
 
-[node name="Icon" type="Sprite2D" parent="Bondi"]
+[node name="Icon" type="Sprite2D" parent="P0"]
 texture = ExtResource("1_qjxgw")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Bondi"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P0"]
 scale = Vector2(6.13, 6.13)
 shape = SubResource("RectangleShape2D_w00km")
 metadata/_edit_lock_ = true
 
-[node name="Jarl" type="Area2D" parent="."]
-position = Vector2(650, 329)
+[node name="P1" type="Area2D" parent="."]
+position = Vector2(459, 329)
 
-[node name="Icon" type="Sprite2D" parent="Jarl"]
+[node name="Icon" type="Sprite2D" parent="P1"]
 texture = ExtResource("1_qjxgw")
 metadata/_edit_lock_ = true
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Jarl"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P1"]
+scale = Vector2(6.13, 6.13)
+shape = SubResource("RectangleShape2D_w00km")
+metadata/_edit_lock_ = true
+
+[node name="P2" type="Area2D" parent="."]
+position = Vector2(641, 329)
+
+[node name="Icon" type="Sprite2D" parent="P2"]
+texture = ExtResource("1_qjxgw")
+metadata/_edit_lock_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="P2"]
 scale = Vector2(6.13, 6.13)
 shape = SubResource("RectangleShape2D_w00km")
 metadata/_edit_lock_ = true
@@ -39,6 +51,7 @@ offset_right = 594.0
 offset_bottom = 580.0
 text = "Start"
 
-[connection signal="input_event" from="Bondi" to="." method="_on_bondi_input_event"]
-[connection signal="input_event" from="Jarl" to="." method="_on_jarl_input_event"]
+[connection signal="input_event" from="P0" to="." method="_on_p_0_input_event"]
+[connection signal="input_event" from="P1" to="." method="_on_p_1_input_event"]
+[connection signal="input_event" from="P2" to="." method="_on_p_2_input_event"]
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
