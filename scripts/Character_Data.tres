@@ -3,6 +3,13 @@
 [resource]
 metadata/C0 = {
 "P0": {
+"AbleToHold": {
+"Block": null,
+"HeavyStrike": null,
+"Knife": null,
+"Parry": null,
+"Strike": null
+},
 "ActionId": 1,
 "HP": 15,
 "Name": "Bondi",
@@ -32,22 +39,22 @@ metadata/C1 = {
 "ActionId": 0,
 "Actions": {
 0: {
-"Basic": 2,
+"Basic": 6,
 "Kind": "hurt",
 "id": 0
 },
 1: {
-"Basic": 2,
+"Basic": 6,
 "Kind": "GainBlock",
 "id": 1
 },
 2: {
-"Basic": 3,
+"Basic": 6,
 "Kind": "hurt",
 "id": 0
 },
 3: {
-"Basic": 4,
+"Basic": 6,
 "Kind": "GainBlock",
 "id": 1
 }

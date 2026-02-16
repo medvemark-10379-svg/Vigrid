@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://cya8g8i86r4f8"]
+
+[ext_resource type="PackedScene" uid="uid://dsrjwl4y5t6cm" path="res://scenes/Cards/Bondi/Card.tscn" id="1_gem6r"]
+[ext_resource type="Script" uid="uid://fq86q6vds1ix" path="res://scripts/win_scene.gd" id="1_sh4x7"]
+
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sh4x7")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 0
+offset_right = 1149.0
+offset_bottom = 647.0
+
+[node name="Strike" parent="." instance=ExtResource("1_gem6r")]
+position = Vector2(860, 330)
+
+[node name="Strike2" parent="." instance=ExtResource("1_gem6r")]
+position = Vector2(572, 330)
+
+[node name="Strike3" parent="." instance=ExtResource("1_gem6r")]
+position = Vector2(244, 334)

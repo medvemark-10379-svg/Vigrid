@@ -1,3 +1,5 @@
+Panel
+Label
 Node
 Button
 CollisionShape2D
@@ -7,5 +9,4 @@ Sprite2D
 TextureProgressBar
 ProgressBar
 AnimationPlayer
-Label
 interact
