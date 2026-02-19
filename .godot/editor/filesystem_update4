@@ -1,6 +1,5 @@
-res://choose_character.tscn
-res://scripts/Character_Data.tres
-res://scenes/WinScene.tscn
-res://scripts/AllCard_data.tres
 res://scripts/win_scene.gd
+res://scenes/WinScene.tscn
+res://scenes/minion.tscn
 res://scripts/BaseCard_data.tres
+res://scenes/Main.tscn

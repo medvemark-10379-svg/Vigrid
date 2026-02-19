@@ -1,7 +1,7 @@
+Button
+Node
 Panel
 Label
-Node
-Button
 CollisionShape2D
 Area2D
 Marker2D
