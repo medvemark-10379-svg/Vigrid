@@ -23,7 +23,7 @@ metadata/BD = {
 "BaseEffectNumb": 1,
 "Color": Color(1, 0.46101677, 0.3927373, 1),
 "Cost": 1,
-"Holded": 2,
+"Holded": 0,
 "Name": "Knife",
 "Type": "Attack"
 },

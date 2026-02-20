@@ -20,12 +20,15 @@ var random
 
 
 func _ready():
+	indeck.append_array(Interact.pluscardpile)
+	print(indeck)
 	await get_tree().create_timer(0.001).timeout
 	basedeck = BaseCard_data.get_meta(combatscene_main.Deck)
 	for item in basedeck:
 		for x in basedeck[item].Holded:
 			indeck.append(basedeck[item].Name)
 	deckshuffel()
+	print(indeck)
 	
 	
 	
