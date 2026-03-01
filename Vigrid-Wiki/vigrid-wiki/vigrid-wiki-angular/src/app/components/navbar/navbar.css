@@ -1,0 +1,12 @@
+/* Navbar layout and responsive rules */
+.app-navbar { background: #ffffff; border-bottom: 1px solid #e5e7eb; }
+.app-navbar .container { max-width: 1200px; margin: 0 auto; padding: 0.5rem 1rem; display: flex; align-items: center; justify-content: space-between; }
+.brand a { font-weight: 600; color: #111827; text-decoration: none; }
+.nav-right { display: flex; gap: 1rem; align-items: center; }
+.nav-right a { color: #374151; text-decoration: none; padding: 0.35rem 0.6rem; border-radius: 4px; }
+.nav-right a.signin { background: #4f46e5; color: #fff; }
+
+@media (max-width: 640px) {
+	.app-navbar .container { flex-direction: column; align-items: flex-start; }
+	.nav-right { width: 100%; display: flex; gap: 0.5rem; margin-top: 0.5rem; }
+}

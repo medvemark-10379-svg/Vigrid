@@ -1,12 +1,17 @@
 class_name Enemy extends Node2D
 
 const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
+const MINION = preload("uid://c7naktn4x0j8v")
 
 @onready var interact: interact = $"../interact"
 @onready var character: Node2D = $"../Character"
 @onready var card: Strike = $"../Card"
 @onready var alert: Sprite2D = $Alert
 @onready var action: Sprite2D = $Action
+@onready var minioncontainer: Node = $Minioncontainer
+const WIN_SCENE = preload("uid://cya8g8i86r4f8")
+
+var minionplace 
 
 
 var controllabel
@@ -17,6 +22,8 @@ var sid
 var actionid 
 var Name
 var energy 
+var minioncounter = 0
+
 
 var tesztszam = 2
 var alert_mode: bool = false
@@ -97,7 +104,12 @@ func hurt(Damage: int ,id: int):
 		hp = max(hp,0)
 		
 		if hp <= 0:
+			Interact.enemys.erase(sid)
 			queue_free()
+	if Interact.enemys.size() == 0:
+		var win_sceene = WIN_SCENE.instantiate()
+		get_parent().get_parent().add_child(win_sceene)
+			
 	
 func GainBlock(Block: int, id: int):
 	if id== sid:
@@ -109,15 +121,18 @@ func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) 
 	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
 		MouseState.usedcard.append(sid)
 		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
-		
+
 func create():
 	var choosedcharacter
 	var basecharacter = CHARACTER_DATA.get_meta("C"+str(sid))
 	if sid == 0:
-		choosedcharacter = basecharacter["P" + str(0)]
+		choosedcharacter = basecharacter[MouseState.Character]
 		controllabel = choosedcharacter.controllabel
 		Interact.playercharacters.append(sid)
+		MouseState.Energy = choosedcharacter.energy
+		MouseState.choseddeck = choosedcharacter.UsedDeck
 	else: 
+		Interact.enemys.append(sid)
 		choosedcharacter = basecharacter["P" + str(0)]
 		controllabel = choosedcharacter.controllabel
 	actionid = choosedcharacter.ActionId
@@ -131,3 +146,17 @@ func pick_Enemy(dictionary: Dictionary) -> Variant:
 
 func action1():
 	get_tree().call_group("Enemys", "hurt", 12,Interact.playercharacters[randi_range(0,Interact.playercharacters.size()-1)])
+
+
+func Summon(Damage: int ,id: int):
+	if id == sid:
+		minions()
+
+func minions():
+	if minioncounter <= 1: 
+		minionplace = [$Minion1,$Minion2]
+		var minion = MINION.instantiate()
+		minioncontainer.add_child(minion)
+		minion.global_position = minionplace[minioncounter].global_position 
+		if minioncounter <1:
+			minioncounter += 1

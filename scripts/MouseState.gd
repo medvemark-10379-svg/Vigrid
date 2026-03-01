@@ -2,7 +2,9 @@ extends Node
 
 
 var usedcard = []
-
+var Character 
+var Energy
+var choseddeck
 
 var CIVP = ["outside","inside_card", "Enemy"]
 var CIVR = ["released","pressed"]
@@ -15,11 +17,9 @@ var clickedcardid
 func _input(event: InputEvent) -> void:
 	if InputMap.event_is_action(event,"mouseactions"):
 		if Input.is_action_just_pressed("mouseactions"):
-			print(mousestateP +","+ CIVR[1])
 			if mousestateP == CIVP[2] and MouseState.usedcard.size() != 0:
 				get_tree().call_group("Cards", "used", usedcard[0])
 		if Input.is_action_just_released("mouseactions"):
-			print(mousestateP +","+ CIVR[0])
 			dragabel = false
 		if mousestateP == CIVP[1]:
 			dragabel = true

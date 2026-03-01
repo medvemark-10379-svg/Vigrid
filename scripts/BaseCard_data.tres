@@ -6,10 +6,31 @@ metadata/BD = {
 "BaseEffectNumb": 3,
 "Color": Color(0, 0, 1, 1),
 "Cost": 1,
+<<<<<<< HEAD
 "Holded": 3,
 "Name": "Block",
+=======
+"Holded": 4,
+"Name": "Guard",
+>>>>>>> fbf83966ea5b025d3db17b9a55628ffdf41fae85
 "PlacedOn": ["Enemys", "Player"],
 "Type": "Guard"
+},
+"Heavy Strikes": {
+"BaseEffectNumb": 5,
+"Color": Color(0.431, 0, 0, 1),
+"Cost": 2,
+"Holded": 0,
+"Name": "Heavy Strike",
+"Type": "Attack"
+},
+"Knifes": {
+"BaseEffectNumb": 1,
+"Color": Color(1, 0.46101677, 0.3927373, 1),
+"Cost": 1,
+"Holded": 0,
+"Name": "Knife",
+"Type": "Attack"
 },
 "Parrys": {
 "BaseEffectNumb": 3,
@@ -23,7 +44,67 @@ metadata/BD = {
 "BaseEffectNumb": 3,
 "Color": Color(1, 0, 0, 1),
 "Cost": 1,
+<<<<<<< HEAD
 "Holded": 3,
+=======
+"Holded": 5,
+"Name": "Sunder",
+"Type": "Attack"
+}
+}
+metadata/JD = {
+"Blocks": {
+"BaseEffectNumb": 3,
+"Color": Color(0, 0, 1, 1),
+"Cost": 1,
+"Holded": 5,
+"Name": "Guard",
+"PlacedOn": ["Enemys", "Player"],
+"Type": "Block"
+},
+"MinionBuffs": {
+"BaseEffectNumb": 2,
+"Color": Color(1, 0.40392157, 0, 1),
+"Cost": 2,
+"Holded": 3,
+"Name": "MinionBuff",
+"PlacedOn": ["Minion1", "Minion2"],
+"Type": "Buff"
+},
+"Minions": {
+"BaseEffect": "minions",
+"BaseEffectNumb": 0,
+"Color": Color(0, 1, 0, 1),
+"Cost": 2,
+"Holded": 2,
+"Name": "Minion",
+"Type": "Summon"
+}
+}
+metadata/BersD = {
+"Blocks": {
+"BaseEffectNumb": 3,
+"Color": Color(0, 0, 1, 1),
+"Cost": 1,
+"Holded": 4,
+"Name": "Guard",
+"PlacedOn": ["Enemys", "Player"],
+"Type": "Block"
+},
+"Heavy Strikes": {
+"BaseEffectNumb": 5,
+"Color": Color(0.43137255, 0, 0, 1),
+"Cost": 2,
+"Holded": 5,
+"Name": "Heavy Strike",
+"Type": "Attack"
+},
+"Strikes": {
+"BaseEffectNumb": 3,
+"Color": Color(1, 0, 0, 1),
+"Cost": 1,
+"Holded": 5,
+>>>>>>> fbf83966ea5b025d3db17b9a55628ffdf41fae85
 "Name": "Sunder",
 "Type": "Attack"
 }

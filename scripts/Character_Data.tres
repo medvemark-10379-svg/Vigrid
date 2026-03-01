@@ -3,23 +3,33 @@
 [resource]
 metadata/C0 = {
 "P0": {
+"AbleToHold": {
+"Block": {},
+"HeavyStrike": {},
+"Knife": {},
+"Parry": {},
+"Strike": {}
+},
 "ActionId": 1,
-"HP": 80,
+"HP": 15,
 "Name": "Bondi",
+"UsedDeck": "BD",
 "controllabel": true,
 "energy": 3
 },
 "P1": {
 "ActionId": 2,
-"HP": 80,
+"HP": 10,
 "Name": "Jarl",
+"UsedDeck": "JD",
 "controllabel": true,
-"energy": 3
+"energy": 4
 },
 "P3": {
 "ActionId": 3,
 "HP": 80,
 "Name": "Berserkr",
+"UsedDeck": "BersD",
 "controllabel": true,
 "energy": 2
 }
@@ -29,7 +39,7 @@ metadata/C1 = {
 "ActionId": 0,
 "Actions": {
 0: {
-"Basic": 12,
+"Basic": 6,
 "Kind": "hurt",
 "id": 0
 },
@@ -39,17 +49,17 @@ metadata/C1 = {
 "id": 1
 },
 2: {
-"Basic": 24,
+"Basic": 6,
 "Kind": "hurt",
 "id": 0
 },
 3: {
-"Basic": 24,
+"Basic": 6,
 "Kind": "GainBlock",
 "id": 1
 }
 },
-"HP": 40,
+"HP": 20,
 "Name": "Wolf",
 "controllabel": false,
 "energy": 1
@@ -62,7 +72,7 @@ metadata/C1 = {
 2: {},
 3: {}
 },
-"HP": 60,
+"HP": 25,
 "Name": "Lost Bondi",
 "controllabel": false,
 "energy": 1

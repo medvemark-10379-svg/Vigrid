@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c7naktn4x0j8v"]
+
+[ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="1_7n1am"]
+[ext_resource type="Script" uid="uid://xvh0magxne4" path="res://scripts/Characters/minion.gd" id="1_y8etf"]
+
+[node name="Minion" type="Node2D" groups=["Minions"]]
+script = ExtResource("1_y8etf")
+
+[node name="Icon" type="Sprite2D" parent="."]
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("1_7n1am")
