@@ -1,6 +1,6 @@
 extends Control
 
-@onready var carccontainer: Node = $CanvasLayer/Carccontainer
+@onready var carccontainer: Node = $Carccontainer
 
 const MAIN = preload("uid://by5r5wqt6jbad")
 
