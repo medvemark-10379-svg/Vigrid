@@ -1,89 +1,84 @@
 [gd_scene load_steps=7 format=3 uid="uid://cya8g8i86r4f8"]
 
-[ext_resource type="PackedScene" uid="uid://dsrjwl4y5t6cm" path="res://scenes/Cards/Bondi/Card.tscn" id="1_gem6r"]
 [ext_resource type="Script" uid="uid://fq86q6vds1ix" path="res://scripts/win_scene.gd" id="1_sh4x7"]
 [ext_resource type="Script" uid="uid://b45w06fh05jbj" path="res://scripts/Cards/Bondi/Card.gd" id="2_iwt72"]
 [ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="3_olbwh"]
 
+[sub_resource type="CanvasTexture" id="CanvasTexture_nk6gu"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dnmv"]
 size = Vector2(126, 179)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_iwt72"]
-size = Vector2(125, 178)
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nk6gu"]
+size = Vector2(126, 179)
 
-[node name="Control" type="Control"]
-layout_mode = 3
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+[node name="Node2D" type="Node2D"]
+top_level = true
 script = ExtResource("1_sh4x7")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="TextureRect" type="TextureRect" parent="."]
+offset_right = 1163.0
+offset_bottom = 661.0
+texture = SubResource("CanvasTexture_nk6gu")
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
-offset_right = 1149.0
-offset_bottom = 647.0
-
-[node name="Carccontainer" type="Node" parent="CanvasLayer"]
-
-[node name="Strike" type="Node2D" parent="CanvasLayer/Carccontainer" groups=["Cards"]]
-position = Vector2(860, 330)
-script = ExtResource("2_iwt72")
-
-[node name="Icon" type="Sprite2D" parent="CanvasLayer/Carccontainer/Strike"]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(1, 1.4570313)
-texture = ExtResource("3_olbwh")
-
-[node name="Strikearea" type="Area2D" parent="CanvasLayer/Carccontainer/Strike"]
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CanvasLayer/Carccontainer/Strike/Strikearea"]
-shape = SubResource("RectangleShape2D_0dnmv")
-
-[node name="Strike2" parent="CanvasLayer/Carccontainer" instance=ExtResource("1_gem6r")]
-position = Vector2(572, 330)
-
-[node name="Strike3" parent="CanvasLayer/Carccontainer" instance=ExtResource("1_gem6r")]
-position = Vector2(244, 334)
-
-[node name="Button" type="Button" parent="CanvasLayer"]
+[node name="Button" type="Button" parent="."]
 offset_left = 313.0
 offset_top = 523.0
 offset_right = 848.0
 offset_bottom = 578.0
 text = "Start"
 
-[node name="0" type="Area2D" parent="."]
-position = Vector2(244, 333)
+[node name="Carccontainer" type="Node" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="0"]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_iwt72")
-metadata/_edit_lock_ = true
+[node name="Strike" type="Node2D" parent="Carccontainer" groups=["Cards"]]
+position = Vector2(860, 330)
+script = ExtResource("2_iwt72")
 
-[node name="1" type="Area2D" parent="."]
-position = Vector2(572, 332)
+[node name="Icon" type="Sprite2D" parent="Carccontainer/Strike"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1, 1.4570313)
+texture = ExtResource("3_olbwh")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="1"]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_iwt72")
-metadata/_edit_lock_ = true
+[node name="Strikearea" type="Area2D" parent="Carccontainer/Strike"]
 
-[node name="2" type="Area2D" parent="."]
-position = Vector2(860, 332)
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carccontainer/Strike/Strikearea"]
+shape = SubResource("RectangleShape2D_0dnmv")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="2"]
-position = Vector2(-0.5, -1)
-shape = SubResource("RectangleShape2D_iwt72")
-metadata/_edit_lock_ = true
+[node name="Strike2" type="Node2D" parent="Carccontainer" groups=["Cards"]]
+position = Vector2(572, 330)
+script = ExtResource("2_iwt72")
 
-[connection signal="input_event" from="CanvasLayer/Carccontainer/Strike/Strikearea" to="CanvasLayer/Carccontainer/Strike" method="_on_strikearea_input_event"]
-[connection signal="mouse_entered" from="CanvasLayer/Carccontainer/Strike/Strikearea" to="CanvasLayer/Carccontainer/Strike" method="_on_strikearea_mouse_entered"]
-[connection signal="mouse_exited" from="CanvasLayer/Carccontainer/Strike/Strikearea" to="CanvasLayer/Carccontainer/Strike" method="_on_strikearea_mouse_exited"]
-[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
-[connection signal="input_event" from="0" to="." method="_on_one_input_event"]
-[connection signal="mouse_entered" from="0" to="." method="_on__mouse_entered"]
-[connection signal="input_event" from="1" to="." method="_on_two_input_event"]
-[connection signal="input_event" from="2" to="." method="_on_three_input_event"]
+[node name="Icon" type="Sprite2D" parent="Carccontainer/Strike2"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1, 1.4570313)
+texture = ExtResource("3_olbwh")
+
+[node name="Strikearea" type="Area2D" parent="Carccontainer/Strike2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carccontainer/Strike2/Strikearea"]
+shape = SubResource("RectangleShape2D_nk6gu")
+
+[node name="Strike3" type="Node2D" parent="Carccontainer" groups=["Cards"]]
+position = Vector2(244, 334)
+script = ExtResource("2_iwt72")
+
+[node name="Icon" type="Sprite2D" parent="Carccontainer/Strike3"]
+modulate = Color(0, 0, 0, 1)
+scale = Vector2(1, 1.4570313)
+texture = ExtResource("3_olbwh")
+
+[node name="Strikearea" type="Area2D" parent="Carccontainer/Strike3"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Carccontainer/Strike3/Strikearea"]
+shape = SubResource("RectangleShape2D_nk6gu")
+
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="input_event" from="Carccontainer/Strike/Strikearea" to="." method="_on_one_input_event"]
+[connection signal="mouse_entered" from="Carccontainer/Strike/Strikearea" to="Carccontainer/Strike" method="_on_strikearea_mouse_entered"]
+[connection signal="mouse_exited" from="Carccontainer/Strike/Strikearea" to="Carccontainer/Strike" method="_on_strikearea_mouse_exited"]
+[connection signal="input_event" from="Carccontainer/Strike2/Strikearea" to="." method="_on_two_input_event"]
+[connection signal="mouse_entered" from="Carccontainer/Strike2/Strikearea" to="Carccontainer/Strike2" method="_on_strikearea_mouse_entered"]
+[connection signal="mouse_exited" from="Carccontainer/Strike2/Strikearea" to="Carccontainer/Strike2" method="_on_strikearea_mouse_exited"]
+[connection signal="input_event" from="Carccontainer/Strike3/Strikearea" to="." method="_on_three_input_event"]
+[connection signal="mouse_entered" from="Carccontainer/Strike3/Strikearea" to="Carccontainer/Strike3" method="_on_strikearea_mouse_entered"]
+[connection signal="mouse_exited" from="Carccontainer/Strike3/Strikearea" to="Carccontainer/Strike3" method="_on_strikearea_mouse_exited"]

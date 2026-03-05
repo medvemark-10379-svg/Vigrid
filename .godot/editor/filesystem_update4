@@ -1,3 +1,2 @@
-res://scenes/WinScene.tscn
 res://scripts/win_scene.gd
-res://choose_character.tscn
+res://scenes/WinScene.tscn
