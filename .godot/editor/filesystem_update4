@@ -1,2 +1,4 @@
-res://scripts/win_scene.gd
-res://scenes/WinScene.tscn
+res://scenes/Main.tscn
+res://scripts/Interact.gd
+res://scripts/Item_data.tres
+res://scripts/potions.gd

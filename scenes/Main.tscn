@@ -1,12 +1,15 @@
-[gd_scene load_steps=6 format=3 uid="uid://by5r5wqt6jbad"]
+[gd_scene load_steps=8 format=3 uid="uid://by5r5wqt6jbad"]
 
 [ext_resource type="Script" uid="uid://bm2aaskos53rw" path="res://scripts/combatmain.gd" id="1_jlsqs"]
 [ext_resource type="Script" uid="uid://84xydy7hgylr" path="res://scripts/Interact.gd" id="1_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://dbvv107gpn27y" path="res://scenes/deck.tscn" id="4_rarhs"]
+[ext_resource type="Script" uid="uid://dobkdhoeoqm7n" path="res://scripts/potions.gd" id="5_vcsgt"]
 [ext_resource type="Script" uid="uid://d2npnoe1flequ" path="res://scripts/deckhandler.gd" id="9_q8u5g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jlsqs"]
 font_size = 111
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_rarhs"]
 
 [node name="CombatsceneMain" type="Node2D"]
 script = ExtResource("1_jlsqs")
@@ -43,6 +46,16 @@ offset_bottom = 546.0
 text = "End turn"
 
 [node name="CombatCs" type="Node" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0, 0, 0, 1)
+offset_left = 315.0
+offset_right = 841.0
+offset_bottom = 97.0
+texture = SubResource("CanvasTexture_rarhs")
+
+[node name="item" type="Node" parent="TextureRect"]
+script = ExtResource("5_vcsgt")
 
 [connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
 [connection signal="pressed" from="Button" to="Deck" method="_on_button_pressed"]

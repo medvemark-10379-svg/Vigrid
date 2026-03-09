@@ -1,0 +1,23 @@
+[gd_resource type="Resource" format=3 uid="uid://yxjmdddsno0u"]
+
+[resource]
+metadata/I0 = {
+"Health": {
+"BaseEffectNumb": 0,
+"Id": 0,
+"Name": "Health",
+"Type": "Buff"
+},
+"MinAttack": {
+"BaseEffectNumb": 0,
+"Id": 1,
+"Name": "MinAttack",
+"Type": "Attack"
+},
+"MinBlock": {
+"BaseEffectNumb": 0,
+"Id": 2,
+"Name": "MinBlock",
+"Type": "Block"
+}
+}

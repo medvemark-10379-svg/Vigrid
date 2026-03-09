@@ -13,14 +13,14 @@ func Check(Type: String, Victim: String, base: int):
 #deckcheck
 
 #Attack
-func Attack(Victim: String, damage):
-	get_tree().call_group(Victim, "hurt", damage, MouseState.usedcard[4])
+func Attack(Victim: String, damage, basedamage = 0):
+	get_tree().call_group(Victim, "hurt", damage+basedamage, MouseState.usedcard[4])
 #Defence
-func Block(Victim: String, block,):
-	get_tree().call_group(Victim, "GainBlock", block, MouseState.usedcard[4])
+func Block(Victim: String, block, baseblock= 0):
+	get_tree().call_group(Victim, "GainBlock", block+baseblock, MouseState.usedcard[4])
 
 #Buff
-func Buff(Victim: String, buff ):
+func Buff(Victim: String, buff, basebuff = 0 ):
 	get_tree().call_group("Minions", "Attackbuff")
 
 #Summon
