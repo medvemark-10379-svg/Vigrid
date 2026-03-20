@@ -1,4 +1,7 @@
-[gd_resource type="Resource" format=3 uid="uid://dl6m4iaalcd6r"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://dl6m4iaalcd6r"]
+
+[ext_resource type="Texture2D" path="C:/Users/diak/Documents/Vigrid/Textures/Characters/Bondi.png" id="1_4wci5"]
+[ext_resource type="Texture2D" path="C:/Users/diak/Documents/Vigrid/Textures/Characters/Jarl.png " id="2_ynayx"]
 
 [resource]
 metadata/C0 = {
@@ -13,6 +16,7 @@ metadata/C0 = {
 "ActionId": 1,
 "HP": 15,
 "Name": "Bondi",
+"Texture": ExtResource("1_4wci5"),
 "UsedDeck": "BD",
 "controllabel": true,
 "energy": 3
@@ -21,6 +25,7 @@ metadata/C0 = {
 "ActionId": 2,
 "HP": 10,
 "Name": "Jarl",
+"Texture": ExtResource("2_ynayx"),
 "UsedDeck": "JD",
 "controllabel": true,
 "energy": 4
@@ -32,6 +37,14 @@ metadata/C0 = {
 "UsedDeck": "BersD",
 "controllabel": true,
 "energy": 2
+},
+"P4": {
+"ActionId": 4,
+"HP": 60,
+"Name": "Shaman ",
+"UsedDeck": "ShaD",
+"controllabel": true,
+"energy": 3
 }
 }
 metadata/C1 = {

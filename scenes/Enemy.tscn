@@ -102,8 +102,8 @@ texture = ExtResource("1_3gvst")
 [node name="Area2D" type="Area2D" parent="."]
 
 [node name="Icon" type="Sprite2D" parent="Area2D"]
-position = Vector2(0, -29.5)
-scale = Vector2(1, 1.609375)
+position = Vector2(0, 23.25)
+scale = Vector2(0.785, 0.862)
 texture = ExtResource("1_3gvst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
@@ -114,23 +114,6 @@ shape = SubResource("RectangleShape2D_55jtl")
 libraries = {
 &"": SubResource("AnimationLibrary_mpr68")
 }
-
-[node name="ProgressBar" type="ProgressBar" parent="."]
-offset_left = -136.0
-offset_top = -168.0
-offset_right = 138.0
-offset_bottom = -141.0
-theme_override_colors/font_color = Color(0, 0.9490196, 0.9490196, 1)
-step = 1.0
-
-[node name="ProgressBar2" type="ProgressBar" parent="."]
-modulate = Color(1, 0.011764706, 0, 1)
-offset_left = -136.0
-offset_top = -198.0
-offset_right = 138.0
-offset_bottom = -171.0
-step = 1.0
-show_percentage = false
 
 [node name="Action" type="Sprite2D" parent="."]
 modulate = Color(1, 0, 0.21568628, 1)
@@ -145,6 +128,28 @@ position = Vector2(-180, 0)
 position = Vector2(180, 0)
 
 [node name="Minioncontainer" type="Node" parent="."]
+
+[node name="TextureProgressBar" type="TextureProgressBar" parent="."]
+offset_left = -135.0
+offset_top = -199.0
+offset_right = 138.0
+offset_bottom = -171.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_3gvst")
+texture_progress = ExtResource("1_3gvst")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(1, 0, 0, 1)
+
+[node name="TextureProgressBar2" type="TextureProgressBar" parent="."]
+offset_left = -136.0
+offset_top = -169.0
+offset_right = 137.0
+offset_bottom = -141.0
+nine_patch_stretch = true
+texture_under = ExtResource("1_3gvst")
+texture_progress = ExtResource("1_3gvst")
+tint_under = Color(0, 0, 0, 1)
+tint_progress = Color(0.24279985, 0.50540304, 1, 1)
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]

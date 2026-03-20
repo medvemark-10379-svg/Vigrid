@@ -9,6 +9,7 @@ const MINION = preload("uid://c7naktn4x0j8v")
 @onready var alert: Sprite2D = $Alert
 @onready var action: Sprite2D = $Action
 @onready var minioncontainer: Node = $Minioncontainer
+@onready var icon: Sprite2D = $Area2D/Icon
 const WIN_SCENE = preload("uid://cya8g8i86r4f8")
 
 var minionplace 
@@ -38,8 +39,8 @@ var Basic
 var baseid 
 var functionid 
 
-@onready var block_bar: ProgressBar = $ProgressBar
-@onready var hp_bar: ProgressBar = $ProgressBar2
+@onready var block_bar: TextureProgressBar = $TextureProgressBar2
+@onready var hp_bar: TextureProgressBar = $TextureProgressBar
 
 @onready var animation_player: AnimationPlayer = $AnimationPlayer
 @onready var interactive: interact = $"../interact"
@@ -131,6 +132,8 @@ func create():
 		Interact.playercharacters.append(sid)
 		MouseState.Energy = choosedcharacter.energy
 		MouseState.choseddeck = choosedcharacter.UsedDeck
+		icon.texture = choosedcharacter.Texture
+		
 	else: 
 		Interact.enemys.append(sid)
 		choosedcharacter = basecharacter["P" + str(0)]

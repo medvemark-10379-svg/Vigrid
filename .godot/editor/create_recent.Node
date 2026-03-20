@@ -1,3 +1,4 @@
+TextureProgressBar
 CollisionShape2D
 Area2D
 Node
@@ -10,5 +11,4 @@ Button
 Label
 Marker2D
 Sprite2D
-TextureProgressBar
 ProgressBar

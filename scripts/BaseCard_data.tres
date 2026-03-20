@@ -73,30 +73,47 @@ metadata/JD = {
 "Type": "Summon"
 }
 }
-metadata/BersD = {
-"Blocks": {
-"BaseEffectNumb": 3,
-"Color": Color(0, 0, 1, 1),
-"Cost": 1,
-"Holded": 4,
-"Name": "Guard",
-"PlacedOn": ["Enemys", "Player"],
-"Type": "Block"
+metadata/BersD = 0.0
+metadata/ShaD = {
+"Heals": {
+"BaseEffectNumb": null,
+"Color": null,
+"Cost": null,
+"Holded": null,
+"Name": null,
+"PlacedOn": null
 },
-"Heavy Strikes": {
-"BaseEffectNumb": 5,
-"Color": Color(0.43137255, 0, 0, 1),
-"Cost": 2,
-"Holded": 5,
-"Name": "Heavy Strike",
+"Knifes": {
+"BaseEffectNumb": 1,
+"Color": Color(1, 0.4627451, 0.39215687, 1),
+"Cost": 1,
+"Holded": 0,
+"Name": "Knife",
 "Type": "Attack"
 },
-"Strikes": {
-"BaseEffectNumb": 3,
-"Color": Color(1, 0, 0, 1),
-"Cost": 1,
-"Holded": 5,
-"Name": "Sunder",
-"Type": "Attack"
+"Poisons": {
+"BaseEffectNumb": null,
+"Color": null,
+"Cost": null,
+"Holded": null,
+"Name": null,
+"PlacedOn": null
+},
+"Stunnings": {
+"BaseEffectNumb": null,
+"Color": null,
+"Cost": null,
+"Holded": null,
+"Name": null,
+"PlacedOn": null,
+"Type": null
+},
+"Sways": {
+"BaseEffectNumb": null,
+"Color": null,
+"Cost": null,
+"Holded": null,
+"Name": null,
+"PlacedOn": null
 }
 }
