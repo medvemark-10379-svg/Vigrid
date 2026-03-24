@@ -139,6 +139,7 @@ texture_under = ExtResource("1_3gvst")
 texture_progress = ExtResource("1_3gvst")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(1, 0, 0, 1)
+metadata/_edit_use_anchors_ = true
 
 [node name="TextureProgressBar2" type="TextureProgressBar" parent="."]
 offset_left = -136.0
@@ -150,6 +151,7 @@ texture_under = ExtResource("1_3gvst")
 texture_progress = ExtResource("1_3gvst")
 tint_under = Color(0, 0, 0, 1)
 tint_progress = Color(0.24279985, 0.50540304, 1, 1)
+metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
 [connection signal="mouse_entered" from="Area2D" to="." method="_on_mouse_entered"]
