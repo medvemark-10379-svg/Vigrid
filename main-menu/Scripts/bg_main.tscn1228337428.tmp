@@ -16,6 +16,7 @@
 [ext_resource type="Script" uid="uid://c10wxpdfuiwcf" path="res://Scripts/Music.gd" id="13_a8m48"]
 [ext_resource type="AudioStream" uid="uid://f0vay0vegep7" path="res://src/MainMenuMusic.mp3" id="13_cig8a"]
 [ext_resource type="Texture2D" uid="uid://c4i8kedpff8bn" path="res://src/Slider.png" id="14_6fq04"]
+[ext_resource type="Texture2D" uid="uid://cskh67miyjpds" path="res://src/Slider_Icon.png" id="14_wyfe6"]
 
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_7kexr"]
 load_path = "res://.godot/imported/Background_Image.png-3b173cdb92e4fae22d0201b600737eed.ctex"
@@ -28,12 +29,6 @@ load_path = "res://.godot/imported/start_btn_raido_glow.png-b4fd77252f67f161b445
 
 [sub_resource type="StyleBoxTexture" id="StyleBoxTexture_wyfe6"]
 texture = ExtResource("12_83imi")
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_83imi"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_6fq04"]
-
-[sub_resource type="ViewportTexture" id="ViewportTexture_wyfe6"]
 
 [sub_resource type="StyleBoxLine" id="StyleBoxLine_aok76"]
 color = Color(0, 0, 0, 0.1254902)
@@ -144,9 +139,9 @@ offset_top = 51.0
 offset_right = 470.0
 offset_bottom = 331.0
 theme_override_constants/grabber_offset = 83
-theme_override_icons/grabber = SubResource("ViewportTexture_83imi")
-theme_override_icons/grabber_highlight = SubResource("ViewportTexture_6fq04")
-theme_override_icons/grabber_disabled = SubResource("ViewportTexture_wyfe6")
+theme_override_icons/grabber = ExtResource("14_wyfe6")
+theme_override_icons/grabber_highlight = ExtResource("14_wyfe6")
+theme_override_icons/grabber_disabled = ExtResource("14_wyfe6")
 theme_override_styles/slider = SubResource("StyleBoxLine_aok76")
 theme_override_styles/grabber_area = SubResource("StyleBoxTexture_nddr2")
 theme_override_styles/grabber_area_highlight = SubResource("StyleBoxTexture_iavjg")
