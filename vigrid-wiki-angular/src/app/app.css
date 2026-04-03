@@ -1,0 +1,13 @@
+@import "tailwindcss";
+
+@font-face {
+    font-family: 'Nordvik';
+    src: url('/nordvik/Nordvik.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@theme {
+  --font-nordvik: "Nordvik", ui-sans-serif, system-ui, sans-serif;
+}

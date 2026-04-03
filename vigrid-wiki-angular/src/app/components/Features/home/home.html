@@ -1,0 +1,22 @@
+    @if (data){
+          <div class="p-4 border rounded shadow-lg">
+        <h2 class="text-xl font-bold text-orange-400 font-[Nordvik] text-bs md:text-xl lg:text-4xl">{{ data.name }}</h2>
+    
+    <div class="mt-4 overflow-hidden rounded-lg shadow-md w-full">
+      <img [src]="data.image"
+       [alt]="data.name" 
+       [style.--w-mob]="data.sizeMb"
+       [style.--w-dt]="data.sizeDT"
+       [style.--w-mt]="data.sizeMT"
+       class="h-auto block mx-auto
+              w-[var(--w-mob)] 
+              md:w-[var(--w-mt)]
+              lg:w-[var(--w-dt)]
+              ">
+      <p class="mt-4 text-gray-700">{{ data.description }}</p>
+    </div>
+  </div>
+    }
+    @else {
+      <p class="text-gray-500">No data available.</p>
+    }
