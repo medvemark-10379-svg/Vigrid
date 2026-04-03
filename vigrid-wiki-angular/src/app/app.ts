@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { Aside } from './components/layout/aside/aside';
 import { Home } from './components/Features/home/home';
 import { Navbar } from './components/layout/navbar/navbar';
@@ -7,17 +7,25 @@ import { AsideContainerWeapon } from "./components/Features/aside-container-weap
 import { AsideContainerBosses } from './components/Features/aside-container-bosses/aside-container-bosses';
 import { AsideContainerEnemies } from "./components/Features/aside-container-enemies/aside-container-enemies";
 import { AsideContainerGods } from "./components/Features/aside-container-gods/aside-container-gods";
+import { Router, RouterOutlet } from '@angular/router';
+import { CharacterService } from './Services/character-service';
 @Component({
   selector: 'app-root',
   imports: [
-    Navbar, Aside,
-    Home, AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies,
-    AsideContainerGods
+    Navbar, Aside, Home,
+     AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies, AsideContainerGods
 ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
-export class App {
+export class App implements OnInit {
+  private router = inject(Router);
+  constructor(private characterService: CharacterService){}
+  
+  ngOnInit() {
+    this.router.navigate(['/']);
+  }
+
 isCharactersVisible = false;
 isWeaponsVisible = false;
 isBossesVisible = false

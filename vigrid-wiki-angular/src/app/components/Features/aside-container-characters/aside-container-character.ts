@@ -34,4 +34,4 @@ export class AsideContainerCharacter {
       Ulfhednar(){
         this.characterService.ItemSelected('Ulfhednar');
       }
-  }
+}

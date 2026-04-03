@@ -4,16 +4,16 @@ import { EnemiesService } from '../../../Services/enemies-service';
 import { CharacterService } from '../../../Services/character-service';
 import { WeaponService } from '../../../Services/weapon-service';
 import { GodService } from '../../../Services/god-service';
+import { HomePage } from '../home-page/home-page';
 
 @Component({
   selector: 'app-home',
-  imports: [],
+  imports: [HomePage],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
 export class Home {
   data : any = null;
-
   constructor(private BossService: BossService,
     private EnemiesService: EnemiesService,
     private characterService: CharacterService,
