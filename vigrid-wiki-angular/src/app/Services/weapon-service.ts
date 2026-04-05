@@ -6,35 +6,45 @@ import { BehaviorSubject } from 'rxjs';
 })
 export class WeaponService {
   private weapons = [
-    { name: 'Short Spear', 
-      description: 'A simple spear used by warriors.', 
+    {
+      name: 'Short Spear',
+      description: 'A simple spear used by warriors.',
       image: 'Images/Weapons/Short_Spear.png',
-      sizeDT:'3%',sizeMb:'12%',sizeMT:'7%' },
-    { name: 'Ulfberht Sword', 
-      
-      description: 'A high-quality sword from the Viking Age.', 
+      sizeDT: '3%', sizeMb: '12%', sizeMT: '7%'
+    },
+    {
+      name: 'Ulfberht Sword',
+
+      description: 'A high-quality sword from the Viking Age.',
       image: 'Images/Weapons/Ulfberht.png',
-      sizeDT:'7%',sizeMb:'20%',sizeMT:'15%' },
-    { name: 'Dane Axe', 
+      sizeDT: '7%', sizeMb: '20%', sizeMT: '15%'
+    },
+    {
+      name: 'Dane Axe',
 
-      description: 'A heavy axe used in combat.', 
+      description: 'A heavy axe used in combat.',
       image: 'Images/Weapons/Dane_Axe.png',
-      sizeDT:'9%',sizeMb:'24%',sizeMT:'21%' },
-    { name: 'Seax', 
+      sizeDT: '9%', sizeMb: '24%', sizeMT: '21%'
+    },
+    {
+      name: 'Seax',
 
-      description: 'A versatile knife used for various tasks.', 
+      description: 'A versatile knife used for various tasks.',
       image: 'Images/Weapons/Seax.png',
-      sizeDT:'7%',sizeMb:'36%',sizeMT:'27%' },
-    { name: 'Shield', 
+      sizeDT: '7%', sizeMb: '36%', sizeMT: '27%'
+    },
+    {
+      name: 'Shield',
 
-      description: 'A defensive tool used to protect against attacks.', 
+      description: 'A defensive tool used to protect against attacks.',
       image: 'Images/Weapons/Shield.png',
-      sizeDT:'7%',sizeMb:'20%',sizeMT:'15%' },
+      sizeDT: '7%', sizeMb: '20%', sizeMT: '15%'
+    },
   ]
   private chosenWeapon = new BehaviorSubject<any>(null);
-  currentItem=this.chosenWeapon.asObservable();
+  currentItem = this.chosenWeapon.asObservable();
 
-  ItemSelected(name:string){
+  ItemSelected(name: string) {
     const weapon = this.weapons.find(item => item.name === name);
     this.chosenWeapon.next(weapon);
   }

@@ -1,27 +1,41 @@
 <div class="m-2 pb-8 p-6">
- <h1 class="font-[Nordvik] text-2xl text-center font-bold">Vigrid: Survive the Ragnarök</h1>
- <p>Vigrid is a dark, tactical roguelike deckbuilder that fuses the addictive path-branching of Slay the Spire with the polished, high-stakes card mechanics of Hearthstone. Set against the bleak backdrop of Norse mythology and folklore, the game isn't just about winning—it’s a desperate struggle to endure the end of the world.</p>
- <h2 class="font-[Nordvik] text-xl text-center font-bold">The Vision: Challenge Meets Mythology</h2>
- <p>The core goal of Vigrid is to provide a single-player experience that is as educational as it is challenging. Players aren't just fighting for high scores; they are embarking on a journey to truly understand Norse Mythology and the world-shattering events of Ragnarök. It is the perfect title for those fascinated by Viking culture or anyone who wants to step into the boots of a legendary Norse figure.</p>
- <h2 class="font-[Nordvik] text-xl text-center font-bold">The Journey: Surviving the Ragnarök</h2>
- <p>Your goal is simple but brutal: survive the unfolding end of the world. You must navigate through a procedurally generated world, where every decision brings you closer to the heart of the conflict. In Vigrid, you are not just a traveler; you are a participant in the ultimate clash between gods and giants. Every encounter is a choice between gaining the strength to endure or meeting a cold, forgotten death.</p>
- <h2 class="font-[Nordvik] text-xl text-center font-bold">Heroes of the Apocalypse</h2>
- <p class="font-[Nordvik] text-xl text-center">{{(character$ | async)?.name}}</p>
- <img [src]="(character$ | async)?.image"
-       [alt]="(character$ | async)?.name" 
-       [style.--w-mob]="(character$ | async)?.sizeMb"
-       [style.--w-dt]="(character$ | async)?.sizeDT"
-       [style.--w-mt]="(character$ | async)?.sizeMT"
-       class="h-auto block mx-auto m-5
+    <h1 class="font-[Nordvik] text-3xl md:text-4xl lg:text-5xl text-center font-bold mb-3">Vigrid: Survive the Ragnarök
+    </h1>
+    <p class="text-justify md:text-xl">Vigrid is a dark, tactical roguelike deckbuilder that fuses the addictive
+        path-branching of Slay the Spire with the polished, high-stakes card mechanics of Hearthstone. Set against the
+        bleak backdrop of Norse mythology and folklore, the game isn't just about winning—it’s a desperate struggle to
+        endure the end of the world.</p>
+    <h2 class="font-[Nordvik] text-2xl md:text-3xl lg:text-3xl text-center font-bold mt-6 mb-3">The Vision: Challenge
+        Meets Mythology</h2>
+    <p class="text-justify md:text-xl">The core goal of Vigrid is to provide a single-player experience that is as
+        educational as it is challenging. Players aren't just fighting for high scores; they are embarking on a journey
+        to truly understand Norse Mythology and the world-shattering events of Ragnarök. It is the perfect title for
+        those fascinated by Viking culture or anyone who wants to step into the boots of a legendary Norse figure.</p>
+    <h2 class="font-[Nordvik] text-2xl md:text-3xl lg:text-3xl text-center font-bold mt-6 mb-3">The Journey: Surviving
+        the Ragnarök</h2>
+    <p class="text-justify md:text-xl">Your goal is simple but brutal: survive the unfolding end of the world. You must
+        navigate through a procedurally generated world, where every decision brings you closer to the heart of the
+        conflict. In Vigrid, you are not just a traveler; you are a participant in the ultimate clash between gods and
+        giants. Every encounter is a choice between gaining the strength to endure or meeting a cold, forgotten death.
+    </p>
+    <h2 class="font-[Nordvik] text-2xl md:text-3xl lg:text-3xl text-center font-bold mt-6 mb-3">Heroes of the Apocalypse
+    </h2>
+    <img [src]="(character$ | async)?.image" [alt]="(character$ | async)?.name"
+        [style.--w-mob]="(character$ | async)?.sizeMb" [style.--w-dt]="(character$ | async)?.sizeDT"
+        [style.--w-mt]="(character$ | async)?.sizeMT" class="h-auto block mx-auto m-5
               w-[var(--w-mob)] 
               md:w-[var(--w-mt)]
               lg:w-[var(--w-dt)]
               ">
- <p class="text-center">{{(character$ | async)?.description}}</p>
- <div class="text-center">
- <H2 class="font-[Nordvik] text-xl text-center font-bold">Meet the Creators of VIGRID</H2>
-    <h3>Márk Medve – <span class="font-[Nordvik] text-xl">Lead Developer & Game Architect</span></h3>
-    <h3>Attila Máté Simon – <span class="font-[Nordvik] text-xl">Programming & Systems Logic</span></h3>
-    <h3>Richárd Imre Kertmegi – <span class="font-[Nordvik] text-xl">Art, Graphics & Full-Stack Web Development</span></h3>
-</div>
+    <p class="font-[Nordvik] text-2xl text-center">{{(character$ | async)?.name}}</p>
+    <p class="text-center md:text-xl">{{(character$ | async)?.description}}</p>
+    <div class="text-center mt-10">
+        <H2 class="font-[Nordvik] text-3xl text-center font-bold mb-4">Meet the Creators of VIGRID</H2>
+        <h3 class="md:text-xl lg:text-2xl">Márk Medve – <span class="font-[Nordvik] font-bold">Lead Developer & Game
+                Architect</span></h3>
+        <h3 class="md:text-xl lg:text-2xl">Attila Máté Simon – <span class="font-[Nordvik] font-bold">Programming &
+                Systems Logic</span></h3>
+        <h3 class="md:text-xl lg:text-2xl">Richárd Imre Kertmegi – <span class="font-[Nordvik] font-bold">Art &
+                Full-Stack Web Development</span></h3>
+    </div>
 </div>

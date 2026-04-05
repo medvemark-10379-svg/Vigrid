@@ -12,7 +12,7 @@ import { AsyncPipe } from '@angular/common';
 export class HomePage implements OnInit {
   character$: Observable<any>;
   constructor(private characterService: CharacterService) {
-    this.character$ = this.characterService.currentItem;
+    this.character$ = this.characterService.randomItem;
   }
   ngOnInit(): void {
     this.characterService.setRandomCharacter();

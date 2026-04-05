@@ -1,43 +1,42 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Aside } from './components/layout/aside/aside';
-import { Home } from './components/Features/home/home';
 import { Navbar } from './components/layout/navbar/navbar';
-import { AsideContainerCharacter } from "./components/Features/aside-container-characters/aside-container-character";
-import { AsideContainerWeapon } from "./components/Features/aside-container-weapons/aside-container-weapon";
-import { AsideContainerBosses } from './components/Features/aside-container-bosses/aside-container-bosses';
-import { AsideContainerEnemies } from "./components/Features/aside-container-enemies/aside-container-enemies";
-import { AsideContainerGods } from "./components/Features/aside-container-gods/aside-container-gods";
-import { Router, RouterOutlet } from '@angular/router';
+import { Router} from '@angular/router';
 import { CharacterService } from './Services/character-service';
+import { Home } from './components/Features/home/home';
+import { AsideContainerBosses,AsideContainerRunes,AsideContainerGods,AsideContainerEnemies,AsideContainerCharacter,AsideContainerWeapon } from '../app/components/Features/_asideExport';
 @Component({
   selector: 'app-root',
+  standalone: true,
   imports: [
     Navbar, Aside, Home,
-     AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies, AsideContainerGods
-],
+    AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies, AsideContainerGods, AsideContainerRunes,
+  ],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
 export class App implements OnInit {
+
   private router = inject(Router);
-  constructor(private characterService: CharacterService){}
-  
+  constructor(private characterService: CharacterService) { }
   ngOnInit() {
     this.router.navigate(['/']);
   }
+  isCharactersVisible = false;
+  isWeaponsVisible = false;
+  isBossesVisible = false
+  isEnemiesVisible = false;
+  isGodsVisible = false;
+  isRunesVisible = false;
 
-isCharactersVisible = false;
-isWeaponsVisible = false;
-isBossesVisible = false
-isEnemiesVisible = false;
-isGodsVisible = false;
-
-toggleSelection(section: string) {
+  toggleSelection(section: string) {
+    this.characterService.ItemSelected("");
     this.isCharactersVisible = false;
     this.isWeaponsVisible = false;
     this.isBossesVisible = false;
     this.isEnemiesVisible = false;
     this.isGodsVisible = false;
+    this.isRunesVisible = false;
 
     if (section === 'char') {
       this.isCharactersVisible = true;
@@ -49,6 +48,8 @@ toggleSelection(section: string) {
       this.isEnemiesVisible = true;
     } else if (section === 'gods') {
       this.isGodsVisible = true;
+    } else if (section === 'runes') {
+      this.isRunesVisible = true;
     }
   }
 }

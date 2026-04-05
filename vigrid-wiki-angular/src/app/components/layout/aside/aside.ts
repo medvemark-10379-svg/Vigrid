@@ -12,4 +12,5 @@ export class Aside {
   @Output() linkClickedBosses = new EventEmitter<void>();
   @Output() linkClickedEnemies = new EventEmitter<void>();
   @Output() linkClickedGods = new EventEmitter<void>();
+  @Output() linkClickedRunes = new EventEmitter<void>();
 }

@@ -11,28 +11,28 @@ import { BossService } from '../../../Services/boss-service';
 export class AsideContainerBosses {
   @Input() isVisibleBosses_ = false;
   public window = window;
-  constructor(private bossService: BossService){}
-  Top(){
+  constructor(private bossService: BossService) { }
+  Top() {
     window.scrollTo({
-    top: 0,
-    left: 0,
-    behavior: 'smooth'
-  });
+      top: 0,
+      left: 0,
+      behavior: 'smooth'
+    });
   }
-  Hel(){
+  Hel() {
     this.bossService.ItemSelected('Hel');
   }
-  Fenrir(){
+  Fenrir() {
     this.bossService.ItemSelected('Fenrir');
   }
-  Jormungandr(){
+  Jormungandr() {
     this.bossService.ItemSelected('Jörmungandr');
   }
-  Loki(){
+  Loki() {
     this.bossService.ItemSelected('Loki');
   }
-  Surtr(){
+  Surtr() {
     this.bossService.ItemSelected('Surtr');
   }
-  
+
 }

@@ -1,48 +1,41 @@
+
 <app-navbar class="sticky top-0 z-50"></app-navbar>
 
 <div class="flex gap-3 md:gap-5 lg:gap-8 w-full p-2 md:p-3 lg:p-5">
-    
+
     <div class="hidden md:flex flex-col md:w-[26%] lg:w-[22%] md:sticky md:top-[85px] lg:top-[110px] self-start h-fit">
-        
-        <app-aside 
-            (linkClickedCharacter)="toggleSelection('char')"
-						(linkClickedWeapons)="toggleSelection('weapons')"
-						(linkClickedBosses)="toggleSelection('bosses')"
-						(linkClickedEnemies)="toggleSelection('enemies')"
-						(linkClickedGods)="toggleSelection('gods')" 
+
+        <app-aside (linkClickedCharacter)="toggleSelection('char')" (linkClickedWeapons)="toggleSelection('weapons')"
+            (linkClickedBosses)="toggleSelection('bosses')" (linkClickedEnemies)="toggleSelection('enemies')"
+            (linkClickedGods)="toggleSelection('gods')" (linkClickedRunes)="toggleSelection('runes')"
             class="container block bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm sticky top-0 z-50">
         </app-aside>
-        <app-aside-container-character 
-            [isVisible_]="isCharactersVisible" 
-            [hidden]="!isCharactersVisible"
+        <app-aside-container-character [isVisible_]="isCharactersVisible" [hidden]="!isCharactersVisible"
             class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
-        </app-aside-container-character>	
-        <app-aside-container-weapon 
-            [isVisibleWeapons_]="isWeaponsVisible" 
-            [hidden]="!isWeaponsVisible"
+        </app-aside-container-character>
+        <app-aside-container-weapon [isVisibleWeapons_]="isWeaponsVisible" [hidden]="!isWeaponsVisible"
             class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-weapon>
-        <app-aside-container-bosses 
-            [isVisibleBosses_]="isBossesVisible" 
-            [hidden]="!isBossesVisible"
+        <app-aside-container-bosses [isVisibleBosses_]="isBossesVisible" [hidden]="!isBossesVisible"
             class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-bosses>
-        <app-aside-container-enemies 
-            [isEnemiesVisible_]="isEnemiesVisible" 
-            [hidden]="!isEnemiesVisible"
+        <app-aside-container-enemies [isEnemiesVisible_]="isEnemiesVisible" [hidden]="!isEnemiesVisible"
             class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-enemies>
-		<app-aside-container-gods 
-			[isGodsVisible_]="isGodsVisible" 
-			[hidden]="!isGodsVisible"
-			class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
-		</app-aside-container-gods>
+        <app-aside-container-gods [isGodsVisible_]="isGodsVisible" [hidden]="!isGodsVisible"
+            class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
+        </app-aside-container-gods>
+        <app-aside-container-runes [isVisibleRunes_]="isRunesVisible" [hidden]="!isRunesVisible"
+            class="container bg-orange-100 w-full rounded-r-sm border-r-2 shadow-sm [&:not([hidden])]:mt-3">
+        </app-aside-container-runes>
     </div>
     <app-home class="container bg-orange-100 h-full w-full md:w-[90%] lg:w-[87%] lg:mr-3"></app-home>
-	<footer class="fixed bottom-0 left-0 right-0 border-b-2 border-black-400 flex items-center p-2 bg-black text-white rounded-t-xl z-50">
-		<div class="flex items-center justify-between w-full px-4">  
-			<a href="#top" class="text-xs md:text-sm hover:text-blue-500">Back to top ↑</a>  
-			<p class="text-xs md:text-sm">Github: Vigrid.git</p>
-		</div>
-	</footer>
+    <footer
+        class="fixed bottom-0 left-0 right-0 border-b-2 border-black-400 flex items-center p-2 bg-black text-white rounded-t-xl z-50">
+        <div class="flex items-center justify-between w-full px-4">
+            <a href="#top" class="text-xs md:text-sm hover:text-blue-500">Back to top ↑</a>
+            <p class="text-xs md:text-sm">Github: Vigrid.git</p>
+        </div>
+    </footer>
 </div>
+]

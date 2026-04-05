@@ -4,26 +4,32 @@ import { CharacterService } from '../../../Services/character-service';
 import { EnemiesService } from '../../../Services/enemies-service';
 import { BossService } from '../../../Services/boss-service';
 import { GodService } from '../../../Services/god-service';
+import { RuneService } from '../../../Services/rune-service';
 
 @Component({
+  standalone: true,
+  imports: [],
   selector: 'app-navbar',
   templateUrl: './navbar.html',
   styleUrls: ['./navbar.css'],
 })
 export class Navbar {
   sidebarOpen: boolean = false;
-constructor(private BossService: BossService,
+  constructor(
+    private BossService: BossService,
     private EnemiesService: EnemiesService,
     private characterService: CharacterService,
     private weaponService: WeaponService,
-    private godService: GodService
-  ){}
-onSearch(event: any) {
-  const term = event.target.value;
-  this.BossService.ItemSelected(term);
-  this.EnemiesService.ItemSelected(term);
-  this.characterService.ItemSelected(term);
-  this.weaponService.ItemSelected(term);
-  this.godService.ItemSelected(term);
-}
+    private godService: GodService,
+    private runeService: RuneService,
+  ) { }
+  onSearch(event: any) {
+    const term = event.target.value;
+    this.BossService.ItemSelected(term);
+    this.EnemiesService.ItemSelected(term);
+    this.characterService.ItemSelected(term);
+    this.weaponService.ItemSelected(term);
+    this.godService.ItemSelected(term);
+    this.runeService.ItemSelected(term);
+  }
 }

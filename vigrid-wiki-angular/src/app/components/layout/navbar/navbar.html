@@ -1,11 +1,15 @@
-<nav class="flex border-b-2 border-black-400 flex items-center p-0 md:p-1 lg:p-2 md:mb-6 lg:mb-8 bg-orange-300 text-black-900 rounded-b-xl">
+<nav
+    class="flex border-b-2 border-black-400 flex items-center p-0 md:p-1 lg:p-2 md:mb-6 lg:mb-8 bg-orange-300 text-black-900 rounded-b-xl">
     <figure class="hidden md:block w-10 md:w-15 lg:w-20 ml-8 md:ml-15 lg:ml-20 ">
-        <img src="exe_Icon.png" alt="Vigrid Game Logo" class=" scale-90 transition-all duration-300 hover:scale-110 hover:brightness-125">
+        <img src="exe_Icon.png" alt="Vigrid Game Logo"
+            class=" scale-90 transition-all duration-300 hover:scale-110 hover:brightness-125">
     </figure>
     <h2 class="justify-self-start text-2xl md:text-3xl lg:text-5xl font-bold pl-6 md:pl-8 lg:pl-10 font-[Nordvik]">
         Vigrid Game
     </h2>
     <div class="search_container ml-auto flex gap-2">
-        <input class="w-35 md:w-45 lg:w-65 border rounded-sm m-2 md:pl-3 lg:pl-5 text-xl md:text-2xl lg:text-3xl  bg-orange-100 placeholder:font-[Nordvik]" type="text" placeholder="Search for..."(input)="onSearch($event)">
+        <input
+            class="w-45 md:w-65 lg:w-85 border rounded-sm m-2 md:pl-3 lg:pl-5 text-xl md:text-2xl lg:text-3xl pl-3 mr-6 bg-orange-100 placeholder:font-[Nordvik]"
+            type="text" placeholder="Search for..." (input)="onSearch($event)">
     </div>
-</nav> 
+</nav>
