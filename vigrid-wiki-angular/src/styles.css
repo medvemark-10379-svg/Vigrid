@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url('/Fonts/Roboto-VariableFont_wdth,wght.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+
+    html,
+    body,
+    p {
+        font-family: 'Roboto', sans-serif;
+    }
+}

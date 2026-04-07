@@ -1,10 +1,20 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Aside } from './components/layout/aside/aside';
 import { Navbar } from './components/layout/navbar/navbar';
-import { Router} from '@angular/router';
-import { CharacterService } from './Services/character-service';
+import { Router } from '@angular/router';
 import { Home } from './components/Features/home/home';
-import { AsideContainerBosses,AsideContainerRunes,AsideContainerGods,AsideContainerEnemies,AsideContainerCharacter,AsideContainerWeapon } from '../app/components/Features/_asideExport';
+import {
+  AsideContainerBosses,
+  AsideContainerRunes,
+  AsideContainerGods,
+  AsideContainerEnemies,
+  AsideContainerCharacter,
+  AsideContainerWeapon
+} from '../app/components/Features/_asideExport';
+import {
+  CardService,
+  CharacterService
+} from './Services/_serviceExport';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -16,9 +26,8 @@ import { AsideContainerBosses,AsideContainerRunes,AsideContainerGods,AsideContai
   styleUrl: './app.css'
 })
 export class App implements OnInit {
-
   private router = inject(Router);
-  constructor(private characterService: CharacterService) { }
+  constructor(private characterService: CharacterService, public cardService: CardService) { }
   ngOnInit() {
     this.router.navigate(['/']);
   }
@@ -50,6 +59,7 @@ export class App implements OnInit {
       this.isGodsVisible = true;
     } else if (section === 'runes') {
       this.isRunesVisible = true;
+    } else if (section === 'char') {
     }
   }
 }

@@ -56,6 +56,9 @@ export class CharacterService {
     const randomChar = this.characters[randomIndex];
     this.randomcharacter.next(randomChar);
   }
+  getCharacterByName(name: string) {
+    return this.characters.filter(character => name.includes(character.name));
+  }
   clearRandomCharacter() {
     this.chosenCharacter.next(null);
   }

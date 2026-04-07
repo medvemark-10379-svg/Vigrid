@@ -49,7 +49,7 @@ export class GodService {
     this.chosenGod.next(god);
   }
 
-  getBosses() {
+  getGods() {
     return this.gods;
   }
 }
