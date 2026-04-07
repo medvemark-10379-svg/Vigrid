@@ -7,7 +7,8 @@ import {
   WeaponService,
   GodService,
   RuneService,
-  CardService
+  CardService,
+  Changelog
 } from '../../../Services/_serviceExport';
 
 @Component({
@@ -21,6 +22,7 @@ export class Home {
   dataCard: any = null;
   characterCards: any[] = [];
   availableCharacters: any[] = [];
+  updates: any = null;
   constructor(
     private bossService: BossService,
     private enemiesService: EnemiesService,
@@ -28,36 +30,41 @@ export class Home {
     private weaponService: WeaponService,
     private godService: GodService,
     private runeService: RuneService,
-    public cardService: CardService
+    public cardService: CardService,
+    private changelog: Changelog
   ) { }
   isArray(obj: any): boolean {
     return Array.isArray(obj);
   }
   ngOnInit() {
+    this.changelog.currentItem.subscribe(res => {
+      if (res) { this.updates = res; this.data = null; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+    })
     this.bossService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     });
     this.enemiesService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     });
     this.characterService.currentItem.subscribe(res => {
       if (res) {
         this.data = res; this.dataCard = null; this.availableCharacters = [];
         this.characterCards = this.cardService.getCardsByCharacter(res.name);
+        this.updates = null
       };
     });
     this.weaponService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     });
     this.godService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     });
     this.runeService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     })
     this.cardService.currentItem.subscribe(res => {
       if (res) {
-        this.dataCard = res; this.data = null; this.characterCards = [];
+        this.dataCard = res; this.data = null; this.characterCards = []; this.updates = null;
         if (!Array.isArray(res) && res.availableFor) {
           this.availableCharacters = this.characterService.getCharacters().filter(char =>
             res.availableFor.includes(char.name)

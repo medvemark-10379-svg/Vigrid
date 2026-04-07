@@ -1,5 +1,6 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { CardService } from '../../../Services/card-service';
+import { CardService,Changelog } from '../../../Services/_serviceExport';
+
 
 @Component({
   selector: 'app-aside',
@@ -8,7 +9,7 @@ import { CardService } from '../../../Services/card-service';
   styleUrl: './aside.css',
 })
 export class Aside {
-  constructor(private cardService: CardService) { }
+  constructor(private cardService: CardService,private changelogService: Changelog) { }
   @Output() linkClickedCharacter = new EventEmitter<void>();
   @Output() linkClickedWeapons = new EventEmitter<void>();
   @Output() linkClickedBosses = new EventEmitter<void>();
@@ -18,5 +19,8 @@ export class Aside {
 
   onCardsClick() {
     this.cardService.ItemSelectedAll();
+  }
+  onChangelogClick() {
+    this.changelogService.showChangelog();
   }
 }

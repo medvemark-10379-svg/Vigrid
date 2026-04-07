@@ -5,3 +5,4 @@ export * from './weapon-service';
 export * from './god-service';
 export * from './rune-service';
 export * from './card-service';
+export * from './changelog-service';
