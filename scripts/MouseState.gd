@@ -5,6 +5,7 @@ var usedcard = []
 var Character 
 var Energy
 var choseddeck
+var addedtodeck = []
 
 var CIVP = ["outside","inside_card", "Enemy"]
 var CIVR = ["released","pressed"]

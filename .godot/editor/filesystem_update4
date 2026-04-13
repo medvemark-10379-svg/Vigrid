@@ -1,8 +1,9 @@
-res://scripts/BaseCard_data.tres
-res://choose_character.tscn
-res://scripts/combatmain.gd
-res://scenes/Enemy.tscn
-res://scripts/Characters/enemy.gd
+res://scenes/Cards/BuyCard.tscn
 res://scenes/WinScene.tscn
-res://scenes/Main.tscn
+res://scripts/Character_Data.tres
 res://scripts/win_scene.gd
+res://choose_character.tscn
+res://choose_character.gd
+res://scripts/MouseState.gd
+res://scenes/Main.tscn
+res://scripts/deckhandler.gd
