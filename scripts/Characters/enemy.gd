@@ -2,6 +2,8 @@ class_name Enemy extends Node2D
 
 const CHARACTER_DATA = preload("uid://dl6m4iaalcd6r")
 const MINION = preload("uid://c7naktn4x0j8v")
+const MAIN = preload("uid://by5r5wqt6jbad")
+
 
 @onready var interact: interact = $"../interact"
 @onready var character: Node2D = $"../Character"
@@ -9,7 +11,6 @@ const MINION = preload("uid://c7naktn4x0j8v")
 @onready var alert: Sprite2D = $Alert
 @onready var action: Sprite2D = $Action
 @onready var minioncontainer: Node = $Minioncontainer
-const WIN_SCENE = preload("uid://cya8g8i86r4f8")
 
 var minionplace 
 
@@ -104,12 +105,8 @@ func hurt(Damage: int ,id: int):
 		hp = max(hp,0)
 		
 		if hp <= 0:
-			Interact.enemys.erase(sid)
+			get_parent().get_parent().winlosesceene()
 			queue_free()
-	if Interact.enemys.size() == 0:
-		var win_sceene = WIN_SCENE.instantiate()
-		get_parent().get_parent().add_child(win_sceene)
-			
 	
 func GainBlock(Block: int, id: int):
 	if id== sid:
@@ -132,7 +129,6 @@ func create():
 		MouseState.Energy = choosedcharacter.energy
 		MouseState.choseddeck = choosedcharacter.UsedDeck
 	else: 
-		Interact.enemys.append(sid)
 		choosedcharacter = basecharacter["P" + str(0)]
 		controllabel = choosedcharacter.controllabel
 	actionid = choosedcharacter.ActionId

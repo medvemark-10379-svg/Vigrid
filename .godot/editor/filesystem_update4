@@ -1,0 +1,8 @@
+res://scripts/BaseCard_data.tres
+res://choose_character.tscn
+res://scripts/combatmain.gd
+res://scenes/Enemy.tscn
+res://scripts/Characters/enemy.gd
+res://scenes/WinScene.tscn
+res://scenes/Main.tscn
+res://scripts/win_scene.gd

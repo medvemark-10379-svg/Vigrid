@@ -1,6 +1,7 @@
 extends Node2D
 
 const ENEMY = preload("uid://1rsrk55xpfre")
+const WIN_SCENE = preload("uid://cya8g8i86r4f8")
 
 @onready var energy_label: Label = $EnergyLabel
 @onready var marker_2d: Marker2D = $Marker2D
@@ -35,9 +36,14 @@ func _process(delta: float) -> void:
 
 func _on_button_pressed() -> void:
 	get_tree().call_group("Minions", "Attack")
-	enemys[0].activateaction()
+	if enemys[0] != null :
+		enemys[0].activateaction()
 	energy = MouseState.Energy
 
 	
 func EnergyHandler(Cost:int):
 	energy -= Cost
+	
+func winlosesceene():
+	var wlsceene = WIN_SCENE.instantiate()
+	add_child(wlsceene)

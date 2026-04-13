@@ -1,9 +1,7 @@
 class_name interact extends Node
 
 var cardpile = []
-var pluscardpile = []
 var playercharacters = []
-var enemys = []
 
 #Check
 func Check(Type: String, Victim: String, base: int):
