@@ -13,7 +13,8 @@ import {
 } from '../app/components/Features/_asideExport';
 import {
   CardService,
-  CharacterService
+  CharacterService,
+  Changelog
 } from './Services/_serviceExport';
 @Component({
   selector: 'app-root',
@@ -27,7 +28,7 @@ import {
 })
 export class App implements OnInit {
   private router = inject(Router);
-  constructor(private characterService: CharacterService, public cardService: CardService) { }
+  constructor(private characterService: CharacterService, public cardService: CardService, private changelog: Changelog) { }
   ngOnInit() {
     this.router.navigate(['/']);
   }
@@ -61,5 +62,8 @@ export class App implements OnInit {
       this.isRunesVisible = true;
     } else if (section === 'char') {
     }
+  }
+    onChangelogClick() {
+    this.changelog.showChangelog();
   }
 }

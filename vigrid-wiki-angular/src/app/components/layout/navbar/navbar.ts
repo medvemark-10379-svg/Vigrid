@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component,} from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
   WeaponService,
@@ -7,7 +7,7 @@ import {
   EnemiesService,
   BossService,
   GodService,
-  RuneService
+  RuneService,
 } from '../../../Services/_serviceExport';
 
 @Component({
@@ -29,8 +29,11 @@ export class Navbar {
     private weaponService: WeaponService,
     private godService: GodService,
     private runeService: RuneService,
-    private cardService: CardService
+    private cardService: CardService,
+    
+    
   ) { }
+  
   onKeyDown(event: KeyboardEvent, inputElement: HTMLInputElement) {
     if (!this.isDropdownOpen || this.filteredResults.length === 0) return;
 
@@ -54,7 +57,7 @@ export class Navbar {
   }
   refreshPage() {
   window.location.reload();
-}
+} 
   onSearch(event: any) {
     this.focusedIndex = -1;
     const term = event.target.value.toLowerCase();

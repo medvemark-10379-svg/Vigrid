@@ -9,7 +9,7 @@ import { CardService,Changelog } from '../../../Services/_serviceExport';
   styleUrl: './aside.css',
 })
 export class Aside {
-  constructor(private cardService: CardService,private changelogService: Changelog) { }
+  constructor(private cardService: CardService) { }
   @Output() linkClickedCharacter = new EventEmitter<void>();
   @Output() linkClickedWeapons = new EventEmitter<void>();
   @Output() linkClickedBosses = new EventEmitter<void>();
@@ -19,8 +19,5 @@ export class Aside {
 
   onCardsClick() {
     this.cardService.ItemSelectedAll();
-  }
-  onChangelogClick() {
-    this.changelogService.showChangelog();
   }
 }
