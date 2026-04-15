@@ -20,16 +20,16 @@ export class AsideContainerRunes {
   Raido() {
     this.runeService.ItemSelected('Raido');
   }
-  UlfberhtSword() {
-    this.runeService.ItemSelected('Ulfberht Sword');
+  Tiwaz() {
+    this.runeService.ItemSelected('Tiwaz');
   }
-  DaneAxe() {
-    this.runeService.ItemSelected('Dane Axe');
+  Thurisaz() {
+    this.runeService.ItemSelected('Thurisaz');
   }
-  Seax() {
-    this.runeService.ItemSelected('Seax');
+  Uruz() {
+    this.runeService.ItemSelected('Uruz');
   }
-  Shield() {
-    this.runeService.ItemSelected('Shield');
+  Algiz() {
+    this.runeService.ItemSelected('Algiz');
   }
 }

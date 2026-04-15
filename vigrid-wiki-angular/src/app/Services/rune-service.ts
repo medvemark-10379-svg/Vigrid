@@ -10,35 +10,30 @@ export class RuneService {
       name: 'Raido',
       description: 'xxx',
       image: '',
-      sizeMb: '', sizeDT: '', sizeMT: ''
     },
 
     {
-      name: '',
+      name: 'Tiwaz',
       description: '.',
       image: '',
-      sizeMb: '', sizeDT: '', sizeMT: ''
     },
 
     {
-      name: '',
+      name: 'Thurisaz',
       description: '',
       image: '',
-      sizeMb: '', sizeDT: '', sizeMT: ''
     },
 
     {
-      name: '',
+      name: 'Uruz',
       description: '',
       image: '',
-      sizeMb: '', sizeDT: '', sizeMT: ''
     },
 
     {
-      name: '',
+      name: 'Algiz',
       description: '',
       image: '',
-      sizeMb: '', sizeDT: '', sizeMT: ''
     },
   ]
   private chosenRune = new BehaviorSubject<any>(null);

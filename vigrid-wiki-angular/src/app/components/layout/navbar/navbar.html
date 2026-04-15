@@ -1,8 +1,8 @@
 <nav
     class="flex border-b-2 border-black-400 flex items-center p-0 md:p-1 lg:p-2 md:mb-6 lg:mb-8 bg-orange-300 text-black-900 rounded-b-xl">
     <figure class="hidden md:block w-10 md:w-15 lg:w-20 ml-8 md:ml-15 lg:ml-20 ">
-        <img src="exe_Icon.png" alt="Vigrid Game Logo"
-            class=" scale-90 transition-all duration-300 hover:scale-110 hover:brightness-125">
+        <img src="exe_Icon.png" alt="Vigrid Game Logo" (click)="refreshPage()"
+            class=" scale-90 transition-all duration-300 hover:scale-110 hover:brightness-125 hover:cursor-pointer">
     </figure>
     <h2 class="justify-self-start text-2xl md:text-3xl lg:text-5xl font-bold pl-6 md:pl-8 lg:pl-10 font-[Nordvik]">
         Vigrid<span class="hidden lg:visible lg:inline">: Survive the Ragnarök</span>
@@ -10,18 +10,19 @@
     <div class="search_container ml-auto flex flex-col relative">
         <input #searchInput
             class="w-45 py-1 md:w-65 lg:w-85 border rounded-sm m-2 md:pl-3 lg:pl-5 text-xl md:text-xl lg:text-2xl pl-3 mr-6 bg-orange-100 placeholder:font-[Nordvik] focus:outline-none"
-            type="text" placeholder="Search for..." (input)="onSearch($event)">
+            type="text" placeholder="Search for..." (input)="onSearch($event)" (keydown)="onKeyDown($event, searchInput)">
 
         @if (isDropdownOpen && filteredResults.length > 0) {
         <ul
             class="absolute top-full left-2 right-6 bg-orange-100 border-2 rounded-sm border-black shadow-2xl z-50 mt-[-8px] rounded-b-sm">
-            @for (name of filteredResults; track name) {
+            @for (name of filteredResults; track name ;let i = $index) {
             <li (click)="itemSelected(name, searchInput)"
+                [class.bg-orange-400]="i === focusedIndex" 
                 class="px-4 py-2 hover:bg-orange-400 cursor-pointer text-lg md:text-xl font-[Nordvik] border-b border-black/10 last:border-none">
                 {{ name }}
             </li>
             }
         </ul>
-        }
+    }
     </div>
 </nav>

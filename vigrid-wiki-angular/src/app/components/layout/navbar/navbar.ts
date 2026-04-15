@@ -21,6 +21,7 @@ export class Navbar {
   sidebarOpen: boolean = false;
   isDropdownOpen: boolean = false;
   filteredResults: string[] = [];
+  focusedIndex: number = -1;
   constructor(
     private BossService: BossService,
     private EnemiesService: EnemiesService,
@@ -30,7 +31,32 @@ export class Navbar {
     private runeService: RuneService,
     private cardService: CardService
   ) { }
+  onKeyDown(event: KeyboardEvent, inputElement: HTMLInputElement) {
+    if (!this.isDropdownOpen || this.filteredResults.length === 0) return;
+
+    if (event.key === 'ArrowDown') {
+      event.preventDefault(); // Megakadályozzuk a kurzor ugrálását az inputban
+      this.focusedIndex = (this.focusedIndex + 1) % this.filteredResults.length;
+    } 
+    else if (event.key === 'ArrowUp') {
+      event.preventDefault();
+      this.focusedIndex = (this.focusedIndex - 1 + this.filteredResults.length) % this.filteredResults.length;
+    } 
+    else if (event.key === 'Enter') {
+      if (this.focusedIndex > -1) {
+        this.itemSelected(this.filteredResults[this.focusedIndex], inputElement);
+      }
+    } 
+    else if (event.key === 'Escape') {
+      this.isDropdownOpen = false;
+      inputElement.blur();
+    }
+  }
+  refreshPage() {
+  window.location.reload();
+}
   onSearch(event: any) {
+    this.focusedIndex = -1;
     const term = event.target.value.toLowerCase();
     if (!term) {
       this.filteredResults = [];
@@ -63,6 +89,7 @@ export class Navbar {
   itemSelected(name: string,inputElement: HTMLInputElement) {
     inputElement.value = name;
     this.isDropdownOpen = false;
+    this.focusedIndex = -1;
     this.updateService(name)
   }
 }
