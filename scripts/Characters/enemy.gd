@@ -115,7 +115,7 @@ func GainBlock(Block: int, id: int):
 
 
 func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("mouseactions") and MouseState.usedcard != []:
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and MouseState.usedcard != []:
 		MouseState.usedcard.append(sid)
 		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
 

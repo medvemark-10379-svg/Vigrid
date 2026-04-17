@@ -1,6 +1,6 @@
 extends Node2D
 
-@onready var carccontainer: Node = $Carccontainer
+@onready var carccontainer: Node = $CanvasLayer/Carccontainer
 const MAIN = preload("uid://by5r5wqt6jbad")
 const BUY_CARD = preload("uid://cjd8ba7t5dbn7")
 const BASE_CARD_DATA = preload("uid://b7r4xggv73ykb")
@@ -25,7 +25,7 @@ func _ready() -> void:
 		cards.erase(choosedcar)
 
 func areaInput(viewport, event, shape_idx, card):
-	if Input.is_action_just_pressed("mouseactions"):
+	if event is InputEventMouseButton :
 		MouseState.addedtodeck.append(card.name)
 
 func _on_button_pressed() -> void:

@@ -1,9 +1,7 @@
-res://scenes/Cards/BuyCard.tscn
-res://scenes/WinScene.tscn
-res://scripts/Character_Data.tres
-res://scripts/win_scene.gd
+res://scenes/Enemy.tscn
+res://scripts/Characters/enemy.gd
 res://choose_character.tscn
-res://choose_character.gd
-res://scripts/MouseState.gd
-res://scenes/Main.tscn
-res://scripts/deckhandler.gd
+res://scripts/Cards/Bondi/Card.gd
+res://scripts/Characters/minion.gd
+res://scenes/WinScene.tscn
+res://scripts/win_scene.gd

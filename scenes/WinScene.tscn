@@ -5,18 +5,20 @@
 [node name="Node2D" type="Node2D"]
 script = ExtResource("1_sh4x7")
 
-[node name="Panel" type="Panel" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_right = 1152.0
 offset_bottom = 648.0
 mouse_filter = 1
 
-[node name="Carccontainer" type="Node" parent="."]
+[node name="Carccontainer" type="Node" parent="CanvasLayer"]
 
-[node name="Button" type="Button" parent="."]
+[node name="Button" type="Button" parent="CanvasLayer"]
 offset_left = 313.0
 offset_top = 523.0
 offset_right = 848.0
 offset_bottom = 578.0
 text = "Start"
 
-[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="CanvasLayer/Button" to="." method="_on_button_pressed"]
