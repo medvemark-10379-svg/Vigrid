@@ -8,6 +8,8 @@ const JUMP_VELOCITY = -400.0
 
 var grab_offset
 var grabbed = false
+var x
+var y
 
 func create(texture):
 	sprite.texture = texture
@@ -15,12 +17,13 @@ func create(texture):
 
 
 
+
 func _physics_process(delta: float) -> void:
+	print("ez_a_phiszic")
 	# Add the gravity.
 	if not is_on_floor() and grabbed == false :
 		velocity += get_gravity() * delta
 	move_and_slide()
-
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed():
