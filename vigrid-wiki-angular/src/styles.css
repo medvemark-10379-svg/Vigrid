@@ -18,3 +18,45 @@
         font-family: 'Roboto', sans-serif;
     }
 }
+
+.ember-particle {
+    position: absolute;
+    bottom: -30px;
+    background-color: #ffba08;
+    border-radius: 50%;
+    box-shadow: 0 0 15px 4px rgba(255, 69, 0, 0.9), 0 0 20px 8px rgba(255, 186, 8, 0.4);
+    opacity: 0;
+    animation-name: ember-fly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+}
+
+@keyframes ember-fly {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    50% {
+        transform: translateY(-55vh) translateX(35px) scale(1.1);
+        opacity: 0.9;
+    }
+
+    80% {
+        opacity: 0.4;
+    }
+
+    100% {
+        transform: translateY(-110vh) translateX(-15px) scale(0.4);
+        opacity: 0;
+    }
+}
+@keyframes glow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 120, 0, 0.4)); }
+    50% { filter: drop-shadow(0 0 20px rgba(255, 100, 0, 0.8)); }
+  }

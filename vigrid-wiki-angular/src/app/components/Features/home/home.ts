@@ -20,6 +20,7 @@ import {
 export class Home {
   data: any = null;
   dataCard: any = null;
+  datarune: any = null
   characterCards: any[] = [];
   availableCharacters: any[] = [];
   updates: any = null;
@@ -29,7 +30,7 @@ export class Home {
     public characterService: CharacterService,
     private weaponService: WeaponService,
     private godService: GodService,
-    private runeService: RuneService,
+    public runeService: RuneService,
     public cardService: CardService,
     private changelog: Changelog
   ) { }
@@ -60,8 +61,15 @@ export class Home {
       if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
     });
     this.runeService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; };
-    })
+      if (res) {
+        this.datarune = res;
+        this.data = null;
+        this.dataCard = null;
+        this.updates = null;
+        this.characterCards = [];
+        this.availableCharacters = [];
+      };
+    });
     this.cardService.currentItem.subscribe(res => {
       if (res) {
         this.dataCard = res; this.data = null; this.characterCards = []; this.updates = null;

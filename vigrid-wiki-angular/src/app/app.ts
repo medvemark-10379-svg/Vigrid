@@ -5,7 +5,6 @@ import { Router } from '@angular/router';
 import { Home } from './components/Features/home/home';
 import {
   AsideContainerBosses,
-  AsideContainerRunes,
   AsideContainerGods,
   AsideContainerEnemies,
   AsideContainerCharacter,
@@ -21,7 +20,7 @@ import {
   standalone: true,
   imports: [
     Navbar, Aside, Home,
-    AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies, AsideContainerGods, AsideContainerRunes,
+    AsideContainerCharacter, AsideContainerWeapon, AsideContainerBosses, AsideContainerEnemies, AsideContainerGods,
   ],
   templateUrl: './app.html',
   styleUrl: './app.css'
