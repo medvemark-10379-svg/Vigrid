@@ -17,13 +17,8 @@ var cost
 
 
 func _ready() -> void:
+	await get_tree().create_timer(0.001).timeout
 	baseposition = global_position
-
-func clicked(cardid: int):
-		if cardid == id:
-			collision_shape_2d.debug_color = Color(1.0, 0.005, 0.062, 0.42)
-			activated = true
-			MouseState.checker(1,1)
 
 func _on_strikearea_mouse_entered() -> void:
 	await get_tree().create_timer(0.001).timeout
@@ -38,8 +33,9 @@ func _on_strikearea_mouse_exited() -> void:
 
 
 func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if Input.is_action_just_pressed("mouseactions") and get_parent().get_parent().get_parent().energy-cost >= 0:
+	if  event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and get_parent().get_parent().get_parent().energy-cost >= 0:
 		MouseState.usedcard = [id, Type, Baseeffectnumb, placedon]
+		teszt1()
 		
 		
 func used(usedid:int):
@@ -50,3 +46,6 @@ func used(usedid:int):
 			MouseState.usedcard.clear()
 			queue_free()
 			Interact.cardpile.append(Name)
+			
+func teszt1():
+	MouseState.currentcard = self

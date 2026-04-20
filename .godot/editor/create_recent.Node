@@ -1,10 +1,10 @@
+CollisionShape2D
 CanvasLayer
 Area2D
 Button
 Node
 Panel
 Label
-CollisionShape2D
 Marker2D
 Sprite2D
 TextureProgressBar

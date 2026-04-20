@@ -25,7 +25,7 @@ func _ready() -> void:
 		cards.erase(choosedcar)
 
 func areaInput(viewport, event, shape_idx, card):
-	if event is InputEventMouseButton :
+	if  event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT :
 		MouseState.addedtodeck.append(card.name)
 
 func _on_button_pressed() -> void:
