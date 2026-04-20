@@ -2,7 +2,6 @@
 <div class="fixed inset-0 w-full h-full pointer-events-none z-[-1] overflow-hidden bg-[#0d0d0d]">
     <div class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#ff4500]/30 via-[#ff4500]/5 to-transparent">
     </div>
-
     <div class="ember-particle" style="left: 3%; width: 4px; height: 6px; animation-duration: 5s; animation-delay: 1s;">
     </div>
     <div class="ember-particle"
@@ -27,48 +26,37 @@
         style="left: 95%; width: 3px; height: 5px; animation-duration: 18s; animation-delay: 5s;"></div>
     <div class="ember-particle"
         style="left: 98%; width: 2px; height: 4px; animation-duration: 18s; animation-delay: 2s;"></div>
-
     <div
         class="absolute bottom-[-100px] left-1/2 -translate-x-1/2 w-[150%] h-96 bg-[#ff4500]/20 rounded-[100%] blur-[130px] animate-pulse">
     </div>
 </div>
 <div class="flex gap-3 md:gap-5 lg:gap-8 w-full p-2 md:p-3 lg:p-5">
-
     <div
         class="hidden md:flex flex-col md:w-[26%] lg:w-[22%] md:sticky md:top-[85px] lg:top-[110px] self-start h-fit opacity-80">
-
         <app-aside (linkClickedCharacter)="toggleSelection('char')" (linkClickedWeapons)="toggleSelection('weapons')"
             (linkClickedBosses)="toggleSelection('bosses')" (linkClickedEnemies)="toggleSelection('enemies')"
             (linkClickedGods)="toggleSelection('gods')" (linkClickedRunes)="toggleSelection('runes')"
             (linkClickedCards)="toggleSelection('cards');"
             class="container block bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm sticky top-0 z-50">
         </app-aside>
-
         <app-aside-container-character [isVisible_]="isCharactersVisible" [hidden]="!isCharactersVisible"
             class="container bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-character>
-
         <app-aside-container-weapon [isVisibleWeapons_]="isWeaponsVisible" [hidden]="!isWeaponsVisible"
             class="container bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-weapon>
-
         <app-aside-container-bosses [isVisibleBosses_]="isBossesVisible" [hidden]="!isBossesVisible"
             class="container bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-bosses>
-
         <app-aside-container-enemies [isEnemiesVisible_]="isEnemiesVisible" [hidden]="!isEnemiesVisible"
             class="container bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-enemies>
-
         <app-aside-container-gods [isGodsVisible_]="isGodsVisible" [hidden]="!isGodsVisible"
             class="container bg-[#1a1614] w-full rounded-r-sm border-r-2 border-[#ff4500]/20 shadow-sm [&:not([hidden])]:mt-3">
         </app-aside-container-gods>
-
     </div>
-
     <app-home
         class="container bg-[#1a1614] h-full w-full md:w-[90%] lg:w-[87%] lg:mr-3 border border-[#ff4500]/10 opacity-98"></app-home>
-
     <footer
         class="fixed bottom-0 left-0 right-0 border-[#ff4500]/20 flex items-center p-2 bg-[#0d0d0d] text-white rounded-t-xl z-50 mb-[-2px] hover:scale-y-130 transition-all duration-500 opacity-99">
         <div class="flex items-center justify-between w-full px-4">

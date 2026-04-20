@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { CharacterService } from '../../../Services/character-service';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
-
 @Component({
   selector: 'app-home-page',
   imports: [AsyncPipe],

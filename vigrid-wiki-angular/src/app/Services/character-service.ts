@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -12,28 +11,24 @@ export class CharacterService {
       image: 'Images/Characters/Bondi.png',
       sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
     },
-
     {
       name: 'Jarl',
       description: 'A Jarl was a high-ranking noble or chieftain in Viking society who held significant territorial power, wealth, and a loyal following of warriors.',
       image: 'Images/Characters/Jarl.png',
       sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
     },
-
     {
       name: 'Berserkr',
       description: 'A fierce warrior who entered a state of uncontrollable rage in battle.',
       image: 'Images/Characters/Berserkr.png',
       sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
     },
-
     {
       name: 'Shaman',
       description: 'A spiritual leader who could communicate with the gods and predict the future.',
       image: 'Images/Characters/Shaman.png',
       sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
     },
-
     {
       name: 'Ulfhednar',
       description: 'A legendary warrior known for his strength and skill in battle.',
@@ -43,10 +38,8 @@ export class CharacterService {
   ]
   private chosenCharacter = new BehaviorSubject<any>(null);
   currentItem = this.chosenCharacter.asObservable();
-
   private randomcharacter = new BehaviorSubject<any>(null);
   randomItem = this.randomcharacter.asObservable();
-
   ItemSelected(name: string) {
     const character = this.characters.find(item => item.name === name);
     this.chosenCharacter.next(character || null);

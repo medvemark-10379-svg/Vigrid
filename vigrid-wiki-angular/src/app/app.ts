@@ -39,7 +39,6 @@ export class App implements OnInit {
   isEnemiesVisible = false;
   isGodsVisible = false;
   isRunesVisible = false;
-
   toggleSelection(section: string) {
     this.characterService.ItemSelected("");
     this.isCharactersVisible = false;
@@ -48,7 +47,6 @@ export class App implements OnInit {
     this.isEnemiesVisible = false;
     this.isGodsVisible = false;
     this.isRunesVisible = false;
-
     if (section === 'char') {
       this.isCharactersVisible = true;
     } else if (section === 'weapons') {

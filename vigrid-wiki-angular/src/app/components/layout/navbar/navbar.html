@@ -13,7 +13,6 @@
             class="w-45 py-1 md:w-65 lg:w-85 border border-[#ff4500]/30 rounded-sm m-2 md:pl-3 lg:pl-5 text-xl md:text-xl lg:text-2xl pl-3 mr-6 bg-[#0d0d0d] text-[#d1c7c0] placeholder:text-[#d1c7c0]/50 placeholder:font-[Nordvik] focus:outline-none focus:border-[#ff4500]"
             type="text" placeholder="Search for..." (input)="onSearch($event)"
             (keydown)="onKeyDown($event, searchInput)">
-
         @if (isDropdownOpen && filteredResults.length > 0) {
         <ul
             class="absolute top-full left-2 right-6 bg-[#1a1614] border-2 rounded-sm border-[#ff4500]/30 shadow-2xl z-50 mt-[-8px] rounded-b-sm">

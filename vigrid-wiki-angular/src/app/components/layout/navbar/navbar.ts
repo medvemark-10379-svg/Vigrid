@@ -9,7 +9,6 @@ import {
   GodService,
   RuneService,
 } from '../../../Services/_serviceExport';
-
 @Component({
   standalone: true,
   imports: [CommonModule],
@@ -30,13 +29,9 @@ export class Navbar {
     private godService: GodService,
     private runeService: RuneService,
     private cardService: CardService,
-    
-    
   ) { }
-  
   onKeyDown(event: KeyboardEvent, inputElement: HTMLInputElement) {
     if (!this.isDropdownOpen || this.filteredResults.length === 0) return;
-
     if (event.key === 'ArrowDown') {
       event.preventDefault(); // Megakadályozzuk a kurzor ugrálását az inputban
       this.focusedIndex = (this.focusedIndex + 1) % this.filteredResults.length;
@@ -79,7 +74,6 @@ export class Navbar {
     this.isDropdownOpen = this.filteredResults.length > 0;
     this.updateService(term)
   }
-
   updateService(term: string) {
     this.BossService.ItemSelected(term);
     this.EnemiesService.ItemSelected(term);

@@ -1,7 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
 import { CardService,RuneService,Changelog } from '../../../Services/_serviceExport';
-
-
 @Component({
   selector: 'app-aside',
   imports: [],
@@ -15,7 +13,6 @@ export class Aside {
   @Output() linkClickedBosses = new EventEmitter<void>();
   @Output() linkClickedEnemies = new EventEmitter<void>();
   @Output() linkClickedGods = new EventEmitter<void>();
-
   onCardsClick() {
     this.cardService.ItemSelectedAll();
   }

@@ -1,7 +1,6 @@
 @if (data) {
 <div class="p-4 bg-[#1a1614]">
   <h2 class="font-bold text-[#ff4500] font-[Nordvik] text-bs md:text-xl lg:text-4xl">{{ data.name }}</h2>
-
   <div class="mt-4 overflow-hidden w-full">
     <img [src]="data.image" [alt]="data.name" [style.--w-mob]="data.sizeMb" [style.--w-dt]="data.sizeDT"
       [style.--w-mt]="data.sizeMT" class="h-auto block mx-auto brightness-90 hover:brightness-110 transition-all
@@ -11,7 +10,6 @@
     <p class="mt-4 text-[#d1c7c0]">{{ data.description }}</p>
   </div>
 </div>
-
 @if (characterCards && characterCards.length > 0) {
 <div class="mt-0 pt-8 flex flex-col items-center w-full bg-[#1a1614]">
   <h3 class="text-2xl font-bold text-[#ff4500] font-[Nordvik] mb-8 text-center">
@@ -29,7 +27,6 @@
 </div>
 }
 }
-
 @else if (dataCard) {
 @if (isArray(dataCard)) {
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 mx-auto bg-[#1a1614]">
@@ -51,7 +48,6 @@
     @else { Defensive: {{ dataCard.defensive }} }
   </p>
   <p class="text-center text-[#e67e22]">@if (dataCard.stamina) { Stamina: {{ dataCard.stamina }} }</p>
-
   @if (availableCharacters && availableCharacters.length > 0) {
   <div class="mt-12 w-full max-w-none pb-20 px-4">
     <h3 class="text-3xl font-bold text-[#ff4500] font-[Nordvik] text-center mb-10">Available For:</h3>
@@ -103,12 +99,9 @@
 </div>
 }
 }
-
-
 @else if (updates && updates.length > 0) {
 <div class="p-4 max-w-5xl mx-auto space-y-12 pb-20">
   <h2 class="text-5xl text-[#ff4500] font-[Nordvik] text-center mb-12 uppercase tracking-tighter">Changelog</h2>
-
   @for (ver of updates; track ver.version) {
   @if (!ver.ishidden) {
   <div class="relative p-6 rounded-sm border border-[#ff4500]/20 bg-[#1a1614]">
@@ -119,7 +112,6 @@
       </div>
       <span class="text-[#d1c7c0]/50 font-mono text-sm">{{ ver.date }}</span>
     </div>
-
     <ul class="space-y-2">
       @for (change of ver.changes; track change) {
       @if (change.length > 0) {
@@ -139,11 +131,9 @@
 </div>
 }
 @else if (feed()) {
-<div class="p-4 bg-[#1a1614] min-h-screen flex flex-col items-center justify-center">
+<div class="p-4 bg-[#1a1614] flex flex-col items-center py-10">
   <h2 class="text-5xl text-[#ff4500] font-[Nordvik] mb-8 uppercase tracking-widest">Feedback</h2>
-
   <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="w-full max-w-lg flex flex-col gap-6">
-
     <div class="flex flex-col gap-2">
       <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Issue Category</label>
       <select formControlName="category"
@@ -154,25 +144,23 @@
         }
       </select>
     </div>
-
     <div class="flex flex-col gap-2">
       <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Your Message</label>
       <textarea formControlName="comment" rows="5" placeholder="Describe your Feedback"
         class="bg-[#2a2420] border border-[#ff4500]/30 p-3 text-[#d1c7c0] placeholder:text-[#d1c7c0]/70 placeholder:font-[Nordvik] text focus:outline-none focus:border-[#ff4500] resize-none placeholder:text-[#d1c7c0]/30 rounded-none"></textarea>
-
-      @if (feedbackForm.get('comment')?.invalid && feedbackForm.get('comment')?.touched) {
-      <span class="text-xs text-red-500 italic">Please write at least 10 characters.</span>
+      @if (comment?.invalid && (comment?.dirty || comment?.touched)) {
+      <span class="text-[13px] text-red-600 uppercase font-bold tracking-tight">
+        You need at least 20 characters to send this.
+      </span>
       }
     </div>
-
     <div class="flex flex-col gap-4 mt-4">
-      <button type="submit" [disabled]="feedbackForm.invalid"
-        class="bg-[#ff4500] text-black font-bold py-3 hover:bg-[#e63e00] disabled:opacity-30 disabled:cursor-not-allowed transition-all uppercase rounded-none">
+      <button type="submit" [disabled]="feedbackForm.invalid || isSending"
+        class="bg-[#ff4500] cursor-pointer text-black font-bold py-3 hover:bg-[#e63e00] disabled:opacity-30 disabled:cursor-not-allowed transition-all uppercase rounded-none">
         Submit Report
       </button>
-
       <button type="button" (click)="feedbackService.showFeedback.set(false)"
-        class="text-[#ff4500] border border-[#ff4500] px-6 py-2 hover:bg-[#ff4500] hover:text-black transition-all uppercase text-sm rounded-none">
+        class="text-[#ff4500] cursor-pointer border border-[#ff4500] px-6 py-2 hover:bg-[#ff4500] hover:text-black transition-all uppercase text-sm rounded-none">
         Cancel
       </button>
     </div>

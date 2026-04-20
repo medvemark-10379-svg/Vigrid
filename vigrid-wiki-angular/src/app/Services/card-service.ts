@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject } from 'rxjs';
-
 @Injectable({
   providedIn: 'root',
 })
@@ -15,7 +14,6 @@ export class CardService {
       stamina: 'Drains 2 Stamina',
       availableFor: ['Bondi', 'Shaman', 'Ulfhednar'],
     },
-
     {
       name: 'Sunder',
       description: '',
@@ -25,7 +23,6 @@ export class CardService {
       stamina: 'Drains 1 Stamina',
       availableFor: ['Bondi', 'Berserkr', 'Ulfhednar'],
     },
-
     {
       name: 'Eitr',
       description: '',
@@ -35,7 +32,6 @@ export class CardService {
       stamina: 'Drains 1 Stamina',
       availableFor: ['Shaman'],
     },
-
     {
       name: 'Frenzy',
       description: '',
@@ -45,7 +41,6 @@ export class CardService {
       stamina: 'Drains 2 Stamina',
       availableFor: ['Ulfhednar', 'Berserkr'],
     },
-
     {
       name: 'Gash',
       description: '',
@@ -55,7 +50,6 @@ export class CardService {
       stamina: 'Drains 2 Stamina.',
       availableFor: ['Shaman'],
     },
-
     {
       name: 'Guard',
       description: '',
@@ -77,7 +71,6 @@ export class CardService {
   ]
   private chosenCard = new BehaviorSubject<any>(null);
   currentItem = this.chosenCard.asObservable();
-
   ItemSelected(name: string) {
     const card = this.cards.find(item => item.name === name);
     this.chosenCard.next(card);
@@ -89,7 +82,6 @@ export class CardService {
   getCardsByCharacter(character: string) {
     return this.cards.filter(card => card.availableFor && card.availableFor.includes(character));
   }
-
   getCards() {
     return this.cards;
   }

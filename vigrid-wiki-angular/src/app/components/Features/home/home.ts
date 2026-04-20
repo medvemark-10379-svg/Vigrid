@@ -12,8 +12,6 @@ import {
   Changelog,
   FeedbackService
 } from '../../../Services/_serviceExport';
-import { required } from '@angular/forms/signals';
-
 @Component({
   selector: 'app-home',
   imports: [HomePage, ReactiveFormsModule],
@@ -22,13 +20,14 @@ import { required } from '@angular/forms/signals';
 })
 export class Home {
   public feedbackService = inject(FeedbackService);
-  feed = this.feedbackService.showFeedback
+  feed = this.feedbackService.showFeedback;
   data: any = null;
   dataCard: any = null;
   datarune: any = null
   characterCards: any[] = [];
   availableCharacters: any[] = [];
   updates: any = null;
+  isSending: boolean = false;
   constructor(
     private bossService: BossService,
     private enemiesService: EnemiesService,
@@ -103,19 +102,34 @@ export class Home {
   }
   feedbackForm = new FormGroup({
     category: new FormControl('', [Validators.required]),
-    comment: new FormControl('', [Validators.required, Validators.minLength(10)])
+    comment: new FormControl('', [Validators.required, Validators.minLength(20)])
   })
+  get comment() {
+  return this.feedbackForm.get('comment');
+}
   categories = [
+    'General Feedback',
     'Bug Report',
     'Gameplay Report',
     'Balance Issue',
     'Suggestion',
   ]
-  onSubmit() {
-    if (this.feedbackForm.valid) {
-      console.log('Feedback sent:', this.feedbackForm.value);
+async onSubmit() {
+  if (this.feedbackForm.valid && !this.isSending ) {
+    this.isSending = true;
+    try {
+      await this.feedbackService.sendfeedback(this.feedbackForm.value);
+      
+      console.log('Feedback sent successfully:', this.feedbackForm.value);
       this.feedbackForm.reset();
       this.feedbackService.showFeedback.set(false);
+      
+      alert('Feedback sent successfully!'); 
+    } catch (error) {
+      console.error('Error sending feedback:', error);
+      alert('Error sending feedback. Please try again.');
+    } finally {
+      this.isSending = false; 
     }
   }
-}
+}}
