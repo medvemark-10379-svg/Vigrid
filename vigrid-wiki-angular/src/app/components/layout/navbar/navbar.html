@@ -8,8 +8,7 @@
         class="justify-self-start text-2xl md:text-3xl lg:text-5xl font-bold pl-6 md:pl-8 lg:pl-10 font-[Nordvik] text-[#ff4500]">
         Vigrid<span class="hidden lg:visible lg:inline">: Survive the Ragnarök</span>
     </h2>
-
-    <div class="search_container ml-auto flex flex-col relative">
+    <div class="search_container flex flex-col relative ml-auto">
         <input #searchInput
             class="w-45 py-1 md:w-65 lg:w-85 border border-[#ff4500]/30 rounded-sm m-2 md:pl-3 lg:pl-5 text-xl md:text-xl lg:text-2xl pl-3 mr-6 bg-[#0d0d0d] text-[#d1c7c0] placeholder:text-[#d1c7c0]/50 placeholder:font-[Nordvik] focus:outline-none focus:border-[#ff4500]"
             type="text" placeholder="Search for..." (input)="onSearch($event)"

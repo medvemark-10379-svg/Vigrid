@@ -69,11 +69,12 @@
     </div>
   </div>
   }
-<div class="flex justify-center mb-10">
-  <button (click)="cardService.ItemSelectedAll()" class="mt-8 rounded-sm text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors">
-    Back
-  </button>
-</div>
+  <div class="flex justify-center mb-10">
+    <button (click)="cardService.ItemSelectedAll()"
+      class="mt-8 rounded-sm text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors">
+      Back
+    </button>
+  </div>
 </div>
 }
 }
@@ -129,10 +130,55 @@
       }
     </ul>
   </div>
+  <button (click)="refreshPage()"
+    class="mt-8 text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors rounded-sm cursor-pointer">
+    Back
+  </button>
   }
   }
 </div>
 }
-@else {
+@else if (feed()) {
+<div class="p-4 bg-[#1a1614] min-h-screen flex flex-col items-center justify-center">
+  <h2 class="text-5xl text-[#ff4500] font-[Nordvik] mb-8 uppercase tracking-widest">Feedback</h2>
+
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="w-full max-w-lg flex flex-col gap-6">
+
+    <div class="flex flex-col gap-2">
+      <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Issue Category</label>
+      <select formControlName="category"
+        class="bg-[#2a2420] border border-[#ff4500]/30 text-[#d1c7c0] text-xl font-[Nordvik] p-3 focus:outline-none focus:border-[#ff4500] appearance-none cursor-pointer rounded-none">
+        <option value="" disabled>Select a category...</option>
+        @for (cat of categories; track cat) {
+        <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </div>
+
+    <div class="flex flex-col gap-2">
+      <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Your Message</label>
+      <textarea formControlName="comment" rows="5" placeholder="Describe your Feedback"
+        class="bg-[#2a2420] border border-[#ff4500]/30 p-3 text-[#d1c7c0] placeholder:text-[#d1c7c0]/70 placeholder:font-[Nordvik] text focus:outline-none focus:border-[#ff4500] resize-none placeholder:text-[#d1c7c0]/30 rounded-none"></textarea>
+
+      @if (feedbackForm.get('comment')?.invalid && feedbackForm.get('comment')?.touched) {
+      <span class="text-xs text-red-500 italic">Please write at least 10 characters.</span>
+      }
+    </div>
+
+    <div class="flex flex-col gap-4 mt-4">
+      <button type="submit" [disabled]="feedbackForm.invalid"
+        class="bg-[#ff4500] text-black font-bold py-3 hover:bg-[#e63e00] disabled:opacity-30 disabled:cursor-not-allowed transition-all uppercase rounded-none">
+        Submit Report
+      </button>
+
+      <button type="button" (click)="feedbackService.showFeedback.set(false)"
+        class="text-[#ff4500] border border-[#ff4500] px-6 py-2 hover:bg-[#ff4500] hover:text-black transition-all uppercase text-sm rounded-none">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+}
+@else{
 <app-home-page></app-home-page>
 }

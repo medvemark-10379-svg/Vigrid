@@ -3,8 +3,8 @@
     <div class="absolute bottom-0 w-full h-full bg-gradient-to-t from-[#ff4500]/30 via-[#ff4500]/5 to-transparent">
     </div>
 
-    <div class="ember-particle"
-        style="left: 3%; width: 4px; height: 6px; animation-duration: 5s; animation-delay: 1s;"></div>
+    <div class="ember-particle" style="left: 3%; width: 4px; height: 6px; animation-duration: 5s; animation-delay: 1s;">
+    </div>
     <div class="ember-particle"
         style="left: 7%; width: 4px; height: 6px; animation-duration: 12s; animation-delay: 0s;"></div>
     <div class="ember-particle"
@@ -34,7 +34,8 @@
 </div>
 <div class="flex gap-3 md:gap-5 lg:gap-8 w-full p-2 md:p-3 lg:p-5">
 
-    <div class="hidden md:flex flex-col md:w-[26%] lg:w-[22%] md:sticky md:top-[85px] lg:top-[110px] self-start h-fit opacity-80">
+    <div
+        class="hidden md:flex flex-col md:w-[26%] lg:w-[22%] md:sticky md:top-[85px] lg:top-[110px] self-start h-fit opacity-80">
 
         <app-aside (linkClickedCharacter)="toggleSelection('char')" (linkClickedWeapons)="toggleSelection('weapons')"
             (linkClickedBosses)="toggleSelection('bosses')" (linkClickedEnemies)="toggleSelection('enemies')"
@@ -72,11 +73,18 @@
         class="fixed bottom-0 left-0 right-0 border-[#ff4500]/20 flex items-center p-2 bg-[#0d0d0d] text-white rounded-t-xl z-50 mb-[-2px] hover:scale-y-130 transition-all duration-500 opacity-99">
         <div class="flex items-center justify-between w-full px-4">
             <a href="https://github.com/medvemark-10379-svg/Vigrid"
-                class="text-xs md:text-sm hover:underline hover:scale-110 transition-all text-[#d1c7c0]">Github:
+                class="text-[#ff4500] mr-4 hover:font-bold text-xs text-nowrap md:text-xl underline cursor-pointer">Github:
                 Vigrid.git</a>
-            <a href="#Changelog"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-transform duration-200 ease-in-out hover:pl-2"
-                (click)="onChangelogClick()">Changelog</a>
+            <button
+                class=" text-[#ff4500] md:ml-auto mr-4 hover:font-bold text-xs md:text-xl text-nowrap cursor-pointer" 
+                (click)="onFeedbackClick()">
+                Send Feedback
+            </button>
+            <button
+                class=" text-[#ff4500] md:ml-auto mr-4 hover:font-bold text-xs md:text-xl text-nowrap cursor-pointer"
+                (click)="onChangelogClick()">
+                Changelog
+            </button>
         </div>
     </footer>
 </div>

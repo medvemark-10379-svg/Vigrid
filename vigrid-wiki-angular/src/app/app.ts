@@ -1,4 +1,4 @@
-import { Component, OnInit, inject } from '@angular/core';
+import { Component, OnInit, Output, inject } from '@angular/core';
 import { Aside } from './components/layout/aside/aside';
 import { Navbar } from './components/layout/navbar/navbar';
 import { Router } from '@angular/router';
@@ -13,7 +13,8 @@ import {
 import {
   CardService,
   CharacterService,
-  Changelog
+  Changelog,
+  FeedbackService
 } from './Services/_serviceExport';
 @Component({
   selector: 'app-root',
@@ -27,7 +28,8 @@ import {
 })
 export class App implements OnInit {
   private router = inject(Router);
-  constructor(private characterService: CharacterService, public cardService: CardService, private changelog: Changelog) { }
+  feedback: boolean = false
+  constructor(private characterService: CharacterService, public cardService: CardService, private changelog: Changelog, public feedbackService: FeedbackService) { }
   ngOnInit() {
     this.router.navigate(['/']);
   }
@@ -61,8 +63,11 @@ export class App implements OnInit {
       this.isRunesVisible = true;
     } else if (section === 'char') {
     }
-  }
-    onChangelogClick() {
+  };
+  onChangelogClick() {
     this.changelog.showChangelog();
+  };
+  onFeedbackClick() {
+    this.feedbackService.toggleFeedback()
   }
 }
