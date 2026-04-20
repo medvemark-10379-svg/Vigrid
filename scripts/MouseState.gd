@@ -13,7 +13,7 @@ var mousestateP = CIVP[0]
 var mousestateR = CIVR[0]
 var dragabel = false
 var clickedcardid
-var currentcard
+var currentitem
 	
 
 #func _input(event: InputEvent) -> void:
@@ -28,11 +28,14 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("mouseactions"):
 			if mousestateP == CIVP[2] and MouseState.usedcard.size() != 0:
 				get_tree().call_group("Cards", "used", usedcard[0])
-			if currentcard != null:
-				currentcard.global_position = get_global_mouse_position() 
-		if Input.is_action_just_released("mouseactions") and currentcard != null:
-			currentcard.global_position = currentcard.baseposition
-			currentcard = null
+			if currentitem != null:
+				
+				currentitem.global_position = get_global_mouse_position() + currentitem.grab_offset
+				print(currentitem.global_position)
+		if Input.is_action_just_released("mouseactions") and currentitem != null:
+			if "baseposition" in currentitem:
+				currentitem.global_position = currentitem.baseposition
+			currentitem = null
 
 func checker(stateP: int = 0, stateR: int = 0):
 	mousestateP = CIVP[stateP] 

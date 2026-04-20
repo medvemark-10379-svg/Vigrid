@@ -1,4 +1,7 @@
-[gd_resource type="Resource" format=3 uid="uid://b7r4xggv73ykb"]
+[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7r4xggv73ykb"]
+
+[ext_resource type="Texture2D" uid="uid://dk4fnjue3imb4" path="res://weapons/Ulfberth.png" id="1_334g4"]
+[ext_resource type="Texture2D" uid="uid://dpucdi3msuox0" path="res://weapons/Shield.png" id="1_vpyuy"]
 
 [resource]
 metadata/BD = {
@@ -9,6 +12,7 @@ metadata/BD = {
 "Holded": 4,
 "Name": "Guard",
 "PlacedOn": ["Enemys", "Player"],
+"Texture": ExtResource("1_vpyuy"),
 "Type": "Block"
 },
 "Heavy Strikes": {
@@ -17,6 +21,7 @@ metadata/BD = {
 "Cost": 2,
 "Holded": 0,
 "Name": "Heavy Strike",
+"Texture": null,
 "Type": "Attack"
 },
 "Knifes": {
@@ -25,6 +30,7 @@ metadata/BD = {
 "Cost": 1,
 "Holded": 2,
 "Name": "Knife",
+"Texture": null,
 "Type": "Attack"
 },
 "Parrys": {
@@ -33,6 +39,7 @@ metadata/BD = {
 "Cost": 2,
 "Holded": 1,
 "Name": "Sway",
+"Texture": null,
 "Type": "Buff"
 },
 "Strikes": {
@@ -41,6 +48,7 @@ metadata/BD = {
 "Cost": 1,
 "Holded": 5,
 "Name": "Sunder",
+"Texture": ExtResource("1_334g4"),
 "Type": "Attack"
 }
 }

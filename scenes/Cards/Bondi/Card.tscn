@@ -1,10 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://dsrjwl4y5t6cm"]
+[gd_scene load_steps=6 format=3 uid="uid://dsrjwl4y5t6cm"]
 
 [ext_resource type="Script" uid="uid://b45w06fh05jbj" path="res://scripts/Cards/Bondi/Card.gd" id="1_ce828"]
 [ext_resource type="Texture2D" uid="uid://bcn6vqxneimqc" path="res://icon.svg" id="2_ad8jv"]
+[ext_resource type="Script" uid="uid://b3oi4rewg7vn1" path="res://scripts/Cards/strikearea.gd" id="3_ad8jv"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0dnmv"]
 size = Vector2(126, 179)
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_ad8jv"]
+specular_color = Color(0.74509805, 0, 0.023529412, 1)
 
 [node name="Strike" type="Node2D" groups=["Cards"]]
 script = ExtResource("1_ce828")
@@ -15,9 +19,19 @@ scale = Vector2(1, 1.4570313)
 texture = ExtResource("2_ad8jv")
 
 [node name="Strikearea" type="Area2D" parent="."]
+script = ExtResource("3_ad8jv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Strikearea"]
 shape = SubResource("RectangleShape2D_0dnmv")
+
+[node name="Blood" type="CPUParticles2D" parent="."]
+emitting = false
+texture = SubResource("CanvasTexture_ad8jv")
+emission_shape = 3
+emission_rect_extents = Vector2(63.25, 89.5)
+gravity = Vector2(0, 5)
+scale_amount_min = 0.0
+scale_amount_max = 5.0
 
 [connection signal="input_event" from="Strikearea" to="." method="_on_strikearea_input_event"]
 [connection signal="mouse_entered" from="Strikearea" to="." method="_on_strikearea_mouse_entered"]

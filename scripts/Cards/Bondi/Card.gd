@@ -8,11 +8,16 @@ var activated = false
 var Name 
 var Baseeffectnumb 
 var cost
-
+var activate = false
+var texture
+var grab_offset
 
 @onready var card_point: Node2D = $CardPoint
 @onready var icon: Sprite2D = $Icon
 @onready var collision_shape_2d: CollisionShape2D = $Strikearea/CollisionShape2D
+@onready var blood: CPUParticles2D = $Blood
+
+const WEAPON = preload("uid://dewbqh5i8a6d4")
 
 
 
@@ -35,9 +40,18 @@ func _on_strikearea_mouse_exited() -> void:
 func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if  event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.is_pressed() and get_parent().get_parent().get_parent().energy-cost >= 0:
 		MouseState.usedcard = [id, Type, Baseeffectnumb, placedon]
+		grab_offset = global_position - get_global_mouse_position()
 		teszt1()
+
 		
-		
+func _input(event: InputEvent) -> void:
+	if Input.is_action_just_released("mouseactions") and id == MouseState.usedcard[0] and activate == true:
+		var weapon = WEAPON.instantiate()
+		get_parent().add_child(weapon)
+		weapon.global_position = self.global_position
+		weapon.create(texture)
+		queue_free()
+
 func used(usedid:int):
 		if usedid == id:
 			get_tree().call_group("Enemys", "alert_mode_check", false)
@@ -48,4 +62,9 @@ func used(usedid:int):
 			Interact.cardpile.append(Name)
 			
 func teszt1():
-	MouseState.currentcard = self
+	MouseState.currentitem = self
+
+func Activated(aid, active):
+	if aid == id:
+		blood.emitting = active
+		activate = active
