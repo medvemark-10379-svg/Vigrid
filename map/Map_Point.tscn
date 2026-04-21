@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://cha8orfguleo0"]
+
+[ext_resource type="Script" uid="uid://wk6yf168tiwd" path="res://map_point.gd" id="1_hw4ld"]
+[ext_resource type="Texture2D" uid="uid://cf756lvdpesoq" path="res://Fight_Icon.png" id="2_pb48j"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_jgwgs"]
+size = Vector2(64, 64)
+
+[node name="Area2D" type="Area2D"]
+script = ExtResource("1_hw4ld")
+metadata/_edit_vertical_guides_ = [117.0, 324.0, 540.0, 748.0, 944.0, 64.0]
+metadata/_edit_horizontal_guides_ = [159.0, 368.0, 500.0, 64.0]
+
+[node name="MapPoint" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_jgwgs")
+
+[node name="FightIcon" type="Sprite2D" parent="."]
+texture = ExtResource("2_pb48j")
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
