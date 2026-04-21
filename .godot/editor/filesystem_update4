@@ -1,2 +1,7 @@
 res://weapons/weapon.tscn
 res://weapons/weapon.gd
+res://scripts/MouseState.gd
+res://scripts/BaseCard_data.tres
+res://scenes/Cards/Bondi/Card.tscn
+res://scripts/Cards/Bondi/Card.gd
+res://scripts/deckhandler.gd

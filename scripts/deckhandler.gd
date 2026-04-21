@@ -57,6 +57,7 @@ func deckhandler(Name: String, id: int ):
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb 
 			strike.Name = basedeck[item].Name
 			strike.cost = basedeck[item].Cost
+			strike.cardtexture = basedeck[item].CardTexture
 			strike.texture = basedeck[item].Texture
 			if basedeck[item].Name == "Block":
 				strike.placedon = basedeck[item].PlacedOn

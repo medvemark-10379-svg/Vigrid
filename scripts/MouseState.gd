@@ -31,7 +31,6 @@ func _input(event: InputEvent) -> void:
 			if currentitem != null:
 				
 				currentitem.global_position = get_global_mouse_position() + currentitem.grab_offset
-				print(currentitem.global_position)
 		if Input.is_action_just_released("mouseactions") and currentitem != null:
 			if "baseposition" in currentitem:
 				currentitem.global_position = currentitem.baseposition

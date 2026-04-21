@@ -19,7 +19,6 @@ func create(texture):
 
 
 func _physics_process(delta: float) -> void:
-	print("ez_a_phiszic")
 	# Add the gravity.
 	if not is_on_floor() and grabbed == false :
 		velocity += get_gravity() * delta

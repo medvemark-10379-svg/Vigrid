@@ -1,12 +1,18 @@
-[gd_resource type="Resource" load_steps=3 format=3 uid="uid://b7r4xggv73ykb"]
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://b7r4xggv73ykb"]
 
 [ext_resource type="Texture2D" uid="uid://dk4fnjue3imb4" path="res://weapons/Ulfberth.png" id="1_334g4"]
+[ext_resource type="Texture2D" uid="uid://dvjhrytfmp5xe" path="res://CardTexture/Guard.png" id="1_fo2xn"]
 [ext_resource type="Texture2D" uid="uid://dpucdi3msuox0" path="res://weapons/Shield.png" id="1_vpyuy"]
+[ext_resource type="Texture2D" uid="uid://b27svwplbrlom" path="res://CardTexture/Frenzy.png" id="3_6d2kp"]
+[ext_resource type="Texture2D" uid="uid://djgwqq3nc73af" path="res://CardTexture/Gash.png" id="4_2fr55"]
+[ext_resource type="Texture2D" uid="uid://dnsqmqcbj6o81" path="res://CardTexture/Sway.png" id="5_vy3jd"]
+[ext_resource type="Texture2D" uid="uid://bu8a6ywso1xvx" path="res://CardTexture/Sunder.png" id="6_8yh6a"]
 
 [resource]
 metadata/BD = {
 "Blocks": {
 "BaseEffectNumb": 3,
+"CardTexture": ExtResource("1_fo2xn"),
 "Color": Color(0, 0, 1, 1),
 "Cost": 1,
 "Holded": 4,
@@ -17,6 +23,7 @@ metadata/BD = {
 },
 "Heavy Strikes": {
 "BaseEffectNumb": 3,
+"CardTexture": ExtResource("3_6d2kp"),
 "Color": Color(0.431, 0, 0, 1),
 "Cost": 2,
 "Holded": 0,
@@ -26,6 +33,7 @@ metadata/BD = {
 },
 "Knifes": {
 "BaseEffectNumb": 1,
+"CardTexture": ExtResource("4_2fr55"),
 "Color": Color(1, 0.46101677, 0.3927373, 1),
 "Cost": 1,
 "Holded": 2,
@@ -35,6 +43,7 @@ metadata/BD = {
 },
 "Parrys": {
 "BaseEffectNumb": 3,
+"CardTexture": ExtResource("5_vy3jd"),
 "Color": Color(0.7772874, 0.6824531, 0, 1),
 "Cost": 2,
 "Holded": 1,
@@ -44,6 +53,7 @@ metadata/BD = {
 },
 "Strikes": {
 "BaseEffectNumb": 5,
+"CardTexture": ExtResource("6_8yh6a"),
 "Color": Color(1, 0, 0, 1),
 "Cost": 1,
 "Holded": 5,

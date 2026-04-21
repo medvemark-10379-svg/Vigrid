@@ -11,6 +11,7 @@ var cost
 var activate = false
 var texture
 var grab_offset
+var cardtexture
 
 @onready var card_point: Node2D = $CardPoint
 @onready var icon: Sprite2D = $Icon
@@ -23,6 +24,7 @@ const WEAPON = preload("uid://dewbqh5i8a6d4")
 
 func _ready() -> void:
 	await get_tree().create_timer(0.001).timeout
+	icon.texture = cardtexture
 	baseposition = global_position
 
 func _on_strikearea_mouse_entered() -> void:
