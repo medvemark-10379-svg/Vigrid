@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CharacterService } from '../../../Services/character-service';
+import { CharacterService,RequirementsService } from '../../../Services/_serviceExport';
 import { Observable } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
 @Component({
@@ -10,10 +10,13 @@ import { AsyncPipe } from '@angular/common';
 })
 export class HomePage implements OnInit {
   character$: Observable<any>;
-  constructor(private characterService: CharacterService) {
+  constructor(private characterService: CharacterService, public requirementService: RequirementsService) {
     this.character$ = this.characterService.randomItem;
   }
   ngOnInit(): void {
     this.characterService.setRandomCharacter();
   }
+  onRequirementsClick() {
+    this.requirementService.showRequirements();
+  };
 }

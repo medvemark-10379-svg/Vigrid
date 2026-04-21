@@ -10,11 +10,13 @@ import {
   RuneService,
   CardService,
   Changelog,
-  FeedbackService
+  FeedbackService,
+  RequirementsService
 } from '../../../Services/_serviceExport';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-home',
-  imports: [HomePage, ReactiveFormsModule],
+  imports: [HomePage, ReactiveFormsModule, CommonModule],
   templateUrl: './home.html',
   styleUrl: './home.css',
 })
@@ -28,6 +30,7 @@ export class Home {
   availableCharacters: any[] = [];
   updates: any = null;
   isSending: boolean = false;
+  reqdata: any = null
   constructor(
     private bossService: BossService,
     private enemiesService: EnemiesService,
@@ -37,22 +40,29 @@ export class Home {
     public runeService: RuneService,
     public cardService: CardService,
     private changelog: Changelog,
+    public requirementService: RequirementsService
   ) { }
   isArray(obj: any): boolean {
     return Array.isArray(obj);
   }
   ngOnInit() {
     this.changelog.currentItem.subscribe(res => {
-      if (res) { this.updates = res; this.data = null; this.dataCard = null; this.characterCards = [];
-         this.availableCharacters = []; this.feedbackService.showFeedback.set(false), this.datarune = null };
+      if (res) {
+        this.updates = res; this.data = null; this.dataCard = null; this.characterCards = [];
+        this.availableCharacters = []; this.feedbackService.showFeedback.set(false), this.datarune = null
+      };
     })
     this.bossService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
-         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
+      if (res) {
+        this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+        this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null
+      };
     });
     this.enemiesService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
-         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
+      if (res) {
+        this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+        this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null
+      };
     });
     this.characterService.currentItem.subscribe(res => {
       if (res) {
@@ -63,12 +73,16 @@ export class Home {
       };
     });
     this.weaponService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
-         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
+      if (res) {
+        this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+        this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null
+      };
     });
     this.godService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
-         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
+      if (res) {
+        this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+        this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null
+      };
     });
     this.runeService.currentItem.subscribe(res => {
       if (res) {
@@ -93,6 +107,12 @@ export class Home {
         this.data = null; this.dataCard = null; this.datarune = null;
         this.characterCards = []; this.availableCharacters = []; this.updates = null;
       }
+    })
+    this.requirementService.requirementClicked$.subscribe(res => {
+      if (res) {
+        this.reqdata = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+        this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null ;this.data = null
+      };
     })
   }
   refreshPage() {
