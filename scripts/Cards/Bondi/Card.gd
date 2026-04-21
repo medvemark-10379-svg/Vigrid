@@ -47,21 +47,20 @@ func _on_strikearea_input_event(viewport: Node, event: InputEvent, shape_idx: in
 
 		
 func _input(event: InputEvent) -> void:
-	if Input.is_action_just_released("mouseactions") and id == MouseState.usedcard[0] and activate == true:
+	if Input.is_action_just_released("mouseactions") and MouseState.usedcard.size()>0 and id == MouseState.usedcard[0] and activate == true:
 		var weapon = WEAPON.instantiate()
 		get_parent().add_child(weapon)
 		weapon.global_position = self.global_position
 		weapon.create(texture)
-		queue_free()
+		used(id)
 
 func used(usedid:int):
 		if usedid == id:
 			get_tree().call_group("Enemys", "alert_mode_check", false)
 			await get_tree().create_timer(0.001).timeout
 			get_parent().get_parent().get_parent().EnergyHandler(cost)
-			MouseState.usedcard.clear()
-			queue_free()
 			Interact.cardpile.append(Name)
+			queue_free()
 			
 func teszt1():
 	MouseState.currentitem = self

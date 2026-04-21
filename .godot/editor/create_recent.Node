@@ -1,15 +1,14 @@
+Area2D
+CollisionPolygon2D
 Timer
 CollisionShape2D
 StaticBody2D
 CharacterBody2D
 Sprite2D
 CPUParticles2D
-Area2D
 CanvasLayer
 Button
 Node
 Panel
 Label
 Marker2D
-TextureProgressBar
-ProgressBar

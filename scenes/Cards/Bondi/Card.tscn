@@ -14,8 +14,7 @@ specular_color = Color(0.74509805, 0, 0.023529412, 1)
 script = ExtResource("1_ce828")
 
 [node name="Icon" type="Sprite2D" parent="."]
-modulate = Color(0, 0, 0, 1)
-scale = Vector2(1, 1.4570313)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_ad8jv")
 
 [node name="Strikearea" type="Area2D" parent="."]

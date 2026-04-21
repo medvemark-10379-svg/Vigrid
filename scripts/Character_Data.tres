@@ -1,4 +1,9 @@
-[gd_resource type="Resource" format=3 uid="uid://dl6m4iaalcd6r"]
+[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dl6m4iaalcd6r"]
+
+[ext_resource type="Texture2D" uid="uid://lwr2myjf5s2" path="res://CharacterTexture/Bondi.png" id="1_h1hsr"]
+[ext_resource type="Texture2D" uid="uid://brxjj8feaxd7g" path="res://CharacterTexture/Jarl.png" id="2_kae33"]
+[ext_resource type="Texture2D" uid="uid://c50miokjep2hr" path="res://CharacterTexture/Wolf_.png" id="3_il57g"]
+[ext_resource type="Texture2D" uid="uid://b83787auus652" path="res://vigrid-wiki-angular/public/Images/Enemies/Draugr.png" id="4_g0g5t"]
 
 [resource]
 metadata/C0 = {
@@ -13,6 +18,7 @@ metadata/C0 = {
 "ActionId": 1,
 "HP": 15,
 "Name": "Bondi",
+"Texture": ExtResource("1_h1hsr"),
 "UsedDeck": "BD",
 "controllabel": true,
 "energy": 3
@@ -21,6 +27,7 @@ metadata/C0 = {
 "ActionId": 2,
 "HP": 10,
 "Name": "Jarl",
+"Texture": ExtResource("2_kae33"),
 "UsedDeck": "JD",
 "controllabel": true,
 "energy": 4
@@ -29,6 +36,7 @@ metadata/C0 = {
 "ActionId": 3,
 "HP": 80,
 "Name": "Berserkr",
+"Texture": null,
 "UsedDeck": "BersD",
 "controllabel": true,
 "energy": 2
@@ -61,6 +69,7 @@ metadata/C1 = {
 },
 "HP": 20,
 "Name": "Wolf",
+"Texture": ExtResource("3_il57g"),
 "controllabel": false,
 "energy": 1
 },
@@ -74,6 +83,7 @@ metadata/C1 = {
 },
 "HP": 25,
 "Name": "Lost Bondi",
+"Texture": ExtResource("4_g0g5t"),
 "controllabel": false,
 "energy": 1
 }

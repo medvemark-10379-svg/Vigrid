@@ -11,6 +11,7 @@ const MAIN = preload("uid://by5r5wqt6jbad")
 @onready var alert: Sprite2D = $Alert
 @onready var action: Sprite2D = $Action
 @onready var minioncontainer: Node = $Minioncontainer
+@onready var icon: Sprite2D = $Area2D/Icon
 
 var minionplace 
 
@@ -38,6 +39,7 @@ var function
 var Basic 
 var baseid 
 var functionid 
+var texture
 
 @onready var block_bar: ProgressBar = $ProgressBar
 @onready var hp_bar: ProgressBar = $ProgressBar2
@@ -134,6 +136,8 @@ func create():
 	actionid = choosedcharacter.ActionId
 	maxhp = choosedcharacter.HP
 	hp = choosedcharacter.HP
+	texture = choosedcharacter.Texture
+	icon.texture = texture
 
 func pick_Enemy(dictionary: Dictionary) -> Variant:
 	var random_key = dictionary.keys().pick_random()

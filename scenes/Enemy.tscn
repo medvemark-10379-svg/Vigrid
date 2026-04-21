@@ -103,7 +103,7 @@ texture = ExtResource("1_3gvst")
 
 [node name="Icon" type="Sprite2D" parent="Area2D"]
 position = Vector2(0, -29.5)
-scale = Vector2(1, 1.609375)
+scale = Vector2(0.9, 0.9)
 texture = ExtResource("1_3gvst")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

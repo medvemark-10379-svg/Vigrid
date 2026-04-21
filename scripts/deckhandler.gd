@@ -52,7 +52,6 @@ func deckhandler(Name: String, id: int ):
 			hand.add_child(strike)
 			strike.id = id
 			strike.global_position = cardplace[id]
-			strike.icon.modulate = basedeck[item].Color
 			strike.Type = basedeck[item].Type
 			strike.Baseeffectnumb = basedeck[item].BaseEffectNumb 
 			strike.Name = basedeck[item].Name
@@ -66,7 +65,8 @@ func deckhandler(Name: String, id: int ):
 func _on_button_pressed() -> void:
 	usedpile.append_array(Interact.cardpile)
 	for n in hand.get_children():
-		usedpile.append(n.Name)
+		if "Name" in n:
+			usedpile.append(n.Name)
 		n.queue_free()
 	deckshuffel()
 	Interact.cardpile.clear()

@@ -1,5 +1,6 @@
 class_name Card extends Area2D
 
+var e= 1
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
