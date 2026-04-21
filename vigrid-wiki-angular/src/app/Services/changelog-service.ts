@@ -10,7 +10,7 @@ export class Changelog {
       date: '2026-04-07',
       title: 'Release of Vigrid: Survive the Ragnarok',
       changes: ['Version 1.0.0 is out now'],
-      ishidden: false
+      ishidden: true
     },
   ]
   private itemSource = new BehaviorSubject<any>(null);

@@ -81,19 +81,21 @@
   <div
     class="p-2 cursor-pointer font-[Nordvik] rounded brightness-85 grayscale-80 hover:grayscale-0 transition-all hover:scale-105"
     (click)="runeService.ItemSelected(rune.name)">
-    <img [src]="rune.image" class="w-3/4 h-auto mx-auto scale-60" [alt]="rune.name">
+    <img [src]="rune.image" class="w-3/4 h-auto mx-auto scale-60 brightness-110 hover:brightness-150 transition-all" [alt]="rune.name">
     <p class="text-white text-center mt-2 font-[Nordvik] text-3xl text-[#ff4500]">{{ rune.name }}</p>
   </div>
   }
 </div>
 }
 @else {
-<div class="p-4 bg-[#1a1614] text-center">
+<div class="p-4 bg-[#1a1614] text-center transition-all duration-300 brightness-110 hover:brightness-140">
   <h2 class="text-4xl md:text-5xl lg:text-7xl text-[#ff4500] font-[Nordvik]">{{ datarune.name }}</h2>
-  <img [src]="datarune.image" class="w-1/2 md:w-1/3 lg:w-1/5 mx-auto brightness-110 my-4 scale-80">
-  <p class="text-[#d1c7c0] max-w-2xl mx-auto">{{ datarune.description }}</p>
+  <img [src]="datarune.image" class="w-1/2 md:w-1/3 lg:w-1/5 mx-auto my-4 scale-80 ">
+  <p class="text-[#ff4500] font-[Nordvik] text-xl max-w-2xl mx-auto">{{ datarune.description }}</p>
+  <p class="text-[#d1c7c0] max-w-2xl mx-auto font-[Nordvik] my-10 text-3xl">{{ datarune.buff_name }}</p>
+  <p class="text-[#d1c7c0] max-w-2xl mx-auto">{{ datarune.buff_desc }}</p>
   <button (click)="runeService.ItemSelectedAll()"
-    class="mt-8 text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors rounded-sm">
+    class="mt-4 text-[#ff4500] border border-[#ff4500] px-4 py-2 mb-4hover:bg-[#ff4500] hover:text-black transition-colors rounded-sm">
     Back
   </button>
 </div>

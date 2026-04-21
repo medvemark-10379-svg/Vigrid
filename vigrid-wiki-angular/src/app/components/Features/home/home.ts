@@ -43,35 +43,37 @@ export class Home {
   }
   ngOnInit() {
     this.changelog.currentItem.subscribe(res => {
-      if (res) { this.updates = res; this.data = null; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.feedbackService.showFeedback.set(false) };
+      if (res) { this.updates = res; this.data = null; this.dataCard = null; this.characterCards = [];
+         this.availableCharacters = []; this.feedbackService.showFeedback.set(false), this.datarune = null };
     })
     this.bossService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; this.feedbackService.showFeedback.set(false) };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
     });
     this.enemiesService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; this.feedbackService.showFeedback.set(false) };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
     });
     this.characterService.currentItem.subscribe(res => {
       if (res) {
         this.data = res; this.dataCard = null; this.availableCharacters = [];
         this.characterCards = this.cardService.getCardsByCharacter(res.name);
-        this.updates = null; this.feedbackService.showFeedback.set(false)
+        this.updates = null; this.feedbackService.showFeedback.set(false),
+          this.datarune = null
       };
     });
     this.weaponService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; this.feedbackService.showFeedback.set(false) };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
     });
     this.godService.currentItem.subscribe(res => {
-      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = []; this.updates = null; this.feedbackService.showFeedback.set(false) };
+      if (res) { this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
+         this.updates = null; this.feedbackService.showFeedback.set(false), this.datarune = null };
     });
     this.runeService.currentItem.subscribe(res => {
       if (res) {
-        this.datarune = res;
-        this.data = null;
-        this.dataCard = null;
-        this.updates = null;
-        this.characterCards = [];
-        this.availableCharacters = [];
+        this.datarune = res; this.data = null; this.dataCard = null; this.updates = null;
+        this.characterCards = []; this.availableCharacters = [];
       };
     });
     this.cardService.currentItem.subscribe(res => {
@@ -88,12 +90,8 @@ export class Home {
     })
     this.feedbackService.feedbackClicked.subscribe(res => {
       if (res) {
-        this.data = null;
-        this.dataCard = null;
-        this.datarune = null;
-        this.characterCards = [];
-        this.availableCharacters = [];
-        this.updates = null;
+        this.data = null; this.dataCard = null; this.datarune = null;
+        this.characterCards = []; this.availableCharacters = []; this.updates = null;
       }
     })
   }
@@ -105,8 +103,8 @@ export class Home {
     comment: new FormControl('', [Validators.required, Validators.minLength(20)])
   })
   get comment() {
-  return this.feedbackForm.get('comment');
-}
+    return this.feedbackForm.get('comment');
+  }
   categories = [
     'General Feedback',
     'Bug Report',
@@ -114,22 +112,23 @@ export class Home {
     'Balance Issue',
     'Suggestion',
   ]
-async onSubmit() {
-  if (this.feedbackForm.valid && !this.isSending ) {
-    this.isSending = true;
-    try {
-      await this.feedbackService.sendfeedback(this.feedbackForm.value);
-      
-      console.log('Feedback sent successfully:', this.feedbackForm.value);
-      this.feedbackForm.reset();
-      this.feedbackService.showFeedback.set(false);
-      
-      alert('Feedback sent successfully!'); 
-    } catch (error) {
-      console.error('Error sending feedback:', error);
-      alert('Error sending feedback. Please try again.');
-    } finally {
-      this.isSending = false; 
+  async onSubmit() {
+    if (this.feedbackForm.valid && !this.isSending) {
+      this.isSending = true;
+      try {
+        await this.feedbackService.sendfeedback(this.feedbackForm.value);
+
+        console.log('Feedback sent successfully:', this.feedbackForm.value);
+        this.feedbackForm.reset();
+        this.feedbackService.showFeedback.set(false);
+
+        alert('Feedback sent successfully!');
+      } catch (error) {
+        console.error('Error sending feedback:', error);
+        alert('Error sending feedback. Please try again.');
+      } finally {
+        this.isSending = false;
+      }
     }
   }
-}}
+}
