@@ -28,7 +28,7 @@ func _input(event: InputEvent) -> void:
 		if Input.is_action_pressed("mouseactions"):
 			if mousestateP == CIVP[2] and MouseState.usedcard.size() != 0:
 				get_tree().call_group("Cards", "used", usedcard[0])
-			if currentitem != null:
+			if currentitem != null and "y" not in currentitem:
 				currentitem.global_position = get_global_mouse_position() + currentitem.grab_offset
 		if Input.is_action_just_released("mouseactions") and currentitem != null:
 			if "baseposition" in currentitem:

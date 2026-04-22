@@ -1,13 +1,17 @@
-[gd_scene load_steps=4 format=3 uid="uid://dewbqh5i8a6d4"]
+[gd_scene load_steps=5 format=3 uid="uid://dewbqh5i8a6d4"]
 
 [ext_resource type="Script" uid="uid://bjmtcko1a4y52" path="res://weapons/weapon.gd" id="1_pxh0k"]
 [ext_resource type="Texture2D" uid="uid://dk4fnjue3imb4" path="res://weapons/Ulfberth.png" id="1_rma5x"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pxh0k"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rma5x"]
 size = Vector2(20, 187)
 
-[node name="CharacterBody2D" type="CharacterBody2D"]
+[node name="RigidBody2D" type="RigidBody2D"]
 input_pickable = true
+physics_material_override = SubResource("PhysicsMaterial_pxh0k")
+center_of_mass_mode = 1
 script = ExtResource("1_pxh0k")
 
 [node name="sprite" type="Sprite2D" parent="."]
