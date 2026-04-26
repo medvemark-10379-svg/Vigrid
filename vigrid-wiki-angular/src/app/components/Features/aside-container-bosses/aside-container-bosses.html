@@ -1,21 +1,9 @@
-<div [class.hidden]="!isVisibleBosses_" class="bg-[#1a1614] border border-[#ff4500]/20 shadow-lg">
+<div [class.hidden]="!isVisibleBosses_" class="bg-[#1a1614] border border-[#ff4500]/20">
     <aside class="w-1/4 p-2 md:p-3 lg:p-5">
         <nav class="flex flex-col gap-2 text-xl md:text-2xl lg:text-4xl font-[Nordvik]">
-            <a href="#Hel"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Hel(); $event.preventDefault(); Top()">Hel</a>
-            <a href="#Fenrir"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Fenrir();$event.preventDefault(); Top()">Fenrir</a>
-            <a href="#Jörmungandr"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Jormungandr();$event.preventDefault(); Top()">Jörmungandr</a>
-            <a href="#Loki"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Loki();$event.preventDefault(); Top()">Loki</a>
-            <a href="#Surtr"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Surtr();$event.preventDefault(); Top()">Surtr</a>
+            @for (boss of (bosses$ | async); track boss.name) {
+            <a class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2 cursor-pointer" (click)="selectBoss(boss.name)">{{ boss.name }}</a>
+            }
         </nav>
     </aside>
 </div>

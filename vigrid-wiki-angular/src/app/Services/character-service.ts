@@ -1,61 +1,59 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, map, tap, of } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class CharacterService {
-  private characters = [
-    {
-      name: 'Bondi',
-      description: 'A Bondi was a free landowning farmer who formed the backbone of Viking society, serving as a self-equipped warrior during times of conflict.',
-      image: 'Images/Characters/Bondi.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Jarl',
-      description: 'A Jarl was a high-ranking noble or chieftain in Viking society who held significant territorial power, wealth, and a loyal following of warriors.',
-      image: 'Images/Characters/Jarl.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Berserkr',
-      description: 'A fierce warrior who entered a state of uncontrollable rage in battle.',
-      image: 'Images/Characters/Berserkr.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Shaman',
-      description: 'A spiritual leader who could communicate with the gods and predict the future.',
-      image: 'Images/Characters/Shaman.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Ulfhednar',
-      description: 'A legendary warrior known for his strength and skill in battle.',
-      image: 'Images/Characters/Ulfhednar.png',
-      SizeDT: '25 %', sizeMb: '45 %', sizeMT: '35 %'
-    },
-  ]
+  private readonly API_URL = `${environment.apiUrl}/characters`;
+  
+  private charactersCache: any[] = [];
+
   private chosenCharacter = new BehaviorSubject<any>(null);
   currentItem = this.chosenCharacter.asObservable();
+
   private randomcharacter = new BehaviorSubject<any>(null);
   randomItem = this.randomcharacter.asObservable();
+
+  constructor(private http: HttpClient) {}
+
+  getCharacters(): Observable<any[]> {
+    if (this.charactersCache.length > 0) {
+      return of(this.charactersCache);
+    }
+    return this.http.get<any[]>(this.API_URL).pipe(
+      tap(chars => this.charactersCache = chars)
+    );
+  }
+
   ItemSelected(name: string) {
-    const character = this.characters.find(item => item.name === name);
-    this.chosenCharacter.next(character || null);
+    this.getCharacters().subscribe((characters: any[]) => {
+      const character = characters.find(item => item.name === name);
+      this.chosenCharacter.next(character || null);
+    });
   }
+
   setRandomCharacter() {
-    const randomIndex = Math.floor(Math.random() * this.characters.length);
-    const randomChar = this.characters[randomIndex];
-    this.randomcharacter.next(randomChar);
+    this.getCharacters().subscribe((characters: any[]) => {
+      if (characters.length > 0) {
+        const randomIndex = Math.floor(Math.random() * characters.length);
+        this.randomcharacter.next(characters[randomIndex]);
+      }
+    });
   }
-  getCharacterByName(name: string) {
-    return this.characters.filter(character => name.includes(character.name));
+
+  getCharacterByName(name: string): Observable<any[]> {
+    return this.getCharacters().pipe(
+      map((characters: any[]) => 
+        characters.filter(character => name.includes(character.name))
+      )
+    );
   }
+
   clearRandomCharacter() {
+    this.randomcharacter.next(null);
     this.chosenCharacter.next(null);
-  }
-  getCharacters() {
-    return this.characters;
   }
 }

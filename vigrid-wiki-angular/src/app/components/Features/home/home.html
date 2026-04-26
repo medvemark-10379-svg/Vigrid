@@ -176,7 +176,7 @@
     System Requirements
   </h2>
   <div class="grid md:grid-cols-2 gap-8 w-full max-w-6xl px-4">
-    @for (req of requirementService.getRequirementList(); track req.type) {
+    @for (req of (requirementService.getRequirementList() | async); track req.type) {
     <div
       class="relative border border-[#ff4500]/20 bg-[#2a2420]/30 p-8 rounded-sm group hover:border-[#ff4500]/60 transition-all overflow-hidden">
       <div class="absolute bottom-0 left-0 w-full h-32 pointer-events-none animate-pulse" [class]="'bg-gradient-to-t to-transparent ' + 

@@ -46,11 +46,11 @@ export class Home {
     return Array.isArray(obj);
   }
   ngOnInit() {
-    this.changelog.currentItem.subscribe(res => {
-      if (res) {
-        this.updates = res; this.data = null; this.dataCard = null; this.characterCards = [];
-        this.availableCharacters = []; this.feedbackService.showFeedback.set(false), this.datarune = null
-      };
+     this.changelog.currentItem.subscribe(res => {
+       if (res) {
+         this.updates = res; this.data = null; this.dataCard = null; this.characterCards = [];
+         this.availableCharacters = []; this.feedbackService.showFeedback.set(false), this.datarune = null
+       };
     })
     this.bossService.currentItem.subscribe(res => {
       if (res) {
@@ -65,13 +65,18 @@ export class Home {
       };
     });
     this.characterService.currentItem.subscribe(res => {
-      if (res) {
-        this.data = res; this.dataCard = null; this.availableCharacters = [];
-        this.characterCards = this.cardService.getCardsByCharacter(res.name);
-        this.updates = null; this.feedbackService.showFeedback.set(false),
-          this.datarune = null
-      };
+  if (res) {
+    this.data = res;
+    this.dataCard = null;
+    this.availableCharacters = [];
+    this.updates = null;
+    this.datarune = null;
+    this.feedbackService.showFeedback.set(false);
+    this.cardService.getCardsByCharacter(res.name).subscribe((cards: any[]) => {
+      this.characterCards = cards;
     });
+  }
+});
     this.weaponService.currentItem.subscribe(res => {
       if (res) {
         this.data = res; this.dataCard = null; this.characterCards = []; this.availableCharacters = [];
@@ -91,17 +96,22 @@ export class Home {
       };
     });
     this.cardService.currentItem.subscribe(res => {
-      if (res) {
-        this.dataCard = res; this.data = null; this.characterCards = []; this.updates = null;
-        if (!Array.isArray(res) && res.availableFor) {
-          this.availableCharacters = this.characterService.getCharacters().filter(char =>
-            res.availableFor.includes(char.name)
-          );
-        } else {
-          this.availableCharacters = [];
-        }
-      };
-    })
+  if (res) {
+    this.dataCard = res;
+    this.data = null;
+    this.characterCards = [];
+
+    if (!Array.isArray(res) && res.availableFor) {
+      this.characterService.getCharacters().subscribe((characters: any[]) => {
+        this.availableCharacters = characters.filter(char => 
+          res.availableFor.includes(char.name)
+        );
+      });
+    } else {
+      this.availableCharacters = [];
+    }
+  }
+});
     this.feedbackService.feedbackClicked.subscribe(res => {
       if (res) {
         this.data = null; this.dataCard = null; this.datarune = null;
@@ -116,8 +126,15 @@ export class Home {
     })
   }
   refreshPage() {
-    window.location.reload();
-  }
+  this.data = null;
+  this.dataCard = null;
+  this.datarune = null;
+  this.updates = null;
+  this.reqdata = null;
+  this.characterCards = [];
+  this.availableCharacters = [];
+  this.feedbackService.showFeedback.set(false);
+}
   feedbackForm = new FormGroup({
     category: new FormControl('', [Validators.required]),
     comment: new FormControl('', [Validators.required, Validators.minLength(20)])

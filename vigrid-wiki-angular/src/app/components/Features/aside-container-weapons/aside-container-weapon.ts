@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { WeaponService } from '../../../Services/weapon-service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 @Component({
   selector: 'app-aside-container-weapon',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './aside-container-weapon.html',
   styleUrls: ['./aside-container-weapon.css'],
 })
 export class AsideContainerWeapon {
   @Input() isVisibleWeapons_ = false;
-  constructor(private weaponService: WeaponService) { }
   Top() {
     window.scrollTo({
       top: 0,
@@ -17,19 +18,13 @@ export class AsideContainerWeapon {
       behavior: 'smooth'
     });
   }
-  ShortSpear() {
-    this.weaponService.ItemSelected('Short Spear');
+  constructor(private weaponService: WeaponService) { }
+  public window = window;
+  weapon$: Observable<any[]> | undefined;
+  ngOnInit() {
+    this.weapon$ = this.weaponService.getWeapons();
   }
-  UlfberhtSword() {
-    this.weaponService.ItemSelected('Ulfberht Sword');
-  }
-  DaneAxe() {
-    this.weaponService.ItemSelected('Dane Axe');
-  }
-  Seax() {
-    this.weaponService.ItemSelected('Seax');
-  }
-  Shield() {
-    this.weaponService.ItemSelected('Shield');
+  selectWeapon(name: string) {
+    this.weaponService.ItemSelected(name);
   }
 }

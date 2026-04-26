@@ -1,38 +1,29 @@
-import { Component, Input, } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CommonModule } from '@angular/common';
 import { BossService } from '../../../Services/boss-service';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-aside-container-bosses',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './aside-container-bosses.html',
   styleUrls: ['./aside-container-bosses.css'],
 })
-export class AsideContainerBosses {
+export class AsideContainerBosses implements OnInit {
   @Input() isVisibleBosses_ = false;
-  public window = window;
-  constructor(private bossService: BossService) { }
+  bosses$: Observable<any[]> | undefined;
+
+  constructor(public bossService: BossService) { }
+
+  ngOnInit() {
+    this.bosses$ = this.bossService.getBosses();
+  }
   Top() {
-    window.scrollTo({
-      top: 0,
-      left: 0,
-      behavior: 'smooth'
-    });
-  }
-  Hel() {
-    this.bossService.ItemSelected('Hel');
-  }
-  Fenrir() {
-    this.bossService.ItemSelected('Fenrir');
-  }
-  Jormungandr() {
-    this.bossService.ItemSelected('Jörmungandr');
-  }
-  Loki() {
-    this.bossService.ItemSelected('Loki');
-  }
-  Surtr() {
-    this.bossService.ItemSelected('Surtr');
+    window.scrollTo({ top: 0, left: 0, behavior: 'smooth' });
   }
 
+  selectBoss(name: string) {
+    this.bossService.ItemSelected(name);
+  }
 }

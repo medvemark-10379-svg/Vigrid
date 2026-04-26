@@ -1,48 +1,33 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class EnemiesService {
-  private enemies = [
-    {
-      name: 'Draugr',
-      description: 'Undead warrior from the Norse mythology.',
-      image: 'Images/Enemies/Draugr.png',
-      sizeMb: '44%', sizeDT: '30%', sizeMT: '36%'
-    },
-    {
-      name: 'Wolves',
-      description: 'Pack of wild wolves.',
-      image: 'Images/Enemies/Wolf.png',
-      sizeMb: '44%', sizeDT: '30%', sizeMT: '36%'
-    },
-    {
-      name: 'Snakes',
-      description: 'Venomous snakes lurking in the shadows.',
-      image: 'Images/Enemies/Snakes.png',
-      sizeMb: '44%', sizeDT: '30%', sizeMT: '36%'
-    },
-    {
-      name: 'Jotnar',
-      description: 'Giant beings from Norse mythology.',
-      image: 'Images/Enemies/Jotun.png',
-      sizeMb: '44%', sizeDT: '30%', sizeMT: '36%'
-    },
-    {
-      name: 'Muspels Synir',
-      description: 'Fire giant, servant of Surtr.',
-      image: 'Images/Enemies/Muspell_Synir.png',
-      sizeMb: '44%', sizeDT: '23%', sizeMT: '33%'
-    },
-  ]
+  private readonly API_URL = `${environment.apiUrl}/enemies`;
+
+  private enemiesCache: any[] = [];
+
   private chosenEnemy = new BehaviorSubject<any>(null);
   currentItem = this.chosenEnemy.asObservable();
-  ItemSelected(name: string) {
-    const enemy = this.enemies.find(item => item.name === name);
-    this.chosenEnemy.next(enemy);
+
+  constructor(private http: HttpClient) {}
+
+  getEnemies(): Observable<any[]> {
+    if (this.enemiesCache.length > 0) {
+      return of(this.enemiesCache);
+    }
+    return this.http.get<any[]>(this.API_URL).pipe(
+      tap(enemies => this.enemiesCache = enemies)
+    );
   }
-  getEnemies() {
-    return this.enemies;
+  ItemSelected(name: string) {
+    this.getEnemies().subscribe((enemies: any[]) => {
+      const enemy = enemies.find(item => item.name === name);
+      this.chosenEnemy.next(enemy || null);
+    });
   }
 }

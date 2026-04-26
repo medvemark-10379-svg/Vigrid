@@ -1,48 +1,36 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Observable, tap, of } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class BossService {
-  private bosses = [
-    {
-      name: 'Hel',
-      description: 'Boss of the underworld, daughter of Loki.',
-      image: 'Images/Bosses/Hel.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Fenrir',
-      description: 'Giant wolf, son of Loki.',
-      image: 'Images/Bosses/Fenrir.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Jörmungandr',
-      description: 'World serpent, son of Loki.',
-      image: 'Images/Bosses/Jörmungandr.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Loki',
-      description: 'Trickster god, father of the other bosses.',
-      image: 'Images/Bosses/Loki.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-    {
-      name: 'Surtr',
-      description: 'Fire giant, foretold to set the world ablaze during Ragnarok.',
-      image: 'Images/Bosses/Surtr.png',
-      sizeDT: '25%', sizeMb: '45%', sizeMT: '35%'
-    },
-  ]
+  private readonly API_URL = environment.apiUrl;
+
+  private bossesCache: any[] = [];
+
   private chosenBoss = new BehaviorSubject<any>(null);
   currentItem = this.chosenBoss.asObservable();
-  ItemSelected(name: string) {
-    const boss = this.bosses.find(item => item.name === name);
-    this.chosenBoss.next(boss);
+
+  constructor(private http: HttpClient) { }
+
+  getBosses(): Observable<any[]> {
+    if (this.bossesCache.length > 0) {
+      return of(this.bossesCache);
+    }
+    return this.http.get<any[]>(`${this.API_URL}/bosses`).pipe(
+      tap(bosses => this.bossesCache = bosses)
+    );
   }
-  getBosses() {
-    return this.bosses;
+
+  ItemSelected(name: string) {
+    this.getBosses().subscribe(bosses => {
+      const boss = bosses.find(item => item.name === name);
+      if (boss) {
+        this.chosenBoss.next(boss);
+      }
+    });
   }
 }

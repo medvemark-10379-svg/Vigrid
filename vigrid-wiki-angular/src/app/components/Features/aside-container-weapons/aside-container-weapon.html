@@ -1,21 +1,9 @@
 <div [class.hidden]="!isVisibleWeapons_" class="bg-[#1a1614] border-r border-[#ff4500]/10">
     <aside class="w-1/4 p-2 md:p-3 lg:p-5">
         <nav class="flex flex-col gap-2 text-xl md:text-2xl lg:text-4xl font-[Nordvik]">
-            <a href="#ShortSpear"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="ShortSpear(); $event.preventDefault(); Top()">Short Spear</a>
-            <a href="#UlfberhtSword"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="UlfberhtSword(); $event.preventDefault(); Top()">Ulfberht Sword</a>
-            <a href="#DaneAxe"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="DaneAxe(); $event.preventDefault(); Top()">Dane Axe</a>
-            <a href="#Seax"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Seax(); $event.preventDefault(); Top()">Seax</a>
-            <a href="#Shield"
-                class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2"
-                (click)="Shield(); $event.preventDefault(); Top()">Shield</a>
+            @for (weapon of (weapon$ | async); track weapon.name) {
+            <a class="text-[#ff4500] hover:underline hover:scale-110 transition-all duration-600 ease-in-out hover:pl-2 cursor-pointer" (click)="selectWeapon(weapon.name)">{{ weapon.name }}</a>
+            }
         </nav>
     </aside>
 </div>

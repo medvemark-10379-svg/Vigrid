@@ -30,7 +30,10 @@
     "@angular/platform-browser": "^21.1.0",
     "@angular/router": "^21.1.0",
     "@emailjs/browser": "^4.4.1",
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
     "rxjs": "~7.8.0",
+    "sqlite3": "^6.0.1",
     "tslib": "^2.3.0"
   },
   "devDependencies": {

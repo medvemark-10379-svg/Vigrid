@@ -1,16 +1,17 @@
 import { Component, Input } from '@angular/core';
 import { EnemiesService } from '../../../Services/enemies-service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-aside-container-enemies',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './aside-container-enemies.html',
   styleUrls: ['./aside-container-enemies.css'],
 })
 export class AsideContainerEnemies {
   @Input() isEnemiesVisible_ = false;
-  constructor(private enemiesService: EnemiesService) { }
   Top() {
     window.scrollTo({
       top: 0,
@@ -18,19 +19,13 @@ export class AsideContainerEnemies {
       behavior: 'smooth'
     });
   }
-  Draugr() {
-    this.enemiesService.ItemSelected('Draugr');
+  constructor(public enemiesService: EnemiesService) { }
+  public window = window;
+  enemy$: Observable<any[]> | undefined;
+  ngOnInit() {
+    this.enemy$ = this.enemiesService.getEnemies();
   }
-  Wolves() {
-    this.enemiesService.ItemSelected('Wolves');
-  }
-  Snakes() {
-    this.enemiesService.ItemSelected('Snakes');
-  }
-  Jotnar() {
-    this.enemiesService.ItemSelected('Jotnar');
-  }
-  MuspelsSynir() {
-    this.enemiesService.ItemSelected('Muspels Synir');
+  selectEnemy(name: string) {
+    this.enemiesService.ItemSelected(name);
   }
 }

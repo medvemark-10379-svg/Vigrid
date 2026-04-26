@@ -1,34 +1,30 @@
 import { Injectable } from '@angular/core';
-import { Subject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { Observable, Subject, of, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root',
 })
 export class RequirementsService {
+  private readonly API_URL = `${environment.apiUrl}/requirements`;
+
+  private requirementsCache: any[] = [];
+
   private requirementClickedSource = new Subject<boolean>();
   requirementClicked$ = this.requirementClickedSource.asObservable();
-  private RequirementList = [
-    {
-      type: 'Minimum',
-      os: 'Windows 7/ Windows 10/ Windows 11 (64x)',
-      cpu: '2.0 GHz Dual Core',
-      ram: '4GB RAM',
-      gpu: 'Integrated Intel HD 4000 (Vulkan 1.2+)',
-      storage: '500MB'
-    },
-    {
-      type:'Recommended',
-      os:'Windows 10/ Windows 11 (64x)',
-      cpu:'2.5 GHz+ Quad Core',
-      ram: '8GB RAM',
-      gpu:'Nvidia GTX 960 / AMD RX 560 or better',
-      storage: '1GB'
-    }
-  ]
+
+  constructor(private http: HttpClient) {}
+
   showRequirements() {
-    return this.requirementClickedSource.next(true)
+    this.requirementClickedSource.next(true);
   }
-  getRequirementList() {
-  return this.RequirementList;
-}
+  getRequirementList(): Observable<any[]> {
+    if (this.requirementsCache.length > 0) {
+      return of(this.requirementsCache);
+    }
+    return this.http.get<any[]>(this.API_URL).pipe(
+      tap(reqs => this.requirementsCache = reqs)
+    );
+  }
 }
