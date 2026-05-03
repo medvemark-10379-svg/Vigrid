@@ -1,7 +1,6 @@
 @if (data) {
 <div class="p-4 bg-[#1a1614]">
   <h2 class="font-bold text-[#ff4500] font-[Nordvik] text-bs md:text-xl lg:text-4xl">{{ data.name }}</h2>
-
   <div class="mt-4 overflow-hidden w-full">
     <img [src]="data.image" [alt]="data.name" [style.--w-mob]="data.sizeMb" [style.--w-dt]="data.sizeDT"
       [style.--w-mt]="data.sizeMT" class="h-auto block mx-auto brightness-90 hover:brightness-110 transition-all
@@ -11,7 +10,6 @@
     <p class="mt-4 text-[#d1c7c0]">{{ data.description }}</p>
   </div>
 </div>
-
 @if (characterCards && characterCards.length > 0) {
 <div class="mt-0 pt-8 flex flex-col items-center w-full bg-[#1a1614]">
   <h3 class="text-2xl font-bold text-[#ff4500] font-[Nordvik] mb-8 text-center">
@@ -29,13 +27,12 @@
 </div>
 }
 }
-
 @else if (dataCard) {
 @if (isArray(dataCard)) {
 <div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 mx-auto bg-[#1a1614]">
   @for (card of dataCard; track card.name) {
   <div
-    class="p-2 cursor-pointer font-[Nordvik] rounded brightness-75 hover:brightness-110 transition-all hover:scale-105"
+    class="p-2 cursor-pointer font-[Nordvik] transition-all hover:scale-105 brightness-85 grayscale-80 hover:grayscale-0"
     (click)="cardService.ItemSelected(card.name)">
     <img [src]="card.image" class="w-3/4 h-auto mx-auto">
   </div>
@@ -44,14 +41,13 @@
 } @else {
 <div class="p-4 bg-[#1a1614]">
   <h2 class="text-4xl md:text-5xl lg:text-7xl text-[#ff4500] font-[Nordvik] text-center">{{ dataCard.name }}</h2>
-  <img [src]="dataCard.image" class="w-1/2 md:w-1/3 lg:w-1/5 mx-auto brightness-110">
+  <img [src]="dataCard.image" class="w-1/2 md:w-1/3 lg:w-1/5 mx-auto">
   <p class="text-[#d1c7c0] text-center mt-4">{{ dataCard.description }}</p>
   <p class="text-center text-[#e67e22] font-bold mt-2">
     @if (dataCard.damage) { Damage: {{ dataCard.damage }} }
     @else { Defensive: {{ dataCard.defensive }} }
   </p>
   <p class="text-center text-[#e67e22]">@if (dataCard.stamina) { Stamina: {{ dataCard.stamina }} }</p>
-
   @if (availableCharacters && availableCharacters.length > 0) {
   <div class="mt-12 w-full max-w-none pb-20 px-4">
     <h3 class="text-3xl font-bold text-[#ff4500] font-[Nordvik] text-center mb-10">Available For:</h3>
@@ -69,14 +65,43 @@
     </div>
   </div>
   }
+  <div class="flex justify-center mb-10">
+    <button (click)="cardService.ItemSelectedAll()"
+      class="mt-8 rounded-sm text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors">
+      Back
+    </button>
+  </div>
 </div>
 }
 }
-
+@else if (datarune) {
+@if (isArray(datarune)) {
+<div class="grid grid-cols-2 md:grid-cols-4 gap-4 p-4 mx-auto bg-[#1a1614]">
+  @for (rune of datarune; track rune.name) {
+  <div
+    class="p-2 cursor-pointer font-[Nordvik] rounded brightness-85 grayscale-80 hover:grayscale-0 transition-all hover:scale-105"
+    (click)="runeService.ItemSelected(rune.name)">
+    <img [src]="rune.image" class="w-3/4 h-auto mx-auto scale-60" [alt]="rune.name">
+    <p class="text-white text-center mt-2 font-[Nordvik] text-3xl text-[#ff4500]">{{ rune.name }}</p>
+  </div>
+  }
+</div>
+}
+@else {
+<div class="p-4 bg-[#1a1614] text-center">
+  <h2 class="text-4xl md:text-5xl lg:text-7xl text-[#ff4500] font-[Nordvik]">{{ datarune.name }}</h2>
+  <img [src]="datarune.image" class="w-1/2 md:w-1/3 lg:w-1/5 mx-auto brightness-110 my-4 scale-80">
+  <p class="text-[#d1c7c0] max-w-2xl mx-auto">{{ datarune.description }}</p>
+  <button (click)="runeService.ItemSelectedAll()"
+    class="mt-8 text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors rounded-sm">
+    Back
+  </button>
+</div>
+}
+}
 @else if (updates && updates.length > 0) {
 <div class="p-4 max-w-5xl mx-auto space-y-12 pb-20">
   <h2 class="text-5xl text-[#ff4500] font-[Nordvik] text-center mb-12 uppercase tracking-tighter">Changelog</h2>
-
   @for (ver of updates; track ver.version) {
   @if (!ver.ishidden) {
   <div class="relative p-6 rounded-sm border border-[#ff4500]/20 bg-[#1a1614]">
@@ -87,7 +112,6 @@
       </div>
       <span class="text-[#d1c7c0]/50 font-mono text-sm">{{ ver.date }}</span>
     </div>
-
     <ul class="space-y-2">
       @for (change of ver.changes; track change) {
       @if (change.length > 0) {
@@ -98,10 +122,51 @@
       }
     </ul>
   </div>
+  <button (click)="refreshPage()"
+    class="mt-8 text-[#ff4500] border border-[#ff4500] px-4 py-2 hover:bg-[#ff4500] hover:text-black transition-colors rounded-sm cursor-pointer">
+    Back
+  </button>
   }
   }
 </div>
 }
-@else {
+@else if (feed()) {
+<div class="p-4 bg-[#1a1614] flex flex-col items-center py-10">
+  <h2 class="text-5xl text-[#ff4500] font-[Nordvik] mb-8 uppercase tracking-widest">Feedback</h2>
+  <form [formGroup]="feedbackForm" (ngSubmit)="onSubmit()" class="w-full max-w-lg flex flex-col gap-6">
+    <div class="flex flex-col gap-2">
+      <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Issue Category</label>
+      <select formControlName="category"
+        class="bg-[#2a2420] border border-[#ff4500]/30 text-[#d1c7c0] text-xl font-[Nordvik] p-3 focus:outline-none focus:border-[#ff4500] appearance-none cursor-pointer rounded-none">
+        <option value="" disabled>Select a category...</option>
+        @for (cat of categories; track cat) {
+        <option [value]="cat">{{ cat }}</option>
+        }
+      </select>
+    </div>
+    <div class="flex flex-col gap-2">
+      <label class="text-[#d1c7c0] text-sm uppercase tracking-wider">Your Message</label>
+      <textarea formControlName="comment" rows="5" placeholder="Describe your Feedback"
+        class="bg-[#2a2420] border border-[#ff4500]/30 p-3 text-[#d1c7c0] placeholder:text-[#d1c7c0]/70 placeholder:font-[Nordvik] text focus:outline-none focus:border-[#ff4500] resize-none placeholder:text-[#d1c7c0]/30 rounded-none"></textarea>
+      @if (comment?.invalid && (comment?.dirty || comment?.touched)) {
+      <span class="text-[13px] text-red-600 uppercase font-bold tracking-tight">
+        You need at least 20 characters to send this.
+      </span>
+      }
+    </div>
+    <div class="flex flex-col gap-4 mt-4">
+      <button type="submit" [disabled]="feedbackForm.invalid || isSending"
+        class="bg-[#ff4500] cursor-pointer text-black font-bold py-3 hover:bg-[#e63e00] disabled:opacity-30 disabled:cursor-not-allowed transition-all uppercase rounded-none">
+        Submit Report
+      </button>
+      <button type="button" (click)="feedbackService.showFeedback.set(false)"
+        class="text-[#ff4500] cursor-pointer border border-[#ff4500] px-6 py-2 hover:bg-[#ff4500] hover:text-black transition-all uppercase text-sm rounded-none">
+        Cancel
+      </button>
+    </div>
+  </form>
+</div>
+}
+@else{
 <app-home-page></app-home-page>
 }

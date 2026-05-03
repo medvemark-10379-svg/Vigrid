@@ -1,0 +1,30 @@
+[gd_resource type="Resource" format=3 uid="uid://nc38sidau2jq"]
+
+[resource]
+metadata/Thor = {
+"BuffLimit": 2,
+"BuffValue": 6,
+"Name": "Thor",
+"TriggerInf": {
+"Attack": 3,
+"Defense": 4
+}
+}
+metadata/Heimdall = {
+"BuffLimit": 2,
+"BuffValue": 5,
+"Name": "Heimdall",
+"TriggerInf": {
+"Attack": 2,
+"Defense": 5
+}
+}
+metadata/Tyr = {
+"BuffLimit": 2,
+"BuffValue": 5,
+"Name": "Tyr",
+"TriggerInf": {
+"Attack": 2,
+"Defense": 4
+}
+}
