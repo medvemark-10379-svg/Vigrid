@@ -14,16 +14,15 @@
             type="text" placeholder="Search for..." (input)="onSearch($event)"
             (keydown)="onKeyDown($event, searchInput)">
         @if (isDropdownOpen && filteredResults.length > 0) {
-        <ul
-            class="absolute top-full left-2 right-6 bg-[#1a1614] border-2 rounded-sm border-[#ff4500]/30 shadow-2xl z-50 mt-[-8px] rounded-b-sm">
-            @for (name of filteredResults; track name ;let i = $index) {
-            <li (click)="itemSelected(name, searchInput)" [class.bg-[#e67e22]]="i === focusedIndex"
-                ]="i === focusedIndex"
-                class="px-4 py-2 hover:bg-[#e67e22] hover:text-[#0d0d0d] cursor-pointer text-lg md:text-xl font-[Nordvik] border-b border-[#ff4500]/10 last:border-none">
-                {{ name }}
-            </li>
-            }
-        </ul>
+        <ul class="absolute top-full left-2 right-6 bg-[#1a1614] border-2 rounded-sm border-[#ff4500]/30 shadow-2xl z-50 mt-[-8px] rounded-b-sm">
+    @for (name of filteredResults; track name; let i = $index) {
+    <li (click)="itemSelected(name, searchInput)" 
+        [class.bg-[#e67e22]]="i === focusedIndex"
+        class="px-4 py-2 hover:bg-[#e67e22] hover:text-[#0d0d0d] cursor-pointer text-lg md:text-xl font-[Nordvik] border-b border-[#ff4500]/10 last:border-none">
+        {{ name }}
+    </li>
+    }
+</ul>
         }
     </div>
 </nav>

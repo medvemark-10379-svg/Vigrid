@@ -1,59 +1,63 @@
 # VigridWikiAngular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+This project features an **Angular frontend** and a **Node.js backend** (Express).
 
-## Development server
+## Getting Started
 
-To start a local development server, run:
+### Prerequisites
+Make sure you have [Node.js](https://nodejs.org) and the [Angular CLI](https://angular.dev) installed:
+### Installation
+1. Clone the repository.
+2. Install the Angular CLI globally (if you haven't already):
+   ```bash
+   npm install -g @angular/cli
+   ```
+3. Install the project dependencies:
+   ```bash
+   npm install
+   ```
+
+## Local Development
+
+To run the project locally, follow these steps:
+
+### 1. Run Both Servers Simultaneously
+The project is configured to start the **Angular frontend** (with automatic browser opening) and the **Node.js backend** at the same time:
 
 ```bash
-ng serve
+npm run dev
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+**What this command does:**
+- **Frontend (`ng serve -o`):** Compiles the app, starts a dev server at `http://localhost:4200/`, and opens your default browser.
+- **Backend (`node src/app/server.js`):** Starts your Node.js server to handle API requests.
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+### Alternative: Running them separately
+If you prefer to run them in two different terminal windows:
 
+**Terminal 1 (Frontend):**
 ```bash
-ng generate component component-name
+ng serve -o
 ```
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
-
+**Terminal 2 (Backend):**
 ```bash
-ng generate --help
+node src/app/server.js
 ```
 
-## Building
+## Project Structure
+- `src/app/server.js`: Node.js server entry point.
+- `src/`: Angular application source code.
+- `public/`: Static assets for the application.
 
-To build the project run:
-
+## Build and Deployment
+To build the project for production:
 ```bash
 ng build
 ```
+The build artifacts (minified HTML, CSS, and JS) will be stored in the `dist/` directory. These are the files you deploy to a production server.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+*Maintained by the VigridWiki Team.*

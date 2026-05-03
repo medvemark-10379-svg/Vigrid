@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
 import { GodService } from '../../../Services/god-service';
+import { Observable } from 'rxjs';
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-aside-container-gods',
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './aside-container-gods.html',
   styleUrl: './aside-container-gods.css',
 })
 export class AsideContainerGods {
   @Input() isGodsVisible_ = false;
-  constructor(private godService: GodService) { }
   Top() {
     window.scrollTo({
       top: 0,
@@ -17,19 +18,13 @@ export class AsideContainerGods {
       behavior: 'smooth'
     });
   }
-  Odin() {
-    this.godService.ItemSelected('Odin');
+  constructor(private godService: GodService) { }
+  public window = window;
+  god$: Observable<any[]> | undefined;
+  ngOnInit() {
+    this.god$ = this.godService.getGods();
   }
-  Freyr() {
-    this.godService.ItemSelected('Freyr');
-  }
-  Thor() {
-    this.godService.ItemSelected('Thor');
-  }
-  Tyr() {
-    this.godService.ItemSelected('Tyr');
-  }
-  Heimdall() {
-    this.godService.ItemSelected('Heimdall');
+  selectGod(name: string) {
+    this.godService.ItemSelected(name);
   }
 }

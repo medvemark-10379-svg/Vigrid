@@ -1,47 +1,37 @@
 import { Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, of, tap } from 'rxjs';
+import { environment } from '../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class RuneService {
-  private runes = [
-    {
-      name: 'Raido',
-      description: 'xxx',
-      image: 'Images/Runes/Raido_Rune.png',
-    },
-    {
-      name: 'Tiwaz',
-      description: '',
-      image: 'Images/Runes/Tiwaz_Rune.png',
-    },
-    {
-      name: 'Thurisaz',
-      description: '',
-      image: 'Images/Runes/Thurisaz_Rune.png',
-    },
-    {
-      name: 'Uruz',
-      description: '',
-      image: 'Images/Runes/Uruz_Rune.png',
-    },
-    {
-      name: 'Algiz',
-      description: '',
-      image: 'Images/Runes/Algiz_Rune.png',
-    },
-  ]
+  private readonly API_URL = `${environment.apiUrl}/runes`;
+
+  private runesCache: any[] = [];
+
   private chosenRunes = new BehaviorSubject<any>(null);
   currentItem = this.chosenRunes.asObservable();
+
+  constructor(private http: HttpClient) {}
+  getRunes(): Observable<any[]> {
+    if (this.runesCache.length > 0) {
+      return of(this.runesCache); 
+    }
+    return this.http.get<any[]>(this.API_URL).pipe(
+      tap(runes => this.runesCache = runes) 
+    );
+  }
   ItemSelected(name: string) {
-    const rune = this.runes.find(item => item.name === name);
-    this.chosenRunes.next(rune);
+    this.getRunes().subscribe((runes: any[]) => {
+      const rune = runes.find(item => item.name === name);
+      this.chosenRunes.next(rune || null);
+    });
   }
   ItemSelectedAll() {
-    const allrune = this.runes;
-    this.chosenRunes.next(allrune);
-  }
-  getRunes() {
-    return this.runes;
+    this.getRunes().subscribe((runes: any[]) => {
+      this.chosenRunes.next(runes);
+    });
   }
 }

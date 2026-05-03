@@ -1,5 +1,5 @@
 import { Component, Output, EventEmitter } from '@angular/core';
-import { CardService,RuneService,Changelog } from '../../../Services/_serviceExport';
+import { CardService,RuneService } from '../../../Services/_serviceExport';
 @Component({
   selector: 'app-aside',
   imports: [],

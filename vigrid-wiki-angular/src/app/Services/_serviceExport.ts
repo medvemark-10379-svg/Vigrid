@@ -7,3 +7,4 @@ export * from './rune-service';
 export * from './card-service';
 export * from './changelog-service';
 export * from './feedback-service'
+export * from './requirements-service'

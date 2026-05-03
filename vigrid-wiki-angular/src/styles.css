@@ -31,15 +31,29 @@
     animation-iteration-count: infinite;
     will-change: transform, opacity;
 }
+.emerald-particle {
+  position: absolute;
+  bottom: -20px;
+  background-color: #10b981; 
+  box-shadow: 0 0 8px #059669;
+  box-shadow: 0 0 15px 4px #059669, 0 0 20px 8px rgba(27, 215, 58, 0.4);
+  border-radius: 50%;
+  opacity: 0.6;
+  pointer-events: none;
+  animation-name: ember-fly;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+    will-change: transform, opacity;
+}
 
 @keyframes ember-fly {
     0% {
         transform: translateY(0) translateX(0) scale(1);
-        opacity: 0;
+        opacity: 0.3;
     }
 
     10% {
-        opacity: 1;
+        opacity: 0.6;
     }
 
     50% {
@@ -48,7 +62,7 @@
     }
 
     80% {
-        opacity: 0.4;
+        opacity: 0.3;
     }
 
     100% {
