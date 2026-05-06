@@ -1,0 +1,1 @@
+class_name Enemy_hitbox extends Area2D

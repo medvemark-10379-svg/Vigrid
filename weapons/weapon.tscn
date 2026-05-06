@@ -1,7 +1,8 @@
-[gd_scene load_steps=5 format=3 uid="uid://dewbqh5i8a6d4"]
+[gd_scene load_steps=6 format=3 uid="uid://dewbqh5i8a6d4"]
 
 [ext_resource type="Script" uid="uid://bjmtcko1a4y52" path="res://weapons/weapon.gd" id="1_pxh0k"]
 [ext_resource type="Texture2D" uid="uid://dk4fnjue3imb4" path="res://weapons/Ulfberth.png" id="1_rma5x"]
+[ext_resource type="Script" uid="uid://2ok8j387686e" path="res://weapons/hitbox.gd" id="3_jfcw2"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_pxh0k"]
 
@@ -21,4 +22,12 @@ texture = ExtResource("1_rma5x")
 position = Vector2(0, -1.5)
 shape = SubResource("RectangleShape2D_rma5x")
 
+[node name="hitbox" type="Area2D" parent="."]
+script = ExtResource("3_jfcw2")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hitbox"]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_rma5x")
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="area_entered" from="hitbox" to="." method="_on_hitbox_area_entered"]

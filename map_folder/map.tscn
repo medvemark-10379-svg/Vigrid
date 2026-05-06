@@ -1,0 +1,97 @@
+[gd_scene load_steps=8 format=3 uid="uid://byrpqpqob35tm"]
+
+[ext_resource type="Script" uid="uid://crgygmblqn3rp" path="res://map_folder/mappoints.gd" id="1_t5rae"]
+[ext_resource type="Texture2D" uid="uid://cuecnfajm8wy2" path="res://Map_Background.png" id="2_na0mj"]
+[ext_resource type="Texture2D" uid="uid://dgpqf4ftp08c3" path="res://map_folder/Character.png" id="3_qg3wl"]
+
+[sub_resource type="Animation" id="Animation_qg3wl"]
+resource_name = "walking"
+length = 0.5
+loop_mode = 2
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:rotation")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [0.0, 0.008726646259971648, -0.008726646259971648]
+}
+
+[sub_resource type="Animation" id="Animation_jcanp"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Character:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(195.99998, 185.99998)]
+}
+
+[sub_resource type="Animation" id="Animation_4xc3t"]
+resource_name = "moving"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Character:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(195.99998, 185.99998), Vector2(195.99998, 185.99998)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4xc3t"]
+_data = {
+&"RESET": SubResource("Animation_jcanp"),
+&"moving": SubResource("Animation_4xc3t"),
+&"walking": SubResource("Animation_qg3wl")
+}
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource("1_t5rae")
+
+[node name="MapBackground" type="Sprite2D" parent="."]
+position = Vector2(962, 546)
+scale = Vector2(0.72, 0.72)
+texture = ExtResource("2_na0mj")
+
+[node name="Character" type="Sprite2D" parent="."]
+position = Vector2(195.99998, 185.99998)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("3_qg3wl")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4xc3t")
+}
+
+[node name="AnimationPlayer2" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_4xc3t")
+}
+
+[connection signal="animation_finished" from="AnimationPlayer" to="." method="_on_animation_player_animation_finished"]

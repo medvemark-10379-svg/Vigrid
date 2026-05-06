@@ -1,0 +1,1 @@
+class_name weapon_hitbox extends Area2D

@@ -1,0 +1,145 @@
+[gd_scene load_steps=18 format=3 uid="uid://bghti1cnqx63r"]
+
+[ext_resource type="Texture2D" uid="uid://c4mkjnhxy817r" path="res://Main_Menu/pics/Background_Image.png" id="1_1bmvc"]
+[ext_resource type="Script" uid="uid://f3q6v1ihf123" path="res://Main_Menu/scripts/MainMenu.gd" id="1_vue33"]
+[ext_resource type="Script" uid="uid://ca5o5rr08roug" path="res://Main_Menu/scripts/btn_NewGame_script.gd" id="3_cvq6j"]
+[ext_resource type="Texture2D" uid="uid://cuuaqx5fj84q7" path="res://Main_Menu/pics/RuneStones/continue_btn_ehwaz.png" id="3_qsd50"]
+[ext_resource type="Texture2D" uid="uid://ca4s4u1oc0862" path="res://Main_Menu/pics/RuneStones/start_btn_raido.png" id="3_wen3p"]
+[ext_resource type="Texture2D" uid="uid://cy81eetlfdka2" path="res://Main_Menu/pics/RuneStones/continue_btn_ehwaz_glow.png" id="4_4uqpk"]
+[ext_resource type="Texture2D" uid="uid://u20whu1k18qj" path="res://Main_Menu/pics/RuneStones/start_btn_raido_glow.png" id="4_441g0"]
+[ext_resource type="Texture2D" uid="uid://bepha06r0vlak" path="res://Main_Menu/pics/RuneStones/exit_btn_hagalaz.png" id="6_cig8a"]
+[ext_resource type="Script" uid="uid://cavlx48u4dctl" path="res://Main_Menu/scripts/btn_continue.gd" id="6_wnh5v"]
+[ext_resource type="Texture2D" uid="uid://cgxg7edruy362" path="res://Main_Menu/pics/RuneStones/exit_btn_hagalaz_glow.png" id="7_a8m48"]
+[ext_resource type="Script" uid="uid://bowhq25rftes" path="res://Main_Menu/scripts/btn_exit.gd" id="9_comge"]
+[ext_resource type="Texture2D" uid="uid://dj50ouppq2tcr" path="res://Main_Menu/pics/RuneStones/settings_btn_othala.png" id="9_qsd50"]
+[ext_resource type="Texture2D" uid="uid://c5cgoawuj30sx" path="res://Main_Menu/pics/RuneStones/settings_btn_othala_glow.png" id="10_4uqpk"]
+[ext_resource type="Script" uid="uid://dsuissmi4f7k3" path="res://Main_Menu/scripts/btn_settings.gd" id="12_j8dia"]
+[ext_resource type="AudioStream" uid="uid://f0vay0vegep7" path="res://Main_Menu/pics/MainMenuMusic.mp3" id="13_cig8a"]
+[ext_resource type="Script" uid="uid://criua4dgr20ql" path="res://Main_Menu/scripts/Settings.gd" id="13_comge"]
+[ext_resource type="Script" uid="uid://c2lnceoms1jp2" path="res://Main_Menu/scripts/Music.gd" id="14_j8dia"]
+
+[node name="Screen" type="Node2D"]
+script = ExtResource("1_vue33")
+
+[node name="Background" type="Node2D" parent="."]
+
+[node name="TextureRect" type="TextureRect" parent="Background"]
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_1bmvc")
+
+[node name="Functions" type="Node2D" parent="."]
+
+[node name="btn_NewGame" type="TextureButton" parent="Functions"]
+offset_left = 318.0
+offset_top = 681.0
+offset_right = 628.0
+offset_bottom = 855.0
+texture_normal = ExtResource("3_wen3p")
+texture_hover = ExtResource("4_441g0")
+script = ExtResource("3_cvq6j")
+
+[node name="lbl_NewGame" type="Label" parent="Functions/btn_NewGame"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "New Game"
+
+[node name="btn_Continue" type="TextureButton" parent="Functions"]
+offset_left = 787.0
+offset_top = 653.0
+offset_right = 1097.0
+offset_bottom = 827.0
+texture_normal = ExtResource("3_qsd50")
+texture_hover = ExtResource("4_4uqpk")
+script = ExtResource("6_wnh5v")
+
+[node name="lbl_Continue" type="Label" parent="Functions/btn_Continue"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "Continue"
+
+[node name="btn_Exit" type="TextureButton" parent="Functions"]
+offset_left = 1309.0
+offset_top = 685.0
+offset_right = 1619.0
+offset_bottom = 859.0
+texture_normal = ExtResource("6_cig8a")
+texture_hover = ExtResource("7_a8m48")
+script = ExtResource("9_comge")
+
+[node name="lbl_Exit" type="Label" parent="Functions/btn_Exit"]
+layout_mode = 0
+offset_left = 100.0
+offset_top = -27.0
+offset_right = 185.0
+offset_bottom = -4.0
+text = "Exit"
+
+[node name="btn_Settings" type="TextureButton" parent="Functions"]
+offset_left = 51.0
+offset_top = 262.0
+offset_right = 361.0
+offset_bottom = 436.0
+texture_normal = ExtResource("9_qsd50")
+texture_hover = ExtResource("10_4uqpk")
+script = ExtResource("12_j8dia")
+
+[node name="lbl_Settings" type="Label" parent="Functions/btn_Settings"]
+layout_mode = 0
+offset_left = 113.0
+offset_top = -6.0
+offset_right = 153.0
+offset_bottom = 17.0
+text = "Settings"
+
+[node name="SettingsPanel" type="Panel" parent="Functions/btn_Settings"]
+layout_mode = 0
+offset_left = 331.0
+offset_top = 131.0
+offset_right = 1437.0
+offset_bottom = 530.0
+script = ExtResource("13_comge")
+
+[node name="HSlider" type="HSlider" parent="Functions/btn_Settings/SettingsPanel"]
+layout_mode = 0
+offset_left = 146.0
+offset_top = 111.0
+offset_right = 507.0
+offset_bottom = 186.0
+max_value = 1.0
+step = 0.05
+value = 0.5
+script = ExtResource("14_j8dia")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="Functions/btn_Settings/SettingsPanel/HSlider"]
+position = Vector2(-528, -504)
+stream = ExtResource("13_cig8a")
+volume_db = 0.701
+autoplay = true
+max_distance = 1445.0
+attenuation = 0.6830204
+parameters/looping = true
+
+[node name="ExitSettings" type="Button" parent="Functions/btn_Settings/SettingsPanel"]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "X"
+
+[connection signal="mouse_entered" from="Functions/btn_NewGame" to="Functions/btn_NewGame" method="_on_mouse_entered"]
+[connection signal="pressed" from="Functions/btn_NewGame" to="." method="_on_btn_new_game_pressed"]
+[connection signal="pressed" from="Functions/btn_NewGame" to="Functions/btn_NewGame" method="_on_pressed"]
+[connection signal="mouse_entered" from="Functions/btn_Continue" to="Functions/btn_Continue" method="_on_mouse_entered"]
+[connection signal="pressed" from="Functions/btn_Continue" to="." method="_on_btn_continue_pressed"]
+[connection signal="pressed" from="Functions/btn_Continue" to="Functions/btn_Continue" method="_on_pressed"]
+[connection signal="mouse_entered" from="Functions/btn_Exit" to="Functions/btn_Exit" method="_on_mouse_entered"]
+[connection signal="pressed" from="Functions/btn_Exit" to="Functions/btn_Exit" method="_on_pressed"]
+[connection signal="pressed" from="Functions/btn_Settings" to="Functions/btn_Settings" method="_on_pressed"]
+[connection signal="value_changed" from="Functions/btn_Settings/SettingsPanel/HSlider" to="Functions/btn_Settings/SettingsPanel/HSlider" method="_on_value_changed"]
+[connection signal="pressed" from="Functions/btn_Settings/SettingsPanel/ExitSettings" to="Functions/btn_Settings/SettingsPanel" method="_on_exit_settings_pressed"]

@@ -11,6 +11,7 @@ size = Vector2(126, 179)
 specular_color = Color(0.74509805, 0, 0.023529412, 1)
 
 [node name="Strike" type="Node2D" groups=["Cards"]]
+scale = Vector2(1.5, 1.5)
 script = ExtResource("1_ce828")
 
 [node name="Icon" type="Sprite2D" parent="."]

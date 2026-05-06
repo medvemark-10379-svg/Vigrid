@@ -52,6 +52,7 @@ func _input(event: InputEvent) -> void:
 		get_parent().add_child(weapon)
 		weapon.global_position = self.global_position
 		weapon.create(texture)
+		weapon.modifiers = [id, Type, Baseeffectnumb, placedon]
 		used(id)
 
 func used(usedid:int):

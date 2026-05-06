@@ -6,6 +6,7 @@ var Character
 var Energy
 var choseddeck
 var addedtodeck = []
+var CurrentPosition = 1
 
 var CIVP = ["outside","inside_card", "Enemy"]
 var CIVR = ["released","pressed"]
@@ -14,6 +15,7 @@ var mousestateR = CIVR[0]
 var dragabel = false
 var clickedcardid
 var currentitem
+var ChoosedEnemy
 	
 
 #func _input(event: InputEvent) -> void:

@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://by5r5wqt6jbad"]
+[gd_scene load_steps=12 format=3 uid="uid://by5r5wqt6jbad"]
 
 [ext_resource type="Script" uid="uid://bm2aaskos53rw" path="res://scripts/combatmain.gd" id="1_jlsqs"]
 [ext_resource type="Script" uid="uid://84xydy7hgylr" path="res://scripts/Interact.gd" id="1_nxtc6"]
 [ext_resource type="PackedScene" uid="uid://dbvv107gpn27y" path="res://scenes/deck.tscn" id="4_rarhs"]
 [ext_resource type="Script" uid="uid://yyr0a5oetxxk" path="res://scripts/card_activater_area.gd" id="5_vcsgt"]
+[ext_resource type="Texture2D" uid="uid://uasxmv7raklr" path="res://Vigrid_Backgound1.png" id="6_c01mt"]
 [ext_resource type="Script" uid="uid://d2npnoe1flequ" path="res://scripts/deckhandler.gd" id="9_q8u5g"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_jlsqs"]
@@ -17,16 +18,28 @@ size = Vector2(1152, 344)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c01mt"]
 size = Vector2(1376, 20)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcsgt"]
+size = Vector2(22.960728, 393.9577)
+
 [node name="CombatsceneMain" type="Node2D"]
+scale = Vector2(1.655, 1.655)
 script = ExtResource("1_jlsqs")
 
 [node name="interact" type="Node" parent="."]
 script = ExtResource("1_nxtc6")
 metadata/_custom_type_script = "uid://84xydy7hgylr"
 
+[node name="VigridBackgound1" type="Sprite2D" parent="."]
+position = Vector2(579.45624, 328.09668)
+scale = Vector2(0.615, 0.615)
+texture = ExtResource("6_c01mt")
+
 [node name="Deck" parent="." instance=ExtResource("4_rarhs")]
 position = Vector2(181, 552)
 script = ExtResource("9_q8u5g")
+
+[node name="Icon" parent="Deck" index="0"]
+visible = false
 
 [node name="hand" type="Node" parent="Deck"]
 
@@ -67,6 +80,31 @@ position = Vector2(595, 403)
 physics_material_override = SubResource("PhysicsMaterial_vcsgt")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-2, 0)
+shape = SubResource("RectangleShape2D_c01mt")
+metadata/_edit_lock_ = true
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(-0.60424805, 63.444122)
+physics_material_override = SubResource("PhysicsMaterial_vcsgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(-3.0211296, 132.32628)
+shape = SubResource("RectangleShape2D_vcsgt")
+
+[node name="StaticBody2D3" type="StaticBody2D" parent="."]
+position = Vector2(-0.60424805, 63.444122)
+physics_material_override = SubResource("PhysicsMaterial_vcsgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D3"]
+position = Vector2(1156.4955, 131.11781)
+shape = SubResource("RectangleShape2D_vcsgt")
+
+[node name="StaticBody2D4" type="StaticBody2D" parent="."]
+position = Vector2(554.6828, 5.43808)
+physics_material_override = SubResource("PhysicsMaterial_vcsgt")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D4"]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_c01mt")
 metadata/_edit_lock_ = true

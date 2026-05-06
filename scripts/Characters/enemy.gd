@@ -87,9 +87,9 @@ func _on_mouse_exited() -> void:
 
 
 func _on_area_entered(area: Area2D) -> void:
-	if character.energy >= card.cost:
-		character.energy -= card.cost
-		hp = interact.attack(area.hitpoint,hp,0)
+	if area is weapon_hitbox and MouseState.usedcard != []:
+		MouseState.usedcard.append(sid)
+		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
 			
 func alert_mode_check(alert_modee: bool):
 	alert_mode = alert_modee
@@ -113,13 +113,7 @@ func hurt(Damage: int ,id: int):
 func GainBlock(Block: int, id: int):
 	if id== sid:
 		block += Block
-	
 
-
-func _on_area_2d_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and MouseState.usedcard != []:
-		MouseState.usedcard.append(sid)
-		Interact.Check(MouseState.usedcard[1], nameclass, MouseState.usedcard[2])
 
 func create():
 	var choosedcharacter
@@ -131,7 +125,7 @@ func create():
 		MouseState.Energy = choosedcharacter.energy
 		MouseState.choseddeck = choosedcharacter.UsedDeck
 	else: 
-		choosedcharacter = basecharacter["P" + str(0)]
+		choosedcharacter = basecharacter[MouseState.ChoosedEnemy]
 		controllabel = choosedcharacter.controllabel
 	actionid = choosedcharacter.ActionId
 	maxhp = choosedcharacter.HP

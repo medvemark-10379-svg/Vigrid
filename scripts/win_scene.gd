@@ -21,7 +21,7 @@ func _ready() -> void:
 	for i in carccontainer.get_children():
 		var choosedcar = cards.pick_random()
 		i.name = basedata[choosedcar].Name
-		i.get_node("Icon").modulate = basedata[choosedcar].Color
+		i.get_node("Icon").texture = basedata[choosedcar].CardTexture
 		cards.erase(choosedcar)
 
 func areaInput(viewport, event, shape_idx, card):
@@ -29,4 +29,4 @@ func areaInput(viewport, event, shape_idx, card):
 		MouseState.addedtodeck.append(card.name)
 
 func _on_button_pressed() -> void:
-	get_tree().reload_current_scene()
+	get_tree().change_scene_to_file("res://map_folder/main_map.tscn")

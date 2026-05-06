@@ -1,9 +1,12 @@
-[gd_resource type="Resource" load_steps=5 format=3 uid="uid://dl6m4iaalcd6r"]
+[gd_resource type="Resource" load_steps=8 format=3 uid="uid://dl6m4iaalcd6r"]
 
 [ext_resource type="Texture2D" uid="uid://lwr2myjf5s2" path="res://CharacterTexture/Bondi.png" id="1_h1hsr"]
 [ext_resource type="Texture2D" uid="uid://brxjj8feaxd7g" path="res://CharacterTexture/Jarl.png" id="2_kae33"]
 [ext_resource type="Texture2D" uid="uid://c50miokjep2hr" path="res://CharacterTexture/Wolf_.png" id="3_il57g"]
 [ext_resource type="Texture2D" uid="uid://b83787auus652" path="res://vigrid-wiki-angular/public/Images/Enemies/Draugr.png" id="4_g0g5t"]
+[ext_resource type="Texture2D" uid="uid://dlv2ejn80skil" path="res://enemys/Jotun.png" id="5_g0g5t"]
+[ext_resource type="Texture2D" uid="uid://db56sg6b7xqmj" path="res://enemys/Muspell_Synir.png" id="6_7jqff"]
+[ext_resource type="Texture2D" uid="uid://b2phy06vr2tvc" path="res://enemys/Hel.png" id="7_f8h0x"]
 
 [resource]
 metadata/C0 = {
@@ -82,8 +85,50 @@ metadata/C1 = {
 3: {}
 },
 "HP": 25,
-"Name": "Lost Bondi",
+"Name": "Draugr",
 "Texture": ExtResource("4_g0g5t"),
+"controllabel": false,
+"energy": 1
+},
+"P2": {
+"ActionId": 1,
+"Actions": {
+0: {},
+1: {},
+2: {},
+3: {}
+},
+"HP": 25,
+"Name": "Jotun",
+"Texture": ExtResource("5_g0g5t"),
+"controllabel": false,
+"energy": 1
+},
+"P3": {
+"ActionId": 1,
+"Actions": {
+0: {},
+1: {},
+2: {},
+3: {}
+},
+"HP": 25,
+"Name": "Synir",
+"Texture": ExtResource("6_7jqff"),
+"controllabel": false,
+"energy": 1
+},
+"P4": {
+"ActionId": 1,
+"Actions": {
+0: {},
+1: {},
+2: {},
+3: {}
+},
+"HP": 150,
+"Name": "Hel",
+"Texture": ExtResource("7_f8h0x"),
 "controllabel": false,
 "energy": 1
 }

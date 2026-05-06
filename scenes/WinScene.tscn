@@ -6,6 +6,8 @@
 script = ExtResource("1_sh4x7")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+scale = Vector2(1.68, 1.68)
+transform = Transform2D(1.68, 0, 0, 1.68, 0, 0)
 
 [node name="Panel" type="Panel" parent="CanvasLayer"]
 offset_right = 1152.0
