@@ -36,7 +36,6 @@ export class Navbar implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    // Adatok betöltése az összes szervizből egyszerre
     forkJoin({
       bosses: this.bossService.getBosses(),
       enemies: this.enemiesService.getEnemies(),
